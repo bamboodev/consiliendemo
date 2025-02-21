@@ -26,14 +26,7 @@
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
-					"choices": {
-						"card_list": {
-							"type": "SharedSlice"
-						},
-						"rich_text": {
-							"type": "SharedSlice"
-						}
-					}
+					"choices": {}
 				}
 			}
 		},
