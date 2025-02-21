@@ -5,15 +5,15 @@
 	
 
 	export let slice: Content.CardListSlice;
-	console.log('CardList slice items:', slice.items);
+	// console.log('CardList slice items:', slice.items);
 	// To see more details about the entire slice
-	console.log('Complete slice data:', slice);
+	// console.log('Complete slice data:', slice);
 </script>
 
 <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
 	<PrismicRichText field="{slice.primary.heading}" />
 	<div class="cards">
-	  {#each slice.primary.title as card, index}
+	  {#each slice.primary.card as card, index}
 	  <article class="card">
 		<header>
 		  <PrismicRichText field={card.title} />

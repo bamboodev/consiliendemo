@@ -11,7 +11,8 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {
+      "primary": {},
+      "items": {
         "main_label": {
           "type": "Text",
           "config": {
@@ -26,15 +27,13 @@
             "placeholder": "",
             "select": null,
             "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
+            "allowText": true
           }
         },
         "submenu": {
           "type": "Group",
           "config": {
             "label": "Submenu",
-            "repeat": true,
             "fields": {
               "label": {
                 "type": "Text",
@@ -50,15 +49,13 @@
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": true,
-                  "allowText": true,
-                  "repeat": false
+                  "allowText": true
                 }
               }
             }
           }
         }
-      },
-      "items": {}
+      }
     }
   ]
 }

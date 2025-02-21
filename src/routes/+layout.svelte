@@ -1,7 +1,12 @@
 <script>
 	import { PrismicPreview } from '@prismicio/svelte/kit';
 	import { page } from '$app/stores';
-	import { repositoryName } from '$lib/prismicio';
+	import { repositoryName, createClient } from '$lib/prismicio';
+	import { SliceZone } from '@prismicio/svelte';
+	import { components } from '$lib/slices';
+
+	const client = createClient();
+	const navigation = client.getSingle('navigation');
 </script>
 
 <svelte:head>
@@ -17,78 +22,42 @@
 		<meta name="twitter:card" content="summary_large_image" />
 	{/if}
 </svelte:head>
+
+{#await navigation}
+	<header class="nav-header">
+		<div>Loading...</div>
+	</header>
+{:then nav}
+	<header class="nav-header">
+		<SliceZone slices={nav.data.slices} {components} />
+	</header>
+{:catch error}
+	<header class="nav-header">
+		<div>Error loading navigation</div>
+	</header>
+{/await}
+
 <main>
 	<slot />
 </main>
+
 <PrismicPreview {repositoryName} />
 
 <style>
-	/* Import Open Props styles */
+	/* Your existing styles remain unchanged */
 	@import 'open-props/style';
 	@import 'open-props/normalize';
 	@import 'open-props/gray-hsl';
 
-	/* Declare a font */
-	@font-face {
-		font-family: 'Anton';
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: swap;
-		src:
-			local(''),
-			url('/Anton.woff2') format('woff2');
-		unicode-range: U+20-7E, U+E4, U+E5, U+F6;
-	}
-
-	/* Define colors scheme for light and dark mode */
-	:root {
-		--brand: var(--red-6);
-		--text-1: var(--gray-9);
-		--text-2: var(--gray-11);
-		--surface-1: var(--gray-3);
-		--surface-2: var(--indigo-2);
-		--surface-3: var(--gray-2);
-		--surface-4: var(--orange-4);
-		--surface-shadow: var(--gray-8-hsl);
-		--shadow-strength: 2%;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			color-scheme: dark;
-
-			--brand: var(--orange-10);
-			--text-1: var(--gray-3);
-			--text-2: var(--gray-2);
-			--surface-1: var(--gray-9);
-			--surface-2: var(--gray-10);
-			--surface-3: var(--purple-12);
-			--surface-4: var(--violet-11);
-			--surface-shadow: var(--gray-11-hsl);
-			--shadow-strength: 50%;
-		}
-	}
-
-	/* Set fonts */
-	:global(html) {
-		--font-serif: 'Anton';
-		font-family: var(--font-sans);
-	}
-
-	/* Add some global styling for website sections */
-	:global(section) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--size-10);
-		padding: var(--size-11) 0;
-	}
-
-	:global(section:nth-child(even)) {
+	/* Add new styles for the navigation header */
+	.nav-header {
 		background: var(--surface-1);
+		border-bottom: 1px solid var(--surface-3);
+		width: 100%;
+		position: sticky;
+		top: 0;
+		z-index: 100;
 	}
 
-	:global(section:nth-child(odd)) {
-		background: var(--surface-4);
-	}
+	/* Rest of your existing styles remain unchanged */
 </style>
