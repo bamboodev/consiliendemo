@@ -4,7 +4,40 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = CardListSlice | RichTextSlice;
+type NavigationDocumentDataSlicesSlice = NavigationSlice;
+
+/**
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+	/**
+	 * Slice Zone field in *Navigation*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<NavigationDocumentData>,
+	'navigation',
+	Lang
+>;
+
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -79,7 +112,7 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes = NavigationDocument | PageDocument;
 
 /**
  * Item in *CardList → Default → Primary → Card*
@@ -231,6 +264,93 @@ type HeroTextSliceVariation = HeroTextSliceDefault;
 export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
 
 /**
+ * Item in *Navigation → Default → Primary → Submenu*
+ */
+export interface NavigationSliceDefaultPrimarySubmenuItem {
+	/**
+	 * Label field in *Navigation → Default → Primary → Submenu*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.submenu[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+
+	/**
+	 * Link field in *Navigation → Default → Primary → Submenu*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.submenu[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Navigation → Default → Primary*
+ */
+export interface NavigationSliceDefaultPrimary {
+	/**
+	 * Main Label field in *Navigation → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.main_label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	main_label: prismic.KeyTextField;
+
+	/**
+	 * Main Link field in *Navigation → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.main_link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	main_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Submenu field in *Navigation → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.submenu[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	submenu: prismic.GroupField<Simplify<NavigationSliceDefaultPrimarySubmenuItem>>;
+}
+
+/**
+ * Default variation for Navigation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<NavigationSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Navigation*
+ */
+type NavigationSliceVariation = NavigationSliceDefault;
+
+/**
+ * Navigation Shared Slice
+ *
+ * - **API ID**: `navigation`
+ * - **Description**: Navigation
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationSlice = prismic.SharedSlice<'navigation', NavigationSliceVariation>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -293,6 +413,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			NavigationDocument,
+			NavigationDocumentData,
+			NavigationDocumentDataSlicesSlice,
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
@@ -306,6 +429,11 @@ declare module '@prismicio/client' {
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,
 			HeroTextSliceDefault,
+			NavigationSlice,
+			NavigationSliceDefaultPrimarySubmenuItem,
+			NavigationSliceDefaultPrimary,
+			NavigationSliceVariation,
+			NavigationSliceDefault,
 			RichTextSlice,
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
