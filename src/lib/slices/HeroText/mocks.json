@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Chief"
+						}
+					}
+				]
+			},
+			"subtitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In est nostrud officia. In dolor occaecat tempor veniam excepteur duis ex magna anim aliqua anim veniam veniam. Velit non culpa enim adipisicing ea irure do consectetur aute anim officia do exercitation nostrud."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
