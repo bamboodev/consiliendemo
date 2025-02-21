@@ -13,7 +13,7 @@
 <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
 	<PrismicRichText field="{slice.primary.heading}" />
 	<div class="cards">
-	  {#each slice.items as card, index}
+	  {#each slice.primary.title as card, index}
 	  <article class="card">
 		<header>
 		  <PrismicRichText field={card.title} />
