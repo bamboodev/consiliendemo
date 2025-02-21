@@ -264,28 +264,20 @@ type HeroTextSliceVariation = HeroTextSliceDefault;
 export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
 
 /**
- * Item in *Navigation → Default → Primary → Submenu*
+ * Item in *Navigation → Default → Primary → Parent*
  */
-export interface NavigationSliceDefaultPrimarySubmenuItem {
+export interface NavigationSliceDefaultPrimaryParentItem {
 	/**
-	 * Label field in *Navigation → Default → Primary → Submenu*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: navigation.default.primary.submenu[].label
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	label: prismic.KeyTextField;
-
-	/**
-	 * Link field in *Navigation → Default → Primary → Submenu*
+	 * Submenu field in *Navigation → Default → Primary → Parent*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: navigation.default.primary.submenu[].link
+	 * - **API ID Path**: navigation.default.primary.parent[].submenu
 	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
 	 */
-	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+	submenu: prismic.Repeatable<
+		prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+	>;
 }
 
 /**
@@ -293,34 +285,14 @@ export interface NavigationSliceDefaultPrimarySubmenuItem {
  */
 export interface NavigationSliceDefaultPrimary {
 	/**
-	 * Main Label field in *Navigation → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: navigation.default.primary.main_label
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	main_label: prismic.KeyTextField;
-
-	/**
-	 * Main Link field in *Navigation → Default → Primary*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: navigation.default.primary.main_link
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-	 */
-	main_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-	/**
-	 * Submenu field in *Navigation → Default → Primary*
+	 * Parent field in *Navigation → Default → Primary*
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: navigation.default.primary.submenu[]
+	 * - **API ID Path**: navigation.default.primary.parent[]
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
-	submenu: prismic.GroupField<Simplify<NavigationSliceDefaultPrimarySubmenuItem>>;
+	parent: prismic.GroupField<Simplify<NavigationSliceDefaultPrimaryParentItem>>;
 }
 
 /**
@@ -430,7 +402,7 @@ declare module '@prismicio/client' {
 			HeroTextSliceVariation,
 			HeroTextSliceDefault,
 			NavigationSlice,
-			NavigationSliceDefaultPrimarySubmenuItem,
+			NavigationSliceDefaultPrimaryParentItem,
 			NavigationSliceDefaultPrimary,
 			NavigationSliceVariation,
 			NavigationSliceDefault,

@@ -11,51 +11,29 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
-      "items": {
-        "main_label": {
-          "type": "Text",
-          "config": {
-            "label": "Main Label",
-            "placeholder": ""
-          }
-        },
-        "main_link": {
-          "type": "Link",
-          "config": {
-            "label": "Main Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true
-          }
-        },
-        "submenu": {
+      "primary": {
+        "parent": {
           "type": "Group",
           "config": {
-            "label": "Submenu",
+            "label": "Parent",
+            "repeat": true,
             "fields": {
-              "label": {
-                "type": "Text",
-                "config": {
-                  "label": "Label",
-                  "placeholder": ""
-                }
-              },
-              "link": {
+              "submenu": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
+                  "label": "Submenu",
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": true,
-                  "allowText": true
+                  "allowText": true,
+                  "repeat": true
                 }
               }
             }
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
