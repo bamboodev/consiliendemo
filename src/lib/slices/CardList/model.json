@@ -21,7 +21,7 @@
             "multi": "heading2"
           }
         },
-        "title": {
+        "card": {
           "type": "Group",
           "config": {
             "label": "Card",

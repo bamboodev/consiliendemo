@@ -84,13 +84,13 @@ export type AllDocumentTypes = PageDocument;
 /**
  * Item in *CardList → Default → Primary → Card*
  */
-export interface CardListSliceDefaultPrimaryTitleItem {
+export interface CardListSliceDefaultPrimaryCardItem {
 	/**
 	 * Title field in *CardList → Default → Primary → Card*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list.default.primary.title[].title
+	 * - **API ID Path**: card_list.default.primary.card[].title
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	title: prismic.RichTextField;
@@ -100,7 +100,7 @@ export interface CardListSliceDefaultPrimaryTitleItem {
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list.default.primary.title[].description
+	 * - **API ID Path**: card_list.default.primary.card[].description
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	description: prismic.RichTextField;
@@ -110,7 +110,7 @@ export interface CardListSliceDefaultPrimaryTitleItem {
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list.default.primary.title[].image
+	 * - **API ID Path**: card_list.default.primary.card[].image
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
 	image: prismic.ImageField<never>;
@@ -120,7 +120,7 @@ export interface CardListSliceDefaultPrimaryTitleItem {
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list.default.primary.title[].name
+	 * - **API ID Path**: card_list.default.primary.card[].name
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	name: prismic.KeyTextField;
@@ -145,10 +145,10 @@ export interface CardListSliceDefaultPrimary {
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list.default.primary.title[]
+	 * - **API ID Path**: card_list.default.primary.card[]
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
-	title: prismic.GroupField<Simplify<CardListSliceDefaultPrimaryTitleItem>>;
+	card: prismic.GroupField<Simplify<CardListSliceDefaultPrimaryCardItem>>;
 }
 
 /**
@@ -298,7 +298,7 @@ declare module '@prismicio/client' {
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			CardListSlice,
-			CardListSliceDefaultPrimaryTitleItem,
+			CardListSliceDefaultPrimaryCardItem,
 			CardListSliceDefaultPrimary,
 			CardListSliceVariation,
 			CardListSliceDefault,
