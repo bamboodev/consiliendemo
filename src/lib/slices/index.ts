@@ -2,12 +2,14 @@
 
 import CardList from './CardList/index.svelte';
 import HeroText from './HeroText/index.svelte';
+import Nav2Parent from './Nav2Parent/index.svelte';
 import Navigation from './Navigation/index.svelte';
 import RichText from './RichText/index.svelte';
 
 export const components = {
 	card_list: CardList,
 	hero_text: HeroText,
+	nav2_parent: Nav2Parent,
 	navigation: Navigation,
 	rich_text: RichText
 };

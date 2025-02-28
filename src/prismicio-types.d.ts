@@ -4,6 +4,39 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type Nav2DocumentDataSlicesSlice = Nav2ParentSlice;
+
+/**
+ * Content for Nav2 documents
+ */
+interface Nav2DocumentData {
+	/**
+	 * Slice Zone field in *Nav2*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: nav2.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<Nav2DocumentDataSlicesSlice>;
+}
+
+/**
+ * Nav2 document from Prismic
+ *
+ * - **API ID**: `nav2`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type Nav2Document<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<Nav2DocumentData>,
+	'nav2',
+	Lang
+>;
+
 type NavigationDocumentDataSlicesSlice = NavigationSlice;
 
 /**
@@ -112,7 +145,7 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = NavigationDocument | PageDocument;
+export type AllDocumentTypes = Nav2Document | NavigationDocument | PageDocument;
 
 /**
  * Item in *CardList → Default → Primary → Card*
@@ -264,9 +297,71 @@ type HeroTextSliceVariation = HeroTextSliceDefault;
 export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
 
 /**
+ * Primary content in *Nav2Parent → Default → Primary*
+ */
+export interface Nav2ParentSliceDefaultPrimary {
+	/**
+	 * Label field in *Nav2Parent → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: nav2_parent.default.primary.label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+
+	/**
+	 * Link field in *Nav2Parent → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: nav2_parent.default.primary.link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, never>>;
+}
+
+/**
+ * Default variation for Nav2Parent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Nav2ParentSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<Nav2ParentSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Nav2Parent*
+ */
+type Nav2ParentSliceVariation = Nav2ParentSliceDefault;
+
+/**
+ * Nav2Parent Shared Slice
+ *
+ * - **API ID**: `nav2_parent`
+ * - **Description**: Nav2Parent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Nav2ParentSlice = prismic.SharedSlice<'nav2_parent', Nav2ParentSliceVariation>;
+
+/**
  * Item in *Navigation → Default → Primary → Parent*
  */
 export interface NavigationSliceDefaultPrimaryParentItem {
+	/**
+	 * Main Label field in *Navigation → Default → Primary → Parent*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.default.primary.parent[].main_label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	main_label: prismic.KeyTextField;
+
 	/**
 	 * Submenu field in *Navigation → Default → Primary → Parent*
 	 *
@@ -385,6 +480,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			Nav2Document,
+			Nav2DocumentData,
+			Nav2DocumentDataSlicesSlice,
 			NavigationDocument,
 			NavigationDocumentData,
 			NavigationDocumentDataSlicesSlice,
@@ -401,6 +499,10 @@ declare module '@prismicio/client' {
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,
 			HeroTextSliceDefault,
+			Nav2ParentSlice,
+			Nav2ParentSliceDefaultPrimary,
+			Nav2ParentSliceVariation,
+			Nav2ParentSliceDefault,
 			NavigationSlice,
 			NavigationSliceDefaultPrimaryParentItem,
 			NavigationSliceDefaultPrimary,

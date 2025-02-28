@@ -18,6 +18,13 @@
             "label": "Parent",
             "repeat": true,
             "fields": {
+              "main_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Label",
+                  "placeholder": ""
+                }
+              },
               "submenu": {
                 "type": "Link",
                 "config": {
