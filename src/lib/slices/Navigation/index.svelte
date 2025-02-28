@@ -51,16 +51,16 @@
 <svelte:window on:click={handleClickOutside} />
 
 <nav class="bg-white shadow font-text font-light uppercase font-xs tracking-wider">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<div class="max-w-7xl mx-auto px-2 sm:px-0">
 		<div class="flex justify-between h-16">
 			<!-- Logo -->
 			<div class="flex-shrink-0 flex items-center">
-				<img src="/images/logo.svg" alt="Logo" class="h-6 my-3 ml-3" />
+				<a href="/"><img src="/images/logo.svg" alt="Logo" class="h-6 my-3 ml-3" /></a>
 			</div>
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center">
-				<ul class="flex space-x-6 font-text font-light uppercase text-sm">
+				<ul class="flex space-x-6 font-text font-light uppercase text-sm md:mr-3">
 					<li class="hover:text-black">
 						<a href="/">Home</a>
 					</li>

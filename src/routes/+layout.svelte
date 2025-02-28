@@ -24,15 +24,15 @@
 </svelte:head>
 
 {#await navigation}
-	<header class="nav-header">
-		<div>Loading...</div>
+	<header class="nav-header min-h-16">
+		<div></div>
 	</header>
 {:then nav}
-	<header class="nav-header">
+	<header class="nav-header min-h-16">
 		<SliceZone slices={nav.data.slices} {components} />
 	</header>
 {:catch error}
-	<header class="nav-header">
+	<header class="nav-header min-h-16">
 		<div>Error loading navigation</div>
 	</header>
 {/await}

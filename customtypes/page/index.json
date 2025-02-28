@@ -29,15 +29,6 @@
 					"choices": {
 						"full_screen_hero": {
 							"type": "SharedSlice"
-						},
-						"hero_text": {
-							"type": "SharedSlice"
-						},
-						"card_list": {
-							"type": "SharedSlice"
-						},
-						"rich_text": {
-							"type": "SharedSlice"
 						}
 					}
 				}
