@@ -4,7 +4,7 @@
 	import { repositoryName, createClient } from '$lib/prismicio';
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
-
+	import '../app.css';
 	const client = createClient();
 	const navigation = client.getSingle('navigation');
 </script>
@@ -42,22 +42,3 @@
 </main>
 
 <PrismicPreview {repositoryName} />
-
-<style>
-	/* Your existing styles remain unchanged */
-	@import 'open-props/style';
-	@import 'open-props/normalize';
-	@import 'open-props/gray-hsl';
-
-	/* Add new styles for the navigation header */
-	.nav-header {
-		background: var(--surface-1);
-		border-bottom: 1px solid var(--surface-3);
-		width: 100%;
-		position: sticky;
-		top: 0;
-		z-index: 100;
-	}
-
-	/* Rest of your existing styles remain unchanged */
-</style>
