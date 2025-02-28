@@ -70,7 +70,11 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 	Lang
 >;
 
-type PageDocumentDataSlicesSlice = HeroTextSlice | CardListSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+	| FullScreenHeroSlice
+	| HeroTextSlice
+	| CardListSlice
+	| RichTextSlice;
 
 /**
  * Content for Page documents
