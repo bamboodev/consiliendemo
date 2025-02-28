@@ -245,6 +245,81 @@ type CardListSliceVariation = CardListSliceDefault;
 export type CardListSlice = prismic.SharedSlice<'card_list', CardListSliceVariation>;
 
 /**
+ * Primary content in *FullScreenHero → Default → Primary*
+ */
+export interface FullScreenHeroSliceDefaultPrimary {
+	/**
+	 * Heading field in *FullScreenHero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: full_screen_hero.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	heading: prismic.KeyTextField;
+
+	/**
+	 * Subheading field in *FullScreenHero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: full_screen_hero.default.primary.subheading
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	subheading: prismic.KeyTextField;
+
+	/**
+	 * Background Image field in *FullScreenHero → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: full_screen_hero.default.primary.background_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	background_image: prismic.ImageField<never>;
+
+	/**
+	 * Button URL field in *FullScreenHero → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: full_screen_hero.default.primary.button_url
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	button_url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for FullScreenHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FullScreenHeroSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<FullScreenHeroSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *FullScreenHero*
+ */
+type FullScreenHeroSliceVariation = FullScreenHeroSliceDefault;
+
+/**
+ * FullScreenHero Shared Slice
+ *
+ * - **API ID**: `full_screen_hero`
+ * - **Description**: FullScreenHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FullScreenHeroSlice = prismic.SharedSlice<
+	'full_screen_hero',
+	FullScreenHeroSliceVariation
+>;
+
+/**
  * Primary content in *HeroText → Default → Primary*
  */
 export interface HeroTextSliceDefaultPrimary {
@@ -495,6 +570,10 @@ declare module '@prismicio/client' {
 			CardListSliceDefaultPrimary,
 			CardListSliceVariation,
 			CardListSliceDefault,
+			FullScreenHeroSlice,
+			FullScreenHeroSliceDefaultPrimary,
+			FullScreenHeroSliceVariation,
+			FullScreenHeroSliceDefault,
 			HeroTextSlice,
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,
