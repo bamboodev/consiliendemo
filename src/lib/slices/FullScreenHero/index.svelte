@@ -7,8 +7,6 @@
 
 	export let slice: Content.FullScreenHeroSlice;
 
-	$: console.log(slice);
-
 	onMount(() => {
 		AOS.init({
 			// Global settings:

@@ -27,6 +27,18 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"two_column_text": {
+							"type": "SharedSlice"
+						},
+						"one_column_text": {
+							"type": "SharedSlice"
+						},
+						"two_column_text_image": {
+							"type": "SharedSlice"
+						},
+						"page_hero": {
+							"type": "SharedSlice"
+						},
 						"full_screen_hero": {
 							"type": "SharedSlice"
 						}

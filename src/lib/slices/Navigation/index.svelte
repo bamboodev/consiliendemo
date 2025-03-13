@@ -185,7 +185,7 @@
 											<ul>
 												<li>
 													<a
-														href="/services/consulting/strategy"
+														href="/managed-cybersecurity-los-angeles/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Cybersecurity
@@ -193,7 +193,7 @@
 												</li>
 												<li>
 													<a
-														href="/services/consulting/assessment"
+														href="/cybersecurity-assessment-services"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Cyberfit

@@ -70,7 +70,12 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 	Lang
 >;
 
-type PageDocumentDataSlicesSlice = FullScreenHeroSlice;
+type PageDocumentDataSlicesSlice =
+	| TwoColumnTextSlice
+	| OneColumnTextSlice
+	| TwoColumnTextImageSlice
+	| PageHeroSlice
+	| FullScreenHeroSlice;
 
 /**
  * Content for Page documents
@@ -493,6 +498,125 @@ type NavigationSliceVariation = NavigationSliceDefault;
 export type NavigationSlice = prismic.SharedSlice<'navigation', NavigationSliceVariation>;
 
 /**
+ * Primary content in *OneColumnText → Default → Primary*
+ */
+export interface OneColumnTextSliceDefaultPrimary {
+	/**
+	 * text field in *OneColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: one_column_text.default.primary.text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+
+	/**
+	 * centered field in *OneColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: one_column_text.default.primary.centered
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	centered: prismic.BooleanField;
+
+	/**
+	 * background color field in *OneColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: White
+	 * - **API ID Path**: one_column_text.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background_color: prismic.SelectField<'White' | 'Green' | 'Cream' | 'Gray', 'filled'>;
+}
+
+/**
+ * Default variation for OneColumnText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OneColumnTextSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<OneColumnTextSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *OneColumnText*
+ */
+type OneColumnTextSliceVariation = OneColumnTextSliceDefault;
+
+/**
+ * OneColumnText Shared Slice
+ *
+ * - **API ID**: `one_column_text`
+ * - **Description**: OneColumnText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OneColumnTextSlice = prismic.SharedSlice<
+	'one_column_text',
+	OneColumnTextSliceVariation
+>;
+
+/**
+ * Primary content in *PageHero → Default → Primary*
+ */
+export interface PageHeroSliceDefaultPrimary {
+	/**
+	 * Title field in *PageHero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page_hero.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Intro field in *PageHero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page_hero.default.primary.intro
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	intro: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for PageHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageHeroSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<PageHeroSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *PageHero*
+ */
+type PageHeroSliceVariation = PageHeroSliceDefault;
+
+/**
+ * PageHero Shared Slice
+ *
+ * - **API ID**: `page_hero`
+ * - **Description**: PageHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageHeroSlice = prismic.SharedSlice<'page_hero', PageHeroSliceVariation>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -533,6 +657,148 @@ type RichTextSliceVariation = RichTextSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
+
+/**
+ * Primary content in *TwoColumnText → Default → Primary*
+ */
+export interface TwoColumnTextSliceDefaultPrimary {
+	/**
+	 * ColumnOne field in *TwoColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text.default.primary.columnone
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	columnone: prismic.RichTextField;
+
+	/**
+	 * ColumnTwo field in *TwoColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text.default.primary.columntwo
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	columntwo: prismic.RichTextField;
+
+	/**
+	 * background color field in *TwoColumnText → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: White
+	 * - **API ID Path**: two_column_text.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background_color: prismic.SelectField<'White' | 'Green' | 'Gray' | 'Cream', 'filled'>;
+}
+
+/**
+ * Default variation for TwoColumnText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TwoColumnTextSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *TwoColumnText*
+ */
+type TwoColumnTextSliceVariation = TwoColumnTextSliceDefault;
+
+/**
+ * TwoColumnText Shared Slice
+ *
+ * - **API ID**: `two_column_text`
+ * - **Description**: TwoColumnText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextSlice = prismic.SharedSlice<
+	'two_column_text',
+	TwoColumnTextSliceVariation
+>;
+
+/**
+ * Primary content in *TwoColumnTextImage → Default → Primary*
+ */
+export interface TwoColumnTextImageSliceDefaultPrimary {
+	/**
+	 * title field in *TwoColumnTextImage → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * text field in *TwoColumnTextImage → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image.default.primary.text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+
+	/**
+	 * Text Left, Image Right field in *TwoColumnTextImage → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: two_column_text_image.default.primary.text_left_image_right
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	text_left_image_right: prismic.BooleanField;
+
+	/**
+	 * image field in *TwoColumnTextImage → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TwoColumnTextImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextImageSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TwoColumnTextImageSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *TwoColumnTextImage*
+ */
+type TwoColumnTextImageSliceVariation = TwoColumnTextImageSliceDefault;
+
+/**
+ * TwoColumnTextImage Shared Slice
+ *
+ * - **API ID**: `two_column_text_image`
+ * - **Description**: TwoColumnTextImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextImageSlice = prismic.SharedSlice<
+	'two_column_text_image',
+	TwoColumnTextImageSliceVariation
+>;
 
 declare module '@prismicio/client' {
 	interface CreateClient {
@@ -587,10 +853,26 @@ declare module '@prismicio/client' {
 			NavigationSliceDefaultPrimary,
 			NavigationSliceVariation,
 			NavigationSliceDefault,
+			OneColumnTextSlice,
+			OneColumnTextSliceDefaultPrimary,
+			OneColumnTextSliceVariation,
+			OneColumnTextSliceDefault,
+			PageHeroSlice,
+			PageHeroSliceDefaultPrimary,
+			PageHeroSliceVariation,
+			PageHeroSliceDefault,
 			RichTextSlice,
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
-			RichTextSliceDefault
+			RichTextSliceDefault,
+			TwoColumnTextSlice,
+			TwoColumnTextSliceDefaultPrimary,
+			TwoColumnTextSliceVariation,
+			TwoColumnTextSliceDefault,
+			TwoColumnTextImageSlice,
+			TwoColumnTextImageSliceDefaultPrimary,
+			TwoColumnTextImageSliceVariation,
+			TwoColumnTextImageSliceDefault
 		};
 	}
 }

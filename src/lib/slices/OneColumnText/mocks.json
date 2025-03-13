@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"centered": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "Green",
+				"type": "Select"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo proident dolore ut nulla incididunt ut. Esse reprehenderit sit consequat sit do consectetur ut sit amet fugiat ut. Commodo exercitation in officia."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

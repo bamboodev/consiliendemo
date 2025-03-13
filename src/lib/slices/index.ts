@@ -5,7 +5,11 @@ import FullScreenHero from './FullScreenHero/index.svelte';
 import HeroText from './HeroText/index.svelte';
 import Nav2Parent from './Nav2Parent/index.svelte';
 import Navigation from './Navigation/index.svelte';
+import OneColumnText from './OneColumnText/index.svelte';
+import PageHero from './PageHero/index.svelte';
 import RichText from './RichText/index.svelte';
+import TwoColumnText from './TwoColumnText/index.svelte';
+import TwoColumnTextImage from './TwoColumnTextImage/index.svelte';
 
 export const components = {
 	card_list: CardList,
@@ -13,5 +17,9 @@ export const components = {
 	hero_text: HeroText,
 	nav2_parent: Nav2Parent,
 	navigation: Navigation,
-	rich_text: RichText
+	one_column_text: OneColumnText,
+	page_hero: PageHero,
+	rich_text: RichText,
+	two_column_text: TwoColumnText,
+	two_column_text_image: TwoColumnTextImage
 };
