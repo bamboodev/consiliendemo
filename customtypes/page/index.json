@@ -27,6 +27,12 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"item_table": {
+							"type": "SharedSlice"
+						},
+						"two_column_text_image_accordion": {
+							"type": "SharedSlice"
+						},
 						"two_column_text": {
 							"type": "SharedSlice"
 						},

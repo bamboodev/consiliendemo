@@ -1,0 +1,59 @@
+{
+  "id": "two_column_text_image_accordion",
+  "type": "SharedSlice",
+  "name": "TwoColumnTextImageAccordion",
+  "description": "TwoColumnTextImageAccordion",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text_left_image_right": {
+          "type": "Boolean",
+          "config": {
+            "label": "Text Left, Image Right",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "item": {
+          "type": "Group",
+          "config": {
+            "label": "item",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

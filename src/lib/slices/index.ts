@@ -3,6 +3,7 @@
 import CardList from './CardList/index.svelte';
 import FullScreenHero from './FullScreenHero/index.svelte';
 import HeroText from './HeroText/index.svelte';
+import ItemTable from './ItemTable/index.svelte';
 import Nav2Parent from './Nav2Parent/index.svelte';
 import Navigation from './Navigation/index.svelte';
 import OneColumnText from './OneColumnText/index.svelte';
@@ -10,16 +11,19 @@ import PageHero from './PageHero/index.svelte';
 import RichText from './RichText/index.svelte';
 import TwoColumnText from './TwoColumnText/index.svelte';
 import TwoColumnTextImage from './TwoColumnTextImage/index.svelte';
+import TwoColumnTextImageAccordion from './TwoColumnTextImageAccordion/index.svelte';
 
 export const components = {
 	card_list: CardList,
 	full_screen_hero: FullScreenHero,
 	hero_text: HeroText,
+	item_table: ItemTable,
 	nav2_parent: Nav2Parent,
 	navigation: Navigation,
 	one_column_text: OneColumnText,
 	page_hero: PageHero,
 	rich_text: RichText,
 	two_column_text: TwoColumnText,
-	two_column_text_image: TwoColumnTextImage
+	two_column_text_image: TwoColumnTextImage,
+	two_column_text_image_accordion: TwoColumnTextImageAccordion
 };

@@ -4,6 +4,143 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ArticleDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Article documents
+ */
+interface ArticleDocumentData {
+	/**
+	 * Title field in *Article*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Featured Image field in *Article*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.featured_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	featured_image: prismic.ImageField<never>;
+
+	/**
+	 * Date field in *Article*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	date: prismic.KeyTextField;
+
+	/**
+	 * Category field in *Article*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.category
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	category: prismic.SelectField<
+		| 'Backup and Disaster Recovery'
+		| 'Compliance'
+		| 'Cybersecurity'
+		| 'IT and Business Operations'
+		| 'Microsoft Updates'
+		| 'News'
+	>;
+
+	/**
+	 * Author field in *Article*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.author
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	author: prismic.SelectField<'Eric Kong' | 'Fred Romero'>;
+
+	/**
+	 * Content field in *Article*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.content
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Slice Zone field in *Article*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+	 * Meta Title field in *Article*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: article.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *Article*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: article.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *Article*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Article document from Prismic
+ *
+ * - **API ID**: `article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArticleDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<ArticleDocumentData>,
+	'article',
+	Lang
+>;
+
 type Nav2DocumentDataSlicesSlice = Nav2ParentSlice;
 
 /**
@@ -71,6 +208,8 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| ItemTableSlice
+	| TwoColumnTextImageAccordionSlice
 	| TwoColumnTextSlice
 	| OneColumnTextSlice
 	| TwoColumnTextImageSlice
@@ -150,7 +289,7 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = Nav2Document | NavigationDocument | PageDocument;
+export type AllDocumentTypes = ArticleDocument | Nav2Document | NavigationDocument | PageDocument;
 
 /**
  * Item in *CardList → Default → Primary → Card*
@@ -375,6 +514,124 @@ type HeroTextSliceVariation = HeroTextSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
+
+/**
+ * Item in *ItemTable → Default → Primary → Item*
+ */
+export interface ItemTableSliceDefaultPrimaryItemItem {
+	/**
+	 * Title field in *ItemTable → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.item[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Text field in *ItemTable → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.item[].text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+
+	/**
+	 * Image field in *ItemTable → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.item[].image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ItemTable → Default → Primary*
+ */
+export interface ItemTableSliceDefaultPrimary {
+	/**
+	 * Main Title field in *ItemTable → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.main_title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	main_title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *ItemTable → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Background Image field in *ItemTable → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.background_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	background_image: prismic.ImageField<never>;
+
+	/**
+	 * Background Color field in *ItemTable → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: White
+	 * - **API ID Path**: item_table.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background_color: prismic.SelectField<'White' | 'Cream' | 'Green' | 'Gray', 'filled'>;
+
+	/**
+	 * Item field in *ItemTable → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: item_table.default.primary.item[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	item: prismic.GroupField<Simplify<ItemTableSliceDefaultPrimaryItemItem>>;
+}
+
+/**
+ * Default variation for ItemTable Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ItemTableSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ItemTableSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ItemTable*
+ */
+type ItemTableSliceVariation = ItemTableSliceDefault;
+
+/**
+ * ItemTable Shared Slice
+ *
+ * - **API ID**: `item_table`
+ * - **Description**: ItemTable
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ItemTableSlice = prismic.SharedSlice<'item_table', ItemTableSliceVariation>;
 
 /**
  * Primary content in *Nav2Parent → Default → Primary*
@@ -800,6 +1057,97 @@ export type TwoColumnTextImageSlice = prismic.SharedSlice<
 	TwoColumnTextImageSliceVariation
 >;
 
+/**
+ * Item in *TwoColumnTextImageAccordion → Default → Primary → item*
+ */
+export interface TwoColumnTextImageAccordionSliceDefaultPrimaryItemItem {
+	/**
+	 * title field in *TwoColumnTextImageAccordion → Default → Primary → item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image_accordion.default.primary.item[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * text field in *TwoColumnTextImageAccordion → Default → Primary → item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image_accordion.default.primary.item[].text
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TwoColumnTextImageAccordion → Default → Primary*
+ */
+export interface TwoColumnTextImageAccordionSliceDefaultPrimary {
+	/**
+	 * Text Left, Image Right field in *TwoColumnTextImageAccordion → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: two_column_text_image_accordion.default.primary.text_left_image_right
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	text_left_image_right: prismic.BooleanField;
+
+	/**
+	 * image field in *TwoColumnTextImageAccordion → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image_accordion.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+
+	/**
+	 * item field in *TwoColumnTextImageAccordion → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: two_column_text_image_accordion.default.primary.item[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	item: prismic.GroupField<Simplify<TwoColumnTextImageAccordionSliceDefaultPrimaryItemItem>>;
+}
+
+/**
+ * Default variation for TwoColumnTextImageAccordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextImageAccordionSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TwoColumnTextImageAccordionSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *TwoColumnTextImageAccordion*
+ */
+type TwoColumnTextImageAccordionSliceVariation = TwoColumnTextImageAccordionSliceDefault;
+
+/**
+ * TwoColumnTextImageAccordion Shared Slice
+ *
+ * - **API ID**: `two_column_text_image_accordion`
+ * - **Description**: TwoColumnTextImageAccordion
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoColumnTextImageAccordionSlice = prismic.SharedSlice<
+	'two_column_text_image_accordion',
+	TwoColumnTextImageAccordionSliceVariation
+>;
+
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -821,6 +1169,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			ArticleDocument,
+			ArticleDocumentData,
+			ArticleDocumentDataSlicesSlice,
 			Nav2Document,
 			Nav2DocumentData,
 			Nav2DocumentDataSlicesSlice,
@@ -844,6 +1195,11 @@ declare module '@prismicio/client' {
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,
 			HeroTextSliceDefault,
+			ItemTableSlice,
+			ItemTableSliceDefaultPrimaryItemItem,
+			ItemTableSliceDefaultPrimary,
+			ItemTableSliceVariation,
+			ItemTableSliceDefault,
 			Nav2ParentSlice,
 			Nav2ParentSliceDefaultPrimary,
 			Nav2ParentSliceVariation,
@@ -872,7 +1228,12 @@ declare module '@prismicio/client' {
 			TwoColumnTextImageSlice,
 			TwoColumnTextImageSliceDefaultPrimary,
 			TwoColumnTextImageSliceVariation,
-			TwoColumnTextImageSliceDefault
+			TwoColumnTextImageSliceDefault,
+			TwoColumnTextImageAccordionSlice,
+			TwoColumnTextImageAccordionSliceDefaultPrimaryItemItem,
+			TwoColumnTextImageAccordionSliceDefaultPrimary,
+			TwoColumnTextImageAccordionSliceVariation,
+			TwoColumnTextImageAccordionSliceDefault
 		};
 	}
 }
