@@ -1,11 +1,17 @@
 import { asText } from '@prismicio/client';
-
-import { createClient } from '$lib/prismicio';
+import { error } from '@sveltejs/kit';
+import { createClient, getPageByUID } from '$lib/prismicio';
 
 export async function load({ fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
 
-	const page = await client.getByUID('page', 'home');
+	const page = await getPageByUID(client, 'home');
+
+	if (!page) {
+		throw error(404, {
+			message: 'Home page not found'
+		});
+	}
 
 	return {
 		page,
@@ -16,6 +22,16 @@ export async function load({ fetch, cookies }) {
 	};
 }
 
-export function entries() {
-	return [{}];
+export async function entries() {
+	const client = createClient();
+
+	try {
+		const pages = await client.getAllByType('page');
+		return pages.map((page) => {
+			return { uid: page.uid };
+		});
+	} catch (e) {
+		console.error('Error fetching pages for pre-rendering:', e);
+		return [];
+	}
 }

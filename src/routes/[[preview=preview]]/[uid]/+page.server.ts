@@ -1,11 +1,17 @@
 import { asText } from '@prismicio/client';
-
-import { createClient } from '$lib/prismicio';
+import { error } from '@sveltejs/kit';
+import { createClient, getPageByUID } from '$lib/prismicio';
 
 export async function load({ params, fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
 
-	const page = await client.getByUID('page', params.uid);
+	const page = await getPageByUID(client, params.uid);
+
+	if (!page) {
+		throw error(404, {
+			message: `Page with UID "${params.uid}" not found`
+		});
+	}
 
 	return {
 		page,
@@ -19,9 +25,13 @@ export async function load({ params, fetch, cookies }) {
 export async function entries() {
 	const client = createClient();
 
-	const pages = await client.getAllByType('page');
-
-	return pages.map((page) => {
-		return { uid: page.uid };
-	});
+	try {
+		const pages = await client.getAllByType('page');
+		return pages.map((page) => {
+			return { uid: page.uid };
+		});
+	} catch (e) {
+		console.error('Error fetching pages for pre-rendering:', e);
+		return [];
+	}
 }

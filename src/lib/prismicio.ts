@@ -41,3 +41,17 @@ export const createClient = ({ cookies, ...config }: CreateClientConfig = {}) =>
 
 	return client;
 };
+
+/**
+ * Helper function to safely get a page by UID
+ */
+export async function getPageByUID(client: prismic.Client, uid: string) {
+	try {
+		return await client.getByUID('page', uid);
+	} catch (error) {
+		if (error instanceof prismic.NotFoundError) {
+			return null;
+		}
+		throw error;
+	}
+}
