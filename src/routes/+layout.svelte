@@ -5,6 +5,7 @@
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
 	import '../app.css';
+	import Footer from '$lib/components/footer.svelte';
 	const client = createClient();
 	const navigation = client.getSingle('navigation');
 </script>
@@ -42,3 +43,4 @@
 </main>
 
 <PrismicPreview {repositoryName} />
+<Footer />
