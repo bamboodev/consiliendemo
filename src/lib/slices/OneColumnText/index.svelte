@@ -27,7 +27,7 @@
 	class=" rich-text-content py-12"
 	style="background-color: {backgroundColor}; color: {textColor}; text-align: {textAlignment};"
 >
-	<div class="max-w-7xl mx-auto">
+	<div class="max-w-7xl mx-auto px-6">
 		<PrismicRichText field={slice.primary.text} />
 	</div>
 </section>
@@ -35,6 +35,11 @@
 <style>
 	.rich-text-content :global(p) {
 		margin-bottom: 1.5rem; /* 24px spacing between paragraphs */
+	}
+
+	.rich-text-content :global(a) {
+		color: #6da63f;
+		font-weight: 600;
 	}
 
 	/* If this is the last paragraph, remove the bottom margin */
@@ -49,7 +54,9 @@
 		font-size: 25px;
 	}
 	.rich-text-content :global(h3) {
-		font-size: 20px;
+		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
+		font-size: 1.5rem;
+		font-weight: 100;
 	}
 	.rich-text-content :global(h4) {
 		font-size: 18px;

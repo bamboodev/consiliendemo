@@ -35,6 +35,17 @@
 						}
 					}
 				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt veniam aliquip ex magna anim officia labore cupidatat aute sunt officia laboris ullamco minim."
+						}
+					}
+				]
 			}
 		},
 		"items": []

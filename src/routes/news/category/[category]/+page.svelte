@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { asText } from '@prismicio/helpers';
-	import { page } from '$app/stores';
 	import { generateSlug } from '$lib/utils/slug';
 	export let data;
 
-	$: ({ articles } = data);
-	let searchTerm = $page.url.searchParams.get('search') || '';
-	let selectedCategory: string | null = null;
+	$: ({ articles, category } = data);
+	let searchTerm = '';
+	let selectedCategory: string | null = category;
 
 	const categories = [
 		'Backup and Disaster Recovery',
@@ -18,11 +17,6 @@
 	];
 
 	$: filteredArticles = articles.filter((article) => {
-		// Category filter
-		if (selectedCategory && article.data.category !== selectedCategory) {
-			return false;
-		}
-
 		// Search filter
 		if (!searchTerm) return true;
 		const searchLower = searchTerm.toLowerCase();
@@ -39,14 +33,14 @@
 
 	function clearFilters() {
 		searchTerm = '';
-		selectedCategory = null;
+		selectedCategory = category;
 	}
 </script>
 
 <div class="max-w-7xl mx-auto py-8 px-4">
 	<div class="flex flex-col md:flex-row gap-8">
 		<div class="flex-1">
-			<h1 class="text-2xl font-text font-light mb-8">News</h1>
+			<h1 class="text-2xl font-text font-light mb-8">News - {category}</h1>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{#each filteredArticles as article}
 					<a
@@ -84,7 +78,7 @@
 						<h2 class="text-lg font-text uppercase text-xs text-gray-600 font-bold tracking-widest">
 							Search Articles
 						</h2>
-						{#if searchTerm || selectedCategory}
+						{#if searchTerm}
 							<button on:click={clearFilters} class="text-sm text-gray-500 hover:text-gray-700">
 								Clear all
 							</button>
@@ -126,17 +120,16 @@
 					</h2>
 					<hr class="border-gray-200 my-4" />
 					<div class="space-y-2">
-						{#each categories as category}
-							<button
-								on:click={() =>
-									(selectedCategory = selectedCategory === category ? null : category)}
-								class="w-full text-left px-4 py-2 rounded-lg transition-colors {selectedCategory ===
+						{#each categories as cat}
+							<a
+								href="/news/category/{encodeURIComponent(cat)}"
+								class="block w-full text-left px-4 py-2 rounded-lg transition-colors {cat ===
 								category
 									? 'bg-[#6DA63F] text-white'
 									: 'hover:bg-gray-100 text-gray-700'}"
 							>
-								{category}
-							</button>
+								{cat}
+							</a>
 						{/each}
 					</div>
 				</div>

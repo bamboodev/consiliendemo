@@ -81,6 +81,10 @@
 	.rich-text-content :global(p) {
 		margin-bottom: 1.5rem;
 	}
+	.rich-text-content :global(a) {
+		color: #6da63f;
+		font-weight: 600;
+	}
 
 	.rich-text-content :global(p:last-child) {
 		margin-bottom: 0;

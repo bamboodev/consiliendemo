@@ -1036,6 +1036,16 @@ export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariat
  */
 export interface ThreeColumnContentSliceDefaultPrimary {
 	/**
+	 * Title field in *ThreeColumnContent → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_column_content.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
 	 * Content One field in *ThreeColumnContent → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text

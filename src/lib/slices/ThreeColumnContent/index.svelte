@@ -13,6 +13,11 @@
 	class="three-column-section my-36"
 >
 	<div class="container">
+		{#if slice.primary.title}
+			<div class="text-center">
+				<PrismicRichText field={slice.primary.title} />
+			</div>
+		{/if}
 		<div class="columns">
 			<div class="column">
 				{#if slice.primary.content}
@@ -34,6 +39,21 @@
 </section>
 
 <style>
+	.three-column-section :global(h3) {
+		margin-top: 10px;
+		margin-bottom: 30px;
+		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
+		font-size: 2rem;
+		font-weight: 200;
+	}
+	.three-column-section :global(h5) {
+		margin-top: 10px;
+		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
+		text-transform: uppercase;
+		font-size: 1.2rem;
+		font-weight: 200;
+	}
+
 	.three-column-section {
 		padding: 2rem 0;
 	}

@@ -52,11 +52,11 @@
 
 	// Pause animation on hover
 	function pauseScroll() {
-		isPaused = true;
-		if (animationId !== null) {
-			cancelAnimationFrame(animationId);
-			animationId = null;
-		}
+		// isPaused = true;
+		// if (animationId !== null) {
+		// 	cancelAnimationFrame(animationId);
+		// 	animationId = null;
+		// }
 	}
 
 	// Resume animation when not hovering
