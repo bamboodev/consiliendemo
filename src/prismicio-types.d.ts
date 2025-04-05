@@ -208,6 +208,11 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| ThreeColumnContentSlice
+	| PartnersCarouselSlice
+	| ContactFormSlice
+	| JourneyMapSlice
+	| CounterSlice
 	| ItemTableSlice
 	| TwoColumnTextImageAccordionSlice
 	| TwoColumnTextSlice
@@ -387,6 +392,60 @@ type CardListSliceVariation = CardListSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CardListSlice = prismic.SharedSlice<'card_list', CardListSliceVariation>;
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
+
+/**
+ * Default variation for Counter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CounterSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *Counter*
+ */
+type CounterSliceVariation = CounterSliceDefault;
+
+/**
+ * Counter Shared Slice
+ *
+ * - **API ID**: `counter`
+ * - **Description**: Counter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CounterSlice = prismic.SharedSlice<'counter', CounterSliceVariation>;
 
 /**
  * Primary content in *FullScreenHero → Default → Primary*
@@ -634,6 +693,33 @@ type ItemTableSliceVariation = ItemTableSliceDefault;
 export type ItemTableSlice = prismic.SharedSlice<'item_table', ItemTableSliceVariation>;
 
 /**
+ * Default variation for JourneyMap Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JourneyMapSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *JourneyMap*
+ */
+type JourneyMapSliceVariation = JourneyMapSliceDefault;
+
+/**
+ * JourneyMap Shared Slice
+ *
+ * - **API ID**: `journey_map`
+ * - **Description**: JourneyMap
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JourneyMapSlice = prismic.SharedSlice<'journey_map', JourneyMapSliceVariation>;
+
+/**
  * Primary content in *Nav2Parent → Default → Primary*
  */
 export interface Nav2ParentSliceDefaultPrimary {
@@ -874,6 +960,36 @@ type PageHeroSliceVariation = PageHeroSliceDefault;
 export type PageHeroSlice = prismic.SharedSlice<'page_hero', PageHeroSliceVariation>;
 
 /**
+ * Default variation for PartnersCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PartnersCarouselSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *PartnersCarousel*
+ */
+type PartnersCarouselSliceVariation = PartnersCarouselSliceDefault;
+
+/**
+ * PartnersCarousel Shared Slice
+ *
+ * - **API ID**: `partners_carousel`
+ * - **Description**: PartnersCarousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PartnersCarouselSlice = prismic.SharedSlice<
+	'partners_carousel',
+	PartnersCarouselSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -914,6 +1030,71 @@ type RichTextSliceVariation = RichTextSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
+
+/**
+ * Primary content in *ThreeColumnContent → Default → Primary*
+ */
+export interface ThreeColumnContentSliceDefaultPrimary {
+	/**
+	 * Content One field in *ThreeColumnContent → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_column_content.default.primary.content
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Content Two field in *ThreeColumnContent → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_column_content.default.primary.content_two
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content_two: prismic.RichTextField;
+
+	/**
+	 * Content Three field in *ThreeColumnContent → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_column_content.default.primary.content_three
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content_three: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ThreeColumnContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeColumnContentSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ThreeColumnContentSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ThreeColumnContent*
+ */
+type ThreeColumnContentSliceVariation = ThreeColumnContentSliceDefault;
+
+/**
+ * ThreeColumnContent Shared Slice
+ *
+ * - **API ID**: `three_column_content`
+ * - **Description**: ThreeColumnContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeColumnContentSlice = prismic.SharedSlice<
+	'three_column_content',
+	ThreeColumnContentSliceVariation
+>;
 
 /**
  * Primary content in *TwoColumnText → Default → Primary*
@@ -1187,6 +1368,12 @@ declare module '@prismicio/client' {
 			CardListSliceDefaultPrimary,
 			CardListSliceVariation,
 			CardListSliceDefault,
+			ContactFormSlice,
+			ContactFormSliceVariation,
+			ContactFormSliceDefault,
+			CounterSlice,
+			CounterSliceVariation,
+			CounterSliceDefault,
 			FullScreenHeroSlice,
 			FullScreenHeroSliceDefaultPrimary,
 			FullScreenHeroSliceVariation,
@@ -1200,6 +1387,9 @@ declare module '@prismicio/client' {
 			ItemTableSliceDefaultPrimary,
 			ItemTableSliceVariation,
 			ItemTableSliceDefault,
+			JourneyMapSlice,
+			JourneyMapSliceVariation,
+			JourneyMapSliceDefault,
 			Nav2ParentSlice,
 			Nav2ParentSliceDefaultPrimary,
 			Nav2ParentSliceVariation,
@@ -1217,10 +1407,17 @@ declare module '@prismicio/client' {
 			PageHeroSliceDefaultPrimary,
 			PageHeroSliceVariation,
 			PageHeroSliceDefault,
+			PartnersCarouselSlice,
+			PartnersCarouselSliceVariation,
+			PartnersCarouselSliceDefault,
 			RichTextSlice,
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
 			RichTextSliceDefault,
+			ThreeColumnContentSlice,
+			ThreeColumnContentSliceDefaultPrimary,
+			ThreeColumnContentSliceVariation,
+			ThreeColumnContentSliceDefault,
 			TwoColumnTextSlice,
 			TwoColumnTextSliceDefaultPrimary,
 			TwoColumnTextSliceVariation,

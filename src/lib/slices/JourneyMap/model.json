@@ -1,0 +1,16 @@
+{
+	"id": "journey_map",
+	"type": "SharedSlice",
+	"name": "JourneyMap",
+	"description": "JourneyMap",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": ""
+		}
+	]
+}

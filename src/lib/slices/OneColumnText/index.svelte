@@ -60,4 +60,10 @@
 	.rich-text-content :global(h6) {
 		font-size: 14px;
 	}
+
+	.rich-text-content :global(img) {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 </style>

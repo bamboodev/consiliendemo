@@ -1,0 +1,16 @@
+{
+	"id": "counter",
+	"type": "SharedSlice",
+	"name": "Counter",
+	"description": "Counter",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": ""
+		}
+	]
+}

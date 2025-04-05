@@ -115,9 +115,11 @@
 				{#each slice.primary.item as item}
 					<div class="card bg-white p-6 rounded-lg shadow-sm">
 						<div class="flex items-center justify-between gap-4 mb-4">
-							<h3 class="text-xl font-semibold text-gray-900">
-								{item.title}
-							</h3>
+							{#if item.title}
+								<h3 class="text-xl font-semibold text-gray-900">
+									{item.title}
+								</h3>
+							{/if}
 							{#if item.image?.url}
 								<img
 									src={item.image.url}
