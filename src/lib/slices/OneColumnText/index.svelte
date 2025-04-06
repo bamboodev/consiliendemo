@@ -4,13 +4,6 @@
 
 	export let slice: Content.OneColumnTextSlice;
 
-	$: console.log(slice);
-
-	// green: #6DA63F
-	// gray: #292929
-	// cream: #EFEFE7
-	// white: #ffffff
-
 	const colorMap = {
 		Green: '#6DA63F',
 		Gray: '#292929',
@@ -47,6 +40,9 @@
 		margin-bottom: 0;
 	}
 
+	.rich-text-content :global(li) {
+		margin: 10px 0;
+	}
 	.rich-text-content :global(h1) {
 		font-size: 30px;
 	}
@@ -59,7 +55,9 @@
 		font-weight: 100;
 	}
 	.rich-text-content :global(h4) {
-		font-size: 18px;
+		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
+		font-size: 1.7rem;
+		margin: 10px 0;
 	}
 	.rich-text-content :global(h5) {
 		font-size: 16px;
@@ -72,5 +70,21 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	/* Styles for embedded YouTube videos */
+	.rich-text-content :global([data-oembed-type='video']) {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		margin: 2rem 0;
+	}
+
+	.rich-text-content :global([data-oembed-type='video'] iframe) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 </style>

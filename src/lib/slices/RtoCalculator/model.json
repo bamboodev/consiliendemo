@@ -1,0 +1,18 @@
+{
+  "id": "rto_calculator",
+  "type": "SharedSlice",
+  "name": "RtoCalculator",
+  "description": "RtoCalculator",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

@@ -208,6 +208,10 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| IconGridSlice
+	| RtoCalculatorSlice
+	| MultiColumnSlice
+	| FaqsSlice
 	| ThreeColumnContentSlice
 	| PartnersCarouselSlice
 	| ContactFormSlice
@@ -448,6 +452,73 @@ type CounterSliceVariation = CounterSliceDefault;
 export type CounterSlice = prismic.SharedSlice<'counter', CounterSliceVariation>;
 
 /**
+ * Item in *Faqs → Default → Primary → topic*
+ */
+export interface FaqsSliceDefaultPrimaryTopicItem {
+	/**
+	 * Title field in *Faqs → Default → Primary → topic*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faqs.default.primary.topic[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Content field in *Faqs → Default → Primary → topic*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faqs.default.primary.topic[].content
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Faqs → Default → Primary*
+ */
+export interface FaqsSliceDefaultPrimary {
+	/**
+	 * topic field in *Faqs → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faqs.default.primary.topic[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	topic: prismic.GroupField<Simplify<FaqsSliceDefaultPrimaryTopicItem>>;
+}
+
+/**
+ * Default variation for Faqs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<FaqsSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Faqs*
+ */
+type FaqsSliceVariation = FaqsSliceDefault;
+
+/**
+ * Faqs Shared Slice
+ *
+ * - **API ID**: `faqs`
+ * - **Description**: Faqs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSlice = prismic.SharedSlice<'faqs', FaqsSliceVariation>;
+
+/**
  * Primary content in *FullScreenHero → Default → Primary*
  */
 export interface FullScreenHeroSliceDefaultPrimary {
@@ -573,6 +644,83 @@ type HeroTextSliceVariation = HeroTextSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
+
+/**
+ * Item in *IconGrid → Default → Primary → Item*
+ */
+export interface IconGridSliceDefaultPrimaryItemItem {
+	/**
+	 * Icon field in *IconGrid → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: icon_grid.default.primary.item[].icon
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	icon: prismic.ImageField<never>;
+
+	/**
+	 * Title field in *IconGrid → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: icon_grid.default.primary.item[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Text field in *IconGrid → Default → Primary → Item*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: icon_grid.default.primary.item[].text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *IconGrid → Default → Primary*
+ */
+export interface IconGridSliceDefaultPrimary {
+	/**
+	 * Item field in *IconGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: icon_grid.default.primary.item[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	item: prismic.GroupField<Simplify<IconGridSliceDefaultPrimaryItemItem>>;
+}
+
+/**
+ * Default variation for IconGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconGridSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<IconGridSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *IconGrid*
+ */
+type IconGridSliceVariation = IconGridSliceDefault;
+
+/**
+ * IconGrid Shared Slice
+ *
+ * - **API ID**: `icon_grid`
+ * - **Description**: IconGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconGridSlice = prismic.SharedSlice<'icon_grid', IconGridSliceVariation>;
 
 /**
  * Item in *ItemTable → Default → Primary → Item*
@@ -718,6 +866,126 @@ type JourneyMapSliceVariation = JourneyMapSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type JourneyMapSlice = prismic.SharedSlice<'journey_map', JourneyMapSliceVariation>;
+
+/**
+ * Item in *MultiColumn → Default → Primary → column*
+ */
+export interface MultiColumnSliceDefaultPrimaryColumnItem {
+	/**
+	 * Icon field in *MultiColumn → Default → Primary → column*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: multi_column.default.primary.column[].icon
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	icon: prismic.ImageField<never>;
+
+	/**
+	 * Title field in *MultiColumn → Default → Primary → column*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: multi_column.default.primary.column[].title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Content field in *MultiColumn → Default → Primary → column*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: multi_column.default.primary.column[].content
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * centered field in *MultiColumn → Default → Primary → column*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: multi_column.default.primary.column[].centered
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	centered: prismic.BooleanField;
+
+	/**
+	 * background color field in *MultiColumn → Default → Primary → column*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: White
+	 * - **API ID Path**: multi_column.default.primary.column[].background_color
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background_color: prismic.SelectField<'White' | 'Green' | 'Gray' | 'Cream', 'filled'>;
+}
+
+/**
+ * Primary content in *MultiColumn → Default → Primary*
+ */
+export interface MultiColumnSliceDefaultPrimary {
+	/**
+	 * Main Title field in *MultiColumn → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: multi_column.default.primary.main_title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	main_title: prismic.KeyTextField;
+
+	/**
+	 * Background Color field in *MultiColumn → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: White
+	 * - **API ID Path**: multi_column.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background_color: prismic.SelectField<'White' | 'Green' | 'Gray' | 'Cream', 'filled'>;
+
+	/**
+	 * column field in *MultiColumn → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: multi_column.default.primary.column[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	column: prismic.GroupField<Simplify<MultiColumnSliceDefaultPrimaryColumnItem>>;
+}
+
+/**
+ * Default variation for MultiColumn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MultiColumnSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<MultiColumnSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *MultiColumn*
+ */
+type MultiColumnSliceVariation = MultiColumnSliceDefault;
+
+/**
+ * MultiColumn Shared Slice
+ *
+ * - **API ID**: `multi_column`
+ * - **Description**: MultiColumn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MultiColumnSlice = prismic.SharedSlice<'multi_column', MultiColumnSliceVariation>;
 
 /**
  * Primary content in *Nav2Parent → Default → Primary*
@@ -1030,6 +1298,33 @@ type RichTextSliceVariation = RichTextSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
+
+/**
+ * Default variation for RtoCalculator Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RtoCalculatorSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *RtoCalculator*
+ */
+type RtoCalculatorSliceVariation = RtoCalculatorSliceDefault;
+
+/**
+ * RtoCalculator Shared Slice
+ *
+ * - **API ID**: `rto_calculator`
+ * - **Description**: RtoCalculator
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RtoCalculatorSlice = prismic.SharedSlice<'rto_calculator', RtoCalculatorSliceVariation>;
 
 /**
  * Primary content in *ThreeColumnContent → Default → Primary*
@@ -1384,6 +1679,11 @@ declare module '@prismicio/client' {
 			CounterSlice,
 			CounterSliceVariation,
 			CounterSliceDefault,
+			FaqsSlice,
+			FaqsSliceDefaultPrimaryTopicItem,
+			FaqsSliceDefaultPrimary,
+			FaqsSliceVariation,
+			FaqsSliceDefault,
 			FullScreenHeroSlice,
 			FullScreenHeroSliceDefaultPrimary,
 			FullScreenHeroSliceVariation,
@@ -1392,6 +1692,11 @@ declare module '@prismicio/client' {
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,
 			HeroTextSliceDefault,
+			IconGridSlice,
+			IconGridSliceDefaultPrimaryItemItem,
+			IconGridSliceDefaultPrimary,
+			IconGridSliceVariation,
+			IconGridSliceDefault,
 			ItemTableSlice,
 			ItemTableSliceDefaultPrimaryItemItem,
 			ItemTableSliceDefaultPrimary,
@@ -1400,6 +1705,11 @@ declare module '@prismicio/client' {
 			JourneyMapSlice,
 			JourneyMapSliceVariation,
 			JourneyMapSliceDefault,
+			MultiColumnSlice,
+			MultiColumnSliceDefaultPrimaryColumnItem,
+			MultiColumnSliceDefaultPrimary,
+			MultiColumnSliceVariation,
+			MultiColumnSliceDefault,
 			Nav2ParentSlice,
 			Nav2ParentSliceDefaultPrimary,
 			Nav2ParentSliceVariation,
@@ -1424,6 +1734,9 @@ declare module '@prismicio/client' {
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
 			RichTextSliceDefault,
+			RtoCalculatorSlice,
+			RtoCalculatorSliceVariation,
+			RtoCalculatorSliceDefault,
 			ThreeColumnContentSlice,
 			ThreeColumnContentSliceDefaultPrimary,
 			ThreeColumnContentSliceVariation,

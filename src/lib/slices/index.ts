@@ -3,16 +3,20 @@
 import CardList from './CardList/index.svelte';
 import ContactForm from './ContactForm/index.svelte';
 import Counter from './Counter/index.svelte';
+import Faqs from './Faqs/index.svelte';
 import FullScreenHero from './FullScreenHero/index.svelte';
 import HeroText from './HeroText/index.svelte';
+import IconGrid from './IconGrid/index.svelte';
 import ItemTable from './ItemTable/index.svelte';
 import JourneyMap from './JourneyMap/index.svelte';
+import MultiColumn from './MultiColumn/index.svelte';
 import Nav2Parent from './Nav2Parent/index.svelte';
 import Navigation from './Navigation/index.svelte';
 import OneColumnText from './OneColumnText/index.svelte';
 import PageHero from './PageHero/index.svelte';
 import PartnersCarousel from './PartnersCarousel/index.svelte';
 import RichText from './RichText/index.svelte';
+import RtoCalculator from './RtoCalculator/index.svelte';
 import ThreeColumnContent from './ThreeColumnContent/index.svelte';
 import TwoColumnText from './TwoColumnText/index.svelte';
 import TwoColumnTextImage from './TwoColumnTextImage/index.svelte';
@@ -22,16 +26,20 @@ export const components = {
 	card_list: CardList,
 	contact_form: ContactForm,
 	counter: Counter,
+	faqs: Faqs,
 	full_screen_hero: FullScreenHero,
 	hero_text: HeroText,
+	icon_grid: IconGrid,
 	item_table: ItemTable,
 	journey_map: JourneyMap,
+	multi_column: MultiColumn,
 	nav2_parent: Nav2Parent,
 	navigation: Navigation,
 	one_column_text: OneColumnText,
 	page_hero: PageHero,
 	partners_carousel: PartnersCarousel,
 	rich_text: RichText,
+	rto_calculator: RtoCalculator,
 	three_column_content: ThreeColumnContent,
 	two_column_text: TwoColumnText,
 	two_column_text_image: TwoColumnTextImage,

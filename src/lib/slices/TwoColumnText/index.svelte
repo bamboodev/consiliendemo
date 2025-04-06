@@ -65,8 +65,8 @@
 	class=" rich-text-content py-12"
 	style="background-color: {backgroundColor}; color: {textColor}; "
 >
-	<div class="max-w-7xl mx-auto">
-		<div class="flex flex-col md:flex-row md:gap-8 justify-center items-center">
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="flex flex-col md:flex-row md:gap-8 justify-start items-start">
 			<div class="w-full md:w-1/2">
 				<PrismicRichText field={slice.primary.columnone} />
 			</div>

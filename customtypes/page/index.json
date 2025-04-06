@@ -27,6 +27,18 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"icon_grid": {
+							"type": "SharedSlice"
+						},
+						"rto_calculator": {
+							"type": "SharedSlice"
+						},
+						"multi_column": {
+							"type": "SharedSlice"
+						},
+						"faqs": {
+							"type": "SharedSlice"
+						},
 						"three_column_content": {
 							"type": "SharedSlice"
 						},

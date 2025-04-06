@@ -167,14 +167,14 @@
 						{#if activeMenu === 'services'}
 							<div
 								data-dropdown="services"
-								class="absolute right-0 z-10 mt-2 w-[600px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								class="absolute right-0 z-10 mt-2 w-[800px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="services-menu-button"
 								tabindex="-1"
 								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
 								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
-								style="right: auto; left: -200px;"
+								style="right: auto; left: -400px;"
 							>
 								<div class="p-4" role="none">
 									<!-- Grid layout for services -->
@@ -201,7 +201,7 @@
 												</li>
 												<li>
 													<a
-														href="/services/consulting/roadmap"
+														href="/security-awareness-training/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Security Awareness Training
@@ -239,7 +239,7 @@
 											<ul>
 												<li>
 													<a
-														href="/services/training/user"
+														href="/backup-and-disaster-recovery/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Backup &amp; Disaster Recovery
@@ -262,7 +262,7 @@
 											<ul>
 												<li>
 													<a
-														href="/services/support/maintenance"
+														href="/managed-it/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Managed IT
@@ -270,7 +270,7 @@
 												</li>
 												<li>
 													<a
-														href="/services/support/troubleshooting"
+														href="/cloud-services-los-angeles/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Cloud Services
@@ -278,7 +278,7 @@
 												</li>
 												<li>
 													<a
-														href="/services/support/upgrades"
+														href="/tfs/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 													>
 														Training Funding Source

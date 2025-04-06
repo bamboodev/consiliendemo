@@ -31,19 +31,23 @@
 		class="flex flex-col max-w-7xl justify-start md:justify-center items-start mx-auto h-full px-6"
 	>
 		<div class=" max-w-2xl md:ml-9">
-			<h1
-				class="text-gray-700 tracking-widest font-thin uppercase text-lg md:text-4xl block mt-6 md:mt-0"
-				data-aos="fade-up"
-			>
-				{slice.primary.title}
-			</h1>
-			<h3
-				class="text-gray-600 font-light text-sm md:text-lg block md:my-6"
-				data-aos="fade-up"
-				data-aos-delay="300"
-			>
-				{slice.primary.intro}
-			</h3>
+			{#if slice.primary.title}
+				<h1
+					class="text-gray-700 tracking-widest font-thin uppercase text-lg md:text-4xl block mt-6 md:mt-0"
+					data-aos="fade-up"
+				>
+					{slice.primary.title}
+				</h1>
+			{/if}
+			{#if slice.primary.intro}
+				<h3
+					class="text-gray-600 font-light text-sm md:text-lg block md:my-6"
+					data-aos="fade-up"
+					data-aos-delay="300"
+				>
+					{slice.primary.intro}
+				</h3>
+			{/if}
 		</div>
 	</div>
 </section>

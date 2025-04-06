@@ -1,0 +1,98 @@
+{
+  "id": "multi_column",
+  "type": "SharedSlice",
+  "name": "MultiColumn",
+  "description": "MultiColumn",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main Title",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "White",
+              "Green",
+              "Gray",
+              "Cream"
+            ],
+            "default_value": "White"
+          }
+        },
+        "column": {
+          "type": "Group",
+          "config": {
+            "label": "column",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Content",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "centered": {
+                "type": "Boolean",
+                "config": {
+                  "label": "centered",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "label": "background color",
+                  "placeholder": "",
+                  "options": [
+                    "White",
+                    "Green",
+                    "Gray",
+                    "Cream"
+                  ],
+                  "default_value": "White"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

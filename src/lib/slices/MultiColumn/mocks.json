@@ -1,0 +1,98 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"column": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+										"width": 4010,
+										"height": 4010
+									},
+									"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+									"width": 4010,
+									"height": 4010,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"content",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute occaecat veniam reprehenderit amet culpa consectetur voluptate cupidatat pariatur duis aliqua ipsum officia aute. Minim amet reprehenderit dolor. Veniam anim sunt adipisicing amet cillum esse in exercitation et qui qui culpa consectetur aute."
+											}
+										}
+									]
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Eiusmod est sint officia ad occaecat enim proident veniam veniam elit non quis id ea. Aute laboris tempor do proident sint incididunt duis duis consectetur."
+											}
+										}
+									]
+								}
+							],
+							[
+								"centered",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"background_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "White",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "White",
+				"type": "Select"
+			},
+			"main_title": {
+				"__TYPE__": "FieldContent",
+				"value": "slabs",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
