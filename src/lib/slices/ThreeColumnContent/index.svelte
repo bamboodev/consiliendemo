@@ -4,7 +4,7 @@
 
 	export let slice: Content.ThreeColumnContentSlice;
 
-	console.log('ThreeColumnContent slice data:', slice);
+	// console.log('ThreeColumnContent slice data:', slice);
 </script>
 
 <section

@@ -3,16 +3,17 @@
 	import { PrismicLink } from '@prismicio/svelte';
 	import { fade, scale, slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 
 	export let slice: Content.NavigationSlice;
 
 	// State to control dropdown visibility
-	let activeMenu = null;
+	let activeMenu: string | null = null;
 	// State to control mobile menu visibility
 	let isMobileMenuOpen = false;
 
 	// Toggle function for any dropdown menu
-	function toggleMenu(menuName, event) {
+	function toggleMenu(menuName: string, event: MouseEvent) {
 		// Prevent the click from bubbling up to the window
 		if (event) event.stopPropagation();
 
@@ -25,21 +26,28 @@
 		}
 	}
 
+	// Function to handle link clicks
+	function handleLinkClick() {
+		activeMenu = null;
+		isMobileMenuOpen = false;
+	}
+
 	// Toggle mobile menu
 	function toggleMobileMenu() {
 		isMobileMenuOpen = !isMobileMenuOpen;
 	}
 
 	// Close the menu when clicking outside of any menu component
-	function handleClickOutside(event) {
+	function handleClickOutside(event: MouseEvent) {
 		// Only process if a menu is active
 		if (!activeMenu) return;
 
+		const target = event.target as HTMLElement;
 		// Check if the click was on a menu button
-		const wasClickOnMenuButton = event.target.closest('[data-menu-button]');
+		const wasClickOnMenuButton = target.closest('[data-menu-button]');
 
 		// Check if the click was inside a dropdown
-		const wasClickInDropdown = event.target.closest('[data-dropdown]');
+		const wasClickInDropdown = target.closest('[data-dropdown]');
 
 		// If click was neither on a menu button nor inside a dropdown, close the menu
 		if (!wasClickOnMenuButton && !wasClickInDropdown) {
@@ -50,23 +58,26 @@
 
 <svelte:window on:click={handleClickOutside} />
 
-<nav class="bg-white shadow font-text font-light uppercase font-xs tracking-wider">
+<nav
+	class="fixed top-0 left-0 right-0 z-50 bg-white shadow font-text font-light uppercase font-xs tracking-wider"
+>
 	<div class="max-w-7xl mx-auto px-2 sm:px-0">
 		<div class="flex justify-between h-16">
 			<!-- Logo -->
 			<div class="flex-shrink-0 flex items-center">
-				<a href="/"><img src="/images/logo.svg" alt="Logo" class="h-6 my-3 ml-3" /></a>
+				<a href="/"><img src="/images/logo.svg" alt="Logo" class="h-6 sm:h-3 lg:h-6 my-3 ml-3" /></a
+				>
 			</div>
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center">
-				<ul class="flex space-x-6 font-text font-light uppercase text-sm md:mr-3">
-					<li class="hover:text-black">
-						<a href="/">Home</a>
+				<ul class="flex items-center space-x-6 font-text font-light uppercase text-sm md:mr-3">
+					<li class="hover:text-black flex items-center">
+						<a href="/" on:click={handleLinkClick}>Home</a>
 					</li>
 
 					<!-- About Menu -->
-					<li class="relative inline-block text-left">
+					<li class="relative inline-block text-left flex items-center">
 						<div>
 							<button
 								type="button"
@@ -110,25 +121,29 @@
 										href="/about-us-history"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">History</a
+										tabindex="-1"
+										on:click={handleLinkClick}>History</a
 									>
 									<a
 										href="/about-us-our-commitment"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">Our Commitment</a
+										tabindex="-1"
+										on:click={handleLinkClick}>Our Commitment</a
 									>
 									<a
 										href="/faqs"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">FAQs</a
+										tabindex="-1"
+										on:click={handleLinkClick}>FAQs</a
 									>
 									<a
-										href="/press"
+										href="/news"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">Press</a
+										tabindex="-1"
+										on:click={handleLinkClick}>Press</a
 									>
 								</div>
 							</div>
@@ -136,7 +151,7 @@
 					</li>
 
 					<!-- Services Menu -->
-					<li class="relative inline-block text-left">
+					<li class="relative inline-block text-left flex items-center">
 						<div>
 							<button
 								type="button"
@@ -187,6 +202,7 @@
 													<a
 														href="/managed-cybersecurity-los-angeles/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Cybersecurity
 													</a>
@@ -195,6 +211,7 @@
 													<a
 														href="/cybersecurity-assessment-services"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Cyberfit
 													</a>
@@ -203,6 +220,7 @@
 													<a
 														href="/security-awareness-training/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Security Awareness Training
 													</a>
@@ -216,16 +234,18 @@
 											<ul>
 												<li>
 													<a
-														href="/services/implementation/setup"
+														href="/compliance/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Compliance Solutions
 													</a>
 												</li>
 												<li>
 													<a
-														href="/services/implementation/migration"
+														href="/it-consulting-long-beach/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Consulting Services
 													</a>
@@ -241,14 +261,16 @@
 													<a
 														href="/backup-and-disaster-recovery/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Backup &amp; Disaster Recovery
 													</a>
 												</li>
 												<li>
 													<a
-														href="/services/training/admin"
+														href="/rto-calculator/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Recovery Time &amp; Downtime Cost Calculator
 													</a>
@@ -264,6 +286,7 @@
 													<a
 														href="/managed-it/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Managed IT
 													</a>
@@ -272,6 +295,7 @@
 													<a
 														href="/cloud-services-los-angeles/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Cloud Services
 													</a>
@@ -280,6 +304,7 @@
 													<a
 														href="/tfs/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
 													>
 														Training Funding Source
 													</a>
@@ -292,20 +317,20 @@
 						{/if}
 					</li>
 
-					<li class="hover:text-gray-900">
-						<a href="/news">News</a>
+					<li class="hover:text-gray-900 flex items-center">
+						<a href="/news" on:click={handleLinkClick}>News</a>
 					</li>
 
-					<li class="hover:text-gray-900">
+					<!-- <li class="hover:text-gray-900">
 						<a href="/subscribe">Subscribe</a>
-					</li>
+					</li> -->
 
 					<!-- Customers Menu -->
-					<li class="relative inline-block text-left">
-						<div>
+					<li class="relative inline-block text-left flex items-center">
+						<div class="flex items-center gap-2">
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-[#F6741C] text-white px-3 rounded-full font-text font-light uppercase"
 								id="customers-menu-button"
 								data-menu-button="customers"
 								aria-expanded={activeMenu === 'customers'}
@@ -316,7 +341,7 @@
 								<svg
 									class="-mr-1 size-5 text-gray-400"
 									viewBox="0 0 20 20"
-									fill="currentColor"
+									fill="#fff"
 									aria-hidden="true"
 									data-slot="icon"
 								>
@@ -327,6 +352,43 @@
 									/>
 								</svg>
 							</button>
+							<a
+								href="tel:8666803388"
+								class="text-gray-400 hover:text-gray-900 transition-colors mx-3 group relative"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									class="size-5"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902.848.137 1.705.248 2.57.331v3.443a.75.75 0 0 0 1.28.53l3.58-3.579a.78.78 0 0 1 .527-.224 41.202 41.202 0 0 0 5.183-.5c1.437-.232 2.43-1.49 2.43-2.903V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0 0 10 2Zm0 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM8 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								<span
+									class="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2 py-1 text-xs text-gray-400 bg-white border border-gray-300 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+								>
+									(866) 680-3388
+								</span>
+							</a>
+							<a href="/contact/" class="text-gray-400 hover:text-gray-900 transition-colors">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									class="size-5"
+								>
+									<path
+										d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z"
+									/>
+									<path
+										d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z"
+									/>
+								</svg>
+							</a>
 						</div>
 
 						{#if activeMenu === 'customers'}
@@ -345,13 +407,15 @@
 										href="https://get.teamviewer.com/consilien_qs"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">Remote Connect</a
+										tabindex="-1"
+										on:click={handleLinkClick}>Remote Connect</a
 									>
 									<a
 										href="https://psa.consilien.com/support"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
-										tabindex="-1">Login</a
+										tabindex="-1"
+										on:click={handleLinkClick}>Login</a
 									>
 								</div>
 							</div>
@@ -413,7 +477,11 @@
 	{#if isMobileMenuOpen}
 		<div class="md:hidden" transition:slide={{ duration: 300 }}>
 			<div class="pt-2 pb-4 space-y-1 bg-white font-text font-light uppercase">
-				<a href="/" class="block py-2 px-3 border-l-4 border-transparent hover:bg-gray-50">
+				<a
+					href="/"
+					class="block py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
+					on:click={handleLinkClick}
+				>
 					Home
 				</a>
 
@@ -442,17 +510,34 @@
 
 					{#if activeMenu === 'mobile-about'}
 						<div class="bg-gray-50 pl-6" transition:slide={{ duration: 200 }}>
-							<a href="/about-us/history" class="block py-2 px-3 font-text font-light uppercase">
+							<a
+								href="/about-us-history"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
 								History
 							</a>
 							<a
-								href="/about-us/our-commitment"
+								href="/about-us-our-commitment"
 								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
 							>
 								Our Commitment
 							</a>
-							<a href="/faqs" class="block py-2 px-3 font-text font-light uppercase"> FAQs </a>
-							<a href="/press" class="block py-2 px-3 font-text font-light uppercase"> Press </a>
+							<a
+								href="/faqs"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								FAQs
+							</a>
+							<a
+								href="/news"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Press
+							</a>
 						</div>
 					{/if}
 				</div>
@@ -486,20 +571,23 @@
 							<div class="py-2">
 								<div class="px-3 text-gray-800">Security</div>
 								<a
-									href="/services/consulting/strategy"
+									href="/managed-cybersecurity-los-angeles/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Cybersecurity
 								</a>
 								<a
-									href="/services/consulting/assessment"
+									href="/cybersecurity-assessment-services"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Cyberfit
 								</a>
 								<a
-									href="/services/consulting/roadmap"
+									href="/security-awareness-training/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Security Awareness Training
 								</a>
@@ -509,14 +597,16 @@
 							<div class="py-2">
 								<div class="px-3 text-gray-800">Compliance</div>
 								<a
-									href="/services/implementation/setup"
+									href="/compliance/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Compliance Solutions
 								</a>
 								<a
-									href="/services/implementation/migration"
+									href="/it-consulting-long-beach/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Consulting Services
 								</a>
@@ -525,10 +615,18 @@
 							<!-- Backup -->
 							<div class="py-2">
 								<div class="px-3">Backup</div>
-								<a href="/services/training/user" class="block py-1 px-3 text-sm text-gray-600">
+								<a
+									href="/backup-and-disaster-recovery/"
+									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
+								>
 									Backup &amp; Disaster Recovery
 								</a>
-								<a href="/services/training/admin" class="block py-1 px-3 text-sm text-gray-600">
+								<a
+									href="/rto-calculator/"
+									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
+								>
 									Recovery Time &amp; Downtime Cost Calculator
 								</a>
 							</div>
@@ -537,18 +635,24 @@
 							<div class="py-2">
 								<div class="px-3">Managed IT</div>
 								<a
-									href="/services/support/maintenance"
+									href="/managed-it/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Managed IT
 								</a>
 								<a
-									href="/services/support/troubleshooting"
+									href="/cloud-services-los-angeles/"
 									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
 								>
 									Cloud Services
 								</a>
-								<a href="/services/support/upgrades" class="block py-1 px-3 text-sm text-gray-600">
+								<a
+									href="/tfs/"
+									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
+								>
 									Training Funding Source
 								</a>
 							</div>
@@ -559,16 +663,18 @@
 				<a
 					href="/news"
 					class="block py-2 px-3 font-text font-light uppercase border-l-4 border-transparent"
+					on:click={handleLinkClick}
 				>
 					News
 				</a>
 
-				<a
+				<!-- <a
 					href="/subscribe"
 					class="block py-2 px-3 font-text font-light uppercase border-l-4 border-transparent"
+					on:click={handleLinkClick}
 				>
 					Subscribe
-				</a>
+				</a> -->
 
 				<!-- Mobile Customers dropdown -->
 				<div class="relative">
@@ -598,12 +704,14 @@
 							<a
 								href="https://get.teamviewer.com/consilien_qs"
 								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
 							>
 								Remote Connect
 							</a>
 							<a
 								href="https://psa.consilien.com/support"
 								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
 							>
 								Login
 							</a>
@@ -659,5 +767,9 @@
 <style>
 	.transition-transform {
 		transition-property: transform;
+	}
+
+	.transition-all {
+		transition-property: all;
 	}
 </style>

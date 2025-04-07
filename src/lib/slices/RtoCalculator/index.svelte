@@ -4,37 +4,37 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import type { Content } from '@prismicio/client';
+	// import { onMount } from 'svelte';
+	// import type { Content } from '@prismicio/client';
 
-	export let slice: Content.RtoCalculatorSlice;
+	// export let slice: Content.RtoCalculatorSlice;
 
-	onMount(() => {
-		console.log('RtoCalculator');
-		// Load required scripts
-		const loadScript = (src: string) => {
-			return new Promise((resolve, reject) => {
-				const script = document.createElement('script');
-				script.src = src;
-				script.onload = resolve;
-				script.onerror = reject;
-				document.head.appendChild(script);
-			});
-		};
+	// onMount(() => {
+	// 	// console.log('RtoCalculator');
+	// 	// Load required scripts
+	// 	const loadScript = (src: string) => {
+	// 		return new Promise((resolve, reject) => {
+	// 			const script = document.createElement('script');
+	// 			script.src = src;
+	// 			script.onload = resolve;
+	// 			script.onerror = reject;
+	// 			document.head.appendChild(script);
+	// 		});
+	// 	};
 
-		// Load jQuery first
-		loadScript('/assets/vendor/datto/js/jquery-git.js')
-			.then(() => loadScript('/assets/vendor/datto/js/vue.min.js'))
-			.then(() => loadScript('/assets/vendor/datto/js/dattorto.js'))
-			.then(() => {
-				// Initialize jQuery functionality
-				(window as any).jQuery('#nobackup').click(function () {
-					(window as any).jQuery('#nobackuptime').toggleClass('disable');
-					(window as any).jQuery('.nobk').toggleClass('disable');
-				});
-			})
-			.catch((error) => console.error('Error loading scripts:', error));
-	});
+	// 	// Load jQuery first
+	// 	loadScript('/assets/vendor/datto/js/jquery-git.js')
+	// 		.then(() => loadScript('/assets/vendor/datto/js/vue.min.js'))
+	// 		.then(() => loadScript('/assets/vendor/datto/js/dattorto.js'))
+	// 		.then(() => {
+	// 			// Initialize jQuery functionality
+	// 			(window as any).jQuery('#nobackup').click(function () {
+	// 				(window as any).jQuery('#nobackuptime').toggleClass('disable');
+	// 				(window as any).jQuery('.nobk').toggleClass('disable');
+	// 			});
+	// 		})
+	// 		.catch((error) => console.error('Error loading scripts:', error));
+	// });
 </script>
 
 <link rel="stylesheet" type="text/css" href="/assets/vendor/datto/css/dattorto.css" />

@@ -78,7 +78,7 @@
 		</div>
 
 		<aside class="w-full md:w-80 shrink-0">
-			<div class="sticky top-8 space-y-6">
+			<div class="sticky top-24 space-y-6">
 				<div class="bg-gray-50 p-6 rounded-lg">
 					<div class="flex items-center justify-between mb-4">
 						<h2 class="text-lg font-text uppercase text-xs text-gray-600 font-bold tracking-widest">

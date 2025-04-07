@@ -86,6 +86,11 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+		width: 100%;
+	}
+
+	.column .content {
+		width: 100%;
 	}
 
 	.column :global(p) {
@@ -165,5 +170,22 @@
 	}
 	.column .content.centered :global(li) {
 		text-align: center;
+	}
+
+	/* Styles for embedded YouTube videos */
+	.columns .column :global([data-oembed]) {
+		width: 100%;
+		max-width: 100%;
+		position: relative;
+		overflow: hidden;
+		min-height: 300px;
+	}
+
+	.columns .column :global([data-oembed] iframe) {
+		width: 100%;
+		height: auto;
+		min-height: 300px;
+		border: none;
+		display: block;
 	}
 </style>

@@ -8,7 +8,7 @@
 
 	export let slice: Content.TwoColumnTextImageAccordionSlice;
 
-	$: console.log(slice);
+	// $: console.log(slice);
 
 	// Track which accordion items are open
 	let openItems = new Set();
