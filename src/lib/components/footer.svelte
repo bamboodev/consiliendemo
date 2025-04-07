@@ -83,7 +83,7 @@
 		<div class="p-4">
 			<h4 class="mb-4 text-sm font-text tracking-widest">PARTNERS</h4>
 			<hr class="border-t border-[#565658] mb-6" />
-			<ul class="partners grid grid-cols-1 md:grid-cols-2 gap-6">
+			<ul class="partners grid grid-cols-2 gap-6">
 				<li class="flex justify-center items-center">
 					<img
 						src="/images/partners/onetrust-logo_1.png"
