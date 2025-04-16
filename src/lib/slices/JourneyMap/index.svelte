@@ -76,7 +76,7 @@
 		</button>
 	</div>
 
-	<div class="container text-center">
+	<div class="container text-center mx-auto">
 		<h3 class="pt-6 text-center text-3xl md:text-4xl text-gray-800 font-light">
 			We anticipate so you can innovate.
 		</h3>

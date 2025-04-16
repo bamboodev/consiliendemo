@@ -62,7 +62,17 @@
 	class="sticky top-0 left-0 right-0 z-[9999] bg-white shadow font-text font-light uppercase font-xs tracking-wider"
 >
 	<div class="max-w-7xl mx-auto px-2 sm:px-0">
-		<div class="flex justify-between h-16">
+		<!-- Top bar with phone button -->
+		<div class="flex justify-end py-2">
+			<a
+				href="tel:8666803388"
+				class="inline-flex items-center justify-center gap-x-1.5 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full font-text font-light uppercase text-xs"
+			>
+				Speak to an IT Expert
+			</a>
+		</div>
+
+		<div class="flex justify-between h-10">
 			<!-- Logo -->
 			<div class="flex-shrink-0 flex items-center">
 				<a href="/"><img src="/images/logo.svg" alt="Logo" class="h-5 sm:h-4 lg:h-6 my-3 ml-3" /></a
@@ -330,7 +340,7 @@
 						<div class="flex items-center gap-2">
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-[#F6741C] text-white px-3 rounded-full font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-purple-800 hover:bg-purple-900 text-white px-3 rounded-full font-text font-light uppercase text-sm"
 								id="customers-menu-button"
 								data-menu-button="customers"
 								aria-expanded={activeMenu === 'customers'}
@@ -352,43 +362,6 @@
 									/>
 								</svg>
 							</button>
-							<a
-								href="tel:8666803388"
-								class="text-gray-400 hover:text-gray-900 transition-colors mx-3 group relative"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									class="size-5"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902.848.137 1.705.248 2.57.331v3.443a.75.75 0 0 0 1.28.53l3.58-3.579a.78.78 0 0 1 .527-.224 41.202 41.202 0 0 0 5.183-.5c1.437-.232 2.43-1.49 2.43-2.903V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0 0 10 2Zm0 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM8 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								<span
-									class="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2 py-1 text-xs text-gray-400 bg-white border border-gray-300 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-								>
-									(866) 680-3388
-								</span>
-							</a>
-							<a href="/contact/" class="text-gray-400 hover:text-gray-900 transition-colors">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									class="size-5"
-								>
-									<path
-										d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z"
-									/>
-									<path
-										d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z"
-									/>
-								</svg>
-							</a>
 						</div>
 
 						{#if activeMenu === 'customers'}
@@ -426,28 +399,6 @@
 
 			<!-- Mobile menu button -->
 			<div class="md:hidden flex items-center">
-				<a
-					href="tel:8666803388"
-					class="text-gray-400 hover:text-gray-900 transition-colors mx-3 group relative"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="size-5"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902.848.137 1.705.248 2.57.331v3.443a.75.75 0 0 0 1.28.53l3.58-3.579a.78.78 0 0 1 .527-.224 41.202 41.202 0 0 0 5.183-.5c1.437-.232 2.43-1.49 2.43-2.903V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0 0 10 2Zm0 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM8 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-							clip-rule="evenodd"
-						/>
-					</svg>
-					<span
-						class="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2 py-1 text-xs text-gray-400 bg-white border border-gray-300 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-					>
-						(866) 680-3388
-					</span>
-				</a>
 				<button
 					type="button"
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
