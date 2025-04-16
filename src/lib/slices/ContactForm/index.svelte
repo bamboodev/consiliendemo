@@ -1,5 +1,5 @@
 <!-- ContactForm.svelte -->
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
 	// Form data
@@ -17,7 +17,7 @@
 	};
 
 	let submitted = false;
-	let error = null;
+	let error: string | null = null;
 	let required = true;
 
 	// Social media links
@@ -36,63 +36,10 @@
 		return true;
 	}
 
-	// Form submission
-	async function handleSubmit() {
-		if (!validateForm()) return;
-
-		try {
-			// This is where you would integrate with your email sending service
-			// For example, using fetch to call an API endpoint
-			/*
-		const response = await fetch('/api/send-email', {
-		  method: 'POST',
-		  headers: {
-			'Content-Type': 'application/json',
-		  },
-		  body: JSON.stringify({
-			email: formData.email,
-			firstName: formData.firstName,
-			lastName: formData.lastName,
-			phone: `${formData.phone.area}-${formData.phone.prefix}-${formData.phone.line}`,
-			company: formData.company,
-			message: formData.message
-		  }),
-		});
-		
-		const result = await response.json();
-		
-		if (!response.ok) {
-		  throw new Error(result.message || 'Something went wrong');
-		}
-		*/
-
-			// For demonstration purposes, we'll just simulate a successful submission
-			console.log('Form submitted:', formData);
-			submitted = true;
-			error = null;
-
-			// Reset form after successful submission
-			formData = {
-				email: '',
-				firstName: '',
-				lastName: '',
-				phone: {
-					area: '',
-					prefix: '',
-					line: ''
-				},
-				company: '',
-				message: ''
-			};
-		} catch (err) {
-			error = err.message || 'Failed to send message. Please try again.';
-			console.error('Error submitting form:', err);
-		}
-	}
-
 	// Helper function to format phone number as user types
-	function formatPhoneInput(section, event) {
-		const value = event.target.value.replace(/\D/g, '');
+	function formatPhoneInput(section: 'area' | 'prefix' | 'line', event: Event) {
+		const input = event.target as HTMLInputElement;
+		const value = input.value.replace(/\D/g, '');
 		let maxLength;
 
 		switch (section) {
@@ -109,6 +56,32 @@
 
 		formData.phone[section] = value.substring(0, maxLength);
 	}
+
+	onMount(() => {
+		// Load Mailchimp script
+		const script = document.createElement('script');
+		script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
+		script.type = 'text/javascript';
+		document.head.appendChild(script);
+
+		// Initialize Mailchimp form
+		const mcScript = document.createElement('script');
+		mcScript.textContent = `
+			(function($) {
+				window.fnames = new Array();
+				window.ftypes = new Array();
+				fnames[0]='EMAIL';ftypes[0]='email';
+				fnames[1]='FNAME';ftypes[1]='text';
+				fnames[2]='LNAME';ftypes[2]='text';
+				fnames[4]='PHONE';ftypes[4]='phone';
+				fnames[5]='MMERGE5';ftypes[5]='text';
+				fnames[6]='MMERGE6';ftypes[6]='text';
+				fnames[3]='ADDRESS';ftypes[3]='address';
+			}(jQuery));
+			var $mcj = jQuery.noConflict(true);
+		`;
+		document.head.appendChild(mcScript);
+	});
 </script>
 
 <div class="max-w-7xl mx-auto px-6 py-8">
@@ -126,69 +99,78 @@
 				<span class="text-red-500">*</span> indicates required
 			</p>
 
-			<form on:submit|preventDefault={handleSubmit} class="space-y-6">
+			<form
+				action="https://consilien.us10.list-manage.com/subscribe/post?u=e5133804dfa530098a9c78f3d&amp;id=445e7120f1&amp;f_id=00aa47e4f0"
+				method="post"
+				id="mc-embedded-subscribe-form"
+				name="mc-embedded-subscribe-form"
+				class="validate space-y-6"
+				target="_blank"
+				novalidate
+			>
 				<div class="form-group">
-					<label for="email" class="block text-gray-700 mb-1">
+					<label for="mce-EMAIL" class="block text-gray-700 mb-1">
 						Email Address <span class="text-red-500">*</span>
 					</label>
 					<input
 						type="email"
-						id="email"
-						bind:value={formData.email}
-						{required}
-						class="w-full p-2 border border-gray-300 rounded"
+						name="EMAIL"
+						id="mce-EMAIL"
+						class="required email w-full p-2 border border-gray-300 rounded"
+						required
+						aria-required="true"
 					/>
 				</div>
 
 				<div class="form-group">
-					<label for="firstName" class="block text-gray-700 mb-1"> First Name </label>
+					<label for="mce-FNAME" class="block text-gray-700 mb-1">First Name</label>
 					<input
 						type="text"
-						id="firstName"
-						bind:value={formData.firstName}
+						name="FNAME"
+						id="mce-FNAME"
 						class="w-full p-2 border border-gray-300 rounded"
 					/>
 				</div>
 
 				<div class="form-group">
-					<label for="lastName" class="block text-gray-700 mb-1"> Last Name </label>
+					<label for="mce-LNAME" class="block text-gray-700 mb-1">Last Name</label>
 					<input
 						type="text"
-						id="lastName"
-						bind:value={formData.lastName}
+						name="LNAME"
+						id="mce-LNAME"
 						class="w-full p-2 border border-gray-300 rounded"
 					/>
 				</div>
 
 				<div class="form-group">
-					<label for="phone" class="block text-gray-700 mb-1"> Phone Number </label>
+					<label for="mce-PHONE" class="block text-gray-700 mb-1">Phone Number</label>
 					<div class="flex">
 						<span class="inline-flex items-center px-2 text-gray-600">(</span>
 						<input
 							type="text"
-							id="phone-area"
-							bind:value={formData.phone.area}
-							on:input={(e) => formatPhoneInput('area', e)}
-							placeholder=""
+							name="PHONE[area]"
+							id="mce-PHONE-area"
 							class="w-16 p-2 border border-gray-300"
+							maxlength="3"
+							pattern="[0-9]*"
 						/>
 						<span class="inline-flex items-center px-2 text-gray-600">)</span>
 						<input
 							type="text"
-							id="phone-prefix"
-							bind:value={formData.phone.prefix}
-							on:input={(e) => formatPhoneInput('prefix', e)}
-							placeholder=""
+							name="PHONE[detail1]"
+							id="mce-PHONE-detail1"
 							class="w-16 ml-1 p-2 border border-gray-300"
+							maxlength="3"
+							pattern="[0-9]*"
 						/>
 						<span class="inline-flex items-center px-2 text-gray-600">-</span>
 						<input
 							type="text"
-							id="phone-line"
-							bind:value={formData.phone.line}
-							on:input={(e) => formatPhoneInput('line', e)}
-							placeholder=""
+							name="PHONE[detail2]"
+							id="mce-PHONE-detail2"
 							class="w-24 p-2 border border-gray-300"
+							maxlength="4"
+							pattern="[0-9]*"
 						/>
 					</div>
 					<p class="text-xs text-gray-600 mt-2">
@@ -203,35 +185,38 @@
 				</div>
 
 				<div class="form-group">
-					<label for="company" class="block text-gray-700 mb-1"> Company </label>
+					<label for="mce-MMERGE5" class="block text-gray-700 mb-1">Company</label>
 					<input
 						type="text"
-						id="company"
-						bind:value={formData.company}
+						name="MMERGE5"
+						id="mce-MMERGE5"
 						class="w-full p-2 border border-gray-300 rounded"
 					/>
 				</div>
 
 				<div class="form-group">
-					<label for="message" class="block text-gray-700 mb-1"> Message </label>
+					<label for="mce-MMERGE6" class="block text-gray-700 mb-1">Message</label>
 					<textarea
-						id="message"
-						bind:value={formData.message}
+						name="MMERGE6"
+						id="mce-MMERGE6"
 						rows="4"
 						class="w-full p-2 border border-gray-300 rounded"
 					></textarea>
 				</div>
 
-				{#if error}
-					<div class="text-red-600 text-sm">{error}</div>
-				{/if}
+				<div id="mce-responses" class="clear">
+					<div class="response" id="mce-error-response" style="display: none;"></div>
+					<div class="response" id="mce-success-response" style="display: none;"></div>
+				</div>
 
-				{#if submitted}
-					<div class="text-green-600 text-sm">Your message has been sent. Thank you!</div>
-				{/if}
+				<div aria-hidden="true" style="position: absolute; left: -5000px;">
+					<input type="text" name="b_e5133804dfa530098a9c78f3d_445e7120f1" tabindex="-1" value="" />
+				</div>
 
 				<button
 					type="submit"
+					name="subscribe"
+					id="mc-embedded-subscribe"
 					class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 uppercase font-semibold"
 				>
 					Contact
@@ -310,3 +295,18 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	#mc_embed_signup {
+		background: #fff;
+		clear: left;
+		font-size: 14px;
+		max-width: 600px;
+		width: 100%;
+	}
+
+	#mc_embed_signup .button,
+	#mc_embed_signup .button:hover {
+		background-color: #f7731c;
+	}
+</style>
