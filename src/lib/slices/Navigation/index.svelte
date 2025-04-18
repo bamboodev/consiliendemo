@@ -65,7 +65,7 @@
 		<!-- Top bar with phone button -->
 		<div class="flex justify-end py-2">
 			<a
-				href="tel:8666803388"
+				href="/contact"
 				class="inline-flex items-center justify-center gap-x-1.5 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full font-text font-light uppercase text-xs"
 			>
 				Speak to an IT Expert
