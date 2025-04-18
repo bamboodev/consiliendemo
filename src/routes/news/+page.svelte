@@ -17,21 +17,36 @@
 		'News'
 	];
 
-	$: filteredArticles = articles.filter((article) => {
-		// Category filter
-		if (selectedCategory && article.data.category !== selectedCategory) {
-			return false;
-		}
+	function parseDate(dateStr: string): Date {
+		// Extract the date part from strings like "Updated 01/10/2015"
+		const dateMatch = dateStr.match(/\d{2}\/\d{2}\/\d{4}/);
+		if (!dateMatch) return new Date(0); // Return earliest possible date if parsing fails
 
-		// Search filter
-		if (!searchTerm) return true;
-		const searchLower = searchTerm.toLowerCase();
-		const contentText = asText(article.data.content) || '';
-		return (
-			article.data.title?.toLowerCase().includes(searchLower) ||
-			contentText.toLowerCase().includes(searchLower)
-		);
-	});
+		const [month, day, year] = dateMatch[0].split('/').map(Number);
+		return new Date(year, month - 1, day); // month is 0-indexed in JS Date
+	}
+
+	$: filteredArticles = articles
+		.filter((article) => {
+			// Category filter
+			if (selectedCategory && article.data.category !== selectedCategory) {
+				return false;
+			}
+
+			// Search filter
+			if (!searchTerm) return true;
+			const searchLower = searchTerm.toLowerCase();
+			const contentText = asText(article.data.content) || '';
+			return (
+				article.data.title?.toLowerCase().includes(searchLower) ||
+				contentText.toLowerCase().includes(searchLower)
+			);
+		})
+		.sort((a, b) => {
+			const dateA = a.data.date ? parseDate(a.data.date) : new Date(0);
+			const dateB = b.data.date ? parseDate(b.data.date) : new Date(0);
+			return dateB.getTime() - dateA.getTime(); // Sort in descending order (newest first)
+		});
 
 	function clearSearch() {
 		searchTerm = '';
