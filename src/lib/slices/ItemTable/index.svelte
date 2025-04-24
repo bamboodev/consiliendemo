@@ -87,7 +87,7 @@
 		: 'none'}
 >
 	{#if slice.primary.background_image?.url}
-		<div class="absolute inset-0 bg-black/60" />
+		<div class="absolute inset-0 bg-black/80" />
 	{/if}
 
 	<div class="max-w-7xl mx-auto">

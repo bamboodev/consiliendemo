@@ -59,14 +59,14 @@
 <svelte:window on:click={handleClickOutside} />
 
 <nav
-	class="sticky top-0 left-0 right-0 z-[9999] bg-white shadow font-text font-light uppercase font-xs tracking-wider"
+	class="fixed top-0 left-0 right-0 z-[9999] bg-white shadow font-text font-light uppercase font-xs tracking-wider w-full"
 >
-	<div class="max-w-7xl mx-auto px-2 sm:px-0">
+	<div class="max-w-7xl mx-auto px-2 sm:px-0 w-full">
 		<!-- Top bar with phone button -->
-		<div class="flex justify-end py-2">
+		<div class="flex justify-end py-2 w-full">
 			<a
 				href="/contact"
-				class="inline-flex items-center justify-center gap-x-1.5 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full font-text font-light uppercase text-xs"
+				class="inline-flex items-center justify-center gap-x-1.5 bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 min-w-[180px] font-text font-light uppercase text-xs mr-3 whitespace-nowrap overflow-hidden"
 			>
 				Speak to an IT Expert
 			</a>
@@ -340,7 +340,7 @@
 						<div class="flex items-center gap-2">
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-purple-800 hover:bg-purple-900 text-white px-3 rounded-full font-text font-light uppercase text-sm"
+								class="inline-flex min-w-[180px] justify-center items-center gap-x-1.5 bg-[#800180] hover:bg-purple-900 text-white px-3 font-text font-light uppercase text-xs py-1"
 								id="customers-menu-button"
 								data-menu-button="customers"
 								aria-expanded={activeMenu === 'customers'}
