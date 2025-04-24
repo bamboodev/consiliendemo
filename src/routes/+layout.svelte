@@ -1,14 +1,14 @@
 <script>
 	import { PrismicPreview } from '@prismicio/svelte/kit';
 	import { page } from '$app/stores';
-	import { repositoryName, createClient } from '$lib/prismicio';
+	import { repositoryName } from '$lib/prismicio';
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
-	const client = createClient();
-	const navigation = client.getSingle('navigation');
 	import SEO from '$lib/components/SEO.svelte';
+
+	export let data;
 </script>
 
 <SEO data={$page.data} />
@@ -27,19 +27,13 @@
 	{/if}
 </svelte:head> -->
 
-{#await navigation}
-	<header class="nav-header min-h-16">
+<header class="nav-header min-h-16">
+	{#if data.navigation}
+		<SliceZone slices={data.navigation.data.slices} {components} />
+	{:else}
 		<div></div>
-	</header>
-{:then nav}
-	<header class="nav-header min-h-16">
-		<SliceZone slices={nav.data.slices} {components} />
-	</header>
-{:catch error}
-	<header class="nav-header min-h-16">
-		<div>Error loading navigation</div>
-	</header>
-{/await}
+	{/if}
+</header>
 
 <main>
 	<slot />
