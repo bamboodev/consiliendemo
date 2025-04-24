@@ -3,6 +3,7 @@
 	import { PrismicImage } from '@prismicio/svelte';
 	import { goto } from '$app/navigation';
 	import AuthorInfo from '$lib/components/AuthorInfo.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	export let data;
 
 	$: ({ article } = data);
@@ -32,7 +33,20 @@
 		searchTerm = '';
 		selectedCategory = article?.data?.category || null;
 	}
+
+	$: seoData = {
+		meta_title: article?.data?.title || undefined,
+		meta_description: article?.data?.meta_description || undefined,
+		meta_image: article?.data?.featured_image?.url
+			? {
+					url: article.data.featured_image.url,
+					alt: article.data.featured_image.alt || ''
+				}
+			: undefined
+	};
 </script>
+
+<SEO data={seoData} />
 
 {#if article}
 	<section class="bg-gray-100 mb-8">

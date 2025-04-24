@@ -8,9 +8,12 @@
 	import Footer from '$lib/components/footer.svelte';
 	const client = createClient();
 	const navigation = client.getSingle('navigation');
+	import SEO from '$lib/components/SEO.svelte';
 </script>
 
-<svelte:head>
+<SEO data={$page.data} />
+
+<!-- <svelte:head>
 	<title>{$page.data.title}</title>
 	{#if $page.data.meta_description}
 		<meta name="description" content={$page.data.meta_description} />
@@ -22,7 +25,7 @@
 		<meta name="og:image" content={$page.data.meta_image} />
 		<meta name="twitter:card" content="summary_large_image" />
 	{/if}
-</svelte:head>
+</svelte:head> -->
 
 {#await navigation}
 	<header class="nav-header min-h-16">
