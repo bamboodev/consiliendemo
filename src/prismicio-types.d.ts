@@ -141,6 +141,37 @@ export type ArticleDocument<Lang extends string = string> = prismic.PrismicDocum
 	Lang
 >;
 
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+	/**
+	 * Locations field in *Footer*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.locations
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	locations: prismic.RichTextField;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<FooterDocumentData>,
+	'footer',
+	Lang
+>;
+
 type Nav2DocumentDataSlicesSlice = Nav2ParentSlice;
 
 /**
@@ -298,7 +329,12 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = ArticleDocument | Nav2Document | NavigationDocument | PageDocument;
+export type AllDocumentTypes =
+	| ArticleDocument
+	| FooterDocument
+	| Nav2Document
+	| NavigationDocument
+	| PageDocument;
 
 /**
  * Item in *CardList → Default → Primary → Card*
@@ -1658,6 +1694,8 @@ declare module '@prismicio/client' {
 			ArticleDocument,
 			ArticleDocumentData,
 			ArticleDocumentDataSlicesSlice,
+			FooterDocument,
+			FooterDocumentData,
 			Nav2Document,
 			Nav2DocumentData,
 			Nav2DocumentDataSlicesSlice,

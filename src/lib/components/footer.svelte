@@ -1,5 +1,9 @@
-<script>
+<script lang="ts">
 	import RecentPosts from './RecentPosts.svelte';
+	import { createClient } from '$lib/prismicio';
+	import { PrismicRichText } from '@prismicio/svelte';
+	import { onMount } from 'svelte';
+	import type { FooterDocument } from '../../prismicio-types';
 
 	// Get the button
 
@@ -11,6 +15,13 @@
 	}
 
 	const currentYear = new Date().getFullYear();
+
+	let footerData: FooterDocument | null = null;
+
+	onMount(async () => {
+		const client = createClient();
+		footerData = await client.getSingle('footer');
+	});
 </script>
 
 <footer class="bg-[#292929]">
@@ -18,7 +29,11 @@
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-8 text-white">
 		<div class="p-4">
 			<img src="/images/Consilien_Logo_text.svg" alt="Consilien Logo" class=" block" />
-			<img src="/images/consilien-network.svg" alt="Consilien Network" class="mt-8 block mx-6" />
+			<img
+				src="/images/consilien-network.svg"
+				alt="Consilien Network"
+				class="mt-8 block mx-auto max-w-[200px]"
+			/>
 			<div class=" flex justify-center items-center">
 				<div class="p-6 text-white">
 					<a href="mailto:hello@consilien.com" class="flex items-center mb-3">
@@ -152,7 +167,12 @@
 		<div class="p-4">
 			<h4 class="mb-4 text-sm font-text tracking-widest">LOCATIONS</h4>
 			<hr class="border-t border-[#565658] mb-6" />
-			<p>Managed IT Services in Los Angeles</p>
+
+			{#if footerData}
+				<PrismicRichText field={footerData.data.locations} />
+			{/if}
+
+			<!-- <p>Managed IT Services in Los Angeles</p> -->
 		</div>
 	</div>
 
