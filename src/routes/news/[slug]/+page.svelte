@@ -4,11 +4,33 @@
 	import { goto } from '$app/navigation';
 	import AuthorInfo from '$lib/components/AuthorInfo.svelte';
 	import SEO from '$lib/components/SEO.svelte';
+	import { onMount } from 'svelte';
 	export let data;
 
 	$: ({ article } = data);
 	let searchTerm = '';
 	let selectedCategory: string | null = article?.data?.category || null;
+	let seoData: {
+		meta_title?: string;
+		meta_description?: string;
+		meta_image?: {
+			url: string;
+			alt: string;
+		};
+	} = {};
+
+	onMount(() => {
+		seoData = {
+			meta_title: article?.data?.meta_title || article?.data?.title || '',
+			meta_description: article?.data?.meta_description || undefined,
+			meta_image: article?.data?.featured_image?.url
+				? {
+						url: article.data.featured_image.url,
+						alt: article.data.featured_image.alt || ''
+					}
+				: undefined
+		};
+	});
 
 	const categories = [
 		'Backup and Disaster Recovery',
@@ -33,17 +55,6 @@
 		searchTerm = '';
 		selectedCategory = article?.data?.category || null;
 	}
-
-	$: seoData = {
-		meta_title: article?.data?.title || undefined,
-		meta_description: article?.data?.meta_description || undefined,
-		meta_image: article?.data?.featured_image?.url
-			? {
-					url: article.data.featured_image.url,
-					alt: article.data.featured_image.alt || ''
-				}
-			: undefined
-	};
 </script>
 
 <SEO data={seoData} />

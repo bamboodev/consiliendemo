@@ -4,8 +4,6 @@
 
 	export let slice: Content.OneColumnTextSlice;
 
-	console.log(slice);
-
 	const colorMap = {
 		Green: '#6DA63F',
 		Gray: '#292929',

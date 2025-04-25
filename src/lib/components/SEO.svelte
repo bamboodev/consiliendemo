@@ -1,4 +1,12 @@
+<script context="module">
+	// Use a module context variable to track if SEO tags have been rendered
+	let seoRendered = false;
+</script>
+
 <script lang="ts">
+	import { onMount, afterUpdate, tick } from 'svelte';
+	import { page } from '$app/stores';
+
 	export let data: {
 		meta_title?: string;
 		meta_description?: string;
@@ -8,9 +16,46 @@
 		};
 	};
 
-	$: title = data?.meta_title || 'Consilien IT Services';
-	$: description = data?.meta_description || '';
-	$: image = data?.meta_image;
+	let title = '';
+	let description = '';
+	let image: { url: string; alt: string } | undefined;
+	let currentPath = '';
+	let isRendered = false;
+
+	// Reset the component state when the path changes
+	$: if ($page && $page.url.pathname !== currentPath) {
+		currentPath = $page.url.pathname;
+		isRendered = false;
+	}
+
+	// Process SEO data when data changes or path changes
+	$: if (data && !isRendered) {
+		processSeoData();
+	}
+
+	async function processSeoData() {
+		// Ensure we're not in the middle of a render cycle
+		await tick();
+
+		title = data.meta_title || '';
+		description = data.meta_description || '';
+		image = data.meta_image;
+		isRendered = true;
+
+		// console.log('SEO Updated:', {
+		// 	path: currentPath,
+		// 	title,
+		// 	description,
+		// 	image
+		// });
+	}
+
+	// Initialize on mount
+	onMount(() => {
+		if ($page) {
+			currentPath = $page.url.pathname;
+		}
+	});
 </script>
 
 <svelte:head>

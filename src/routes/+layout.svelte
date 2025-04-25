@@ -9,9 +9,14 @@
 	import SEO from '$lib/components/SEO.svelte';
 
 	export let data;
+
+	// Check if the current path includes '/news' to determine whether to show the SEO component
+	$: isNewsRoute = $page.url.pathname.includes('/news');
 </script>
 
-<SEO data={$page.data} />
+{#if !isNewsRoute}
+	<SEO data={$page.data} />
+{/if}
 
 <!-- <svelte:head>
 	<title>{$page.data.title}</title>
