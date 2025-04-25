@@ -224,4 +224,13 @@
 		margin-bottom: 0.5rem;
 		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
 	}
+	:global(.prose iframe) {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+	}
+	:global(.prose [data-oembed]) {
+		width: 100%;
+		margin: 1rem 0;
+	}
 </style>
