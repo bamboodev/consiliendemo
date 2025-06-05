@@ -1,4 +1,4 @@
-import { c as create_ssr_component, b as add_attribute, e as escape, v as validate_component } from "../../../chunks/ssr.js";
+import { c as create_ssr_component, b as add_attribute, d as escape, v as validate_component } from "../../../chunks/ssr.js";
 import { getDefaultProps, getDefaultSlices, getDefaultMessage, SimulatorManager, StateEventType, simulatorClass, simulatorRootClass } from "@prismicio/simulator/kit";
 import { S as SliceZone, c as components } from "../../../chunks/index2.js";
 const SliceSimulator = create_ssr_component(($$result, $$props, $$bindings, slots) => {

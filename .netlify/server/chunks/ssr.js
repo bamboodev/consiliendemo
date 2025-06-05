@@ -1,9 +1,5 @@
 function noop() {
 }
-function is_promise(value) {
-  return !!value && (typeof value === "object" || typeof value === "function") && typeof /** @type {any} */
-  value.then === "function";
-}
 function run(fn) {
   return fn();
 }
@@ -32,6 +28,9 @@ function compute_rest_props(props, keys) {
   for (const k in props) if (!keys.has(k) && k[0] !== "$") rest[k] = props[k];
   return rest;
 }
+function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+  return new CustomEvent(type, { detail, bubbles, cancelable });
+}
 let current_component;
 function set_current_component(component) {
   current_component = component;
@@ -39,6 +38,25 @@ function set_current_component(component) {
 function get_current_component() {
   if (!current_component) throw new Error("Function called outside component initialization");
   return current_component;
+}
+function createEventDispatcher() {
+  const component = get_current_component();
+  return (type, detail, { cancelable = false } = {}) => {
+    const callbacks = component.$$.callbacks[type];
+    if (callbacks) {
+      const event = custom_event(
+        /** @type {string} */
+        type,
+        detail,
+        { cancelable }
+      );
+      callbacks.slice().forEach((fn) => {
+        fn.call(component, event);
+      });
+      return !event.defaultPrevented;
+    }
+    return true;
+  };
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
@@ -236,18 +254,21 @@ export {
   setContext as a,
   add_attribute as b,
   create_ssr_component as c,
-  subscribe as d,
-  escape as e,
-  each as f,
-  getContext as g,
-  compute_rest_props as h,
-  is_promise as i,
-  spread as j,
-  escape_attribute_value as k,
+  escape as d,
+  each as e,
+  subscribe as f,
+  set_current_component as g,
+  current_component as h,
+  getContext as i,
+  compute_rest_props as j,
+  spread as k,
   escape_object as l,
   missing_component as m,
   noop as n,
-  add_styles as o,
+  escape_attribute_value as o,
+  createEventDispatcher as p,
+  add_styles as q,
+  run_all as r,
   safe_not_equal as s,
   validate_component as v
 };

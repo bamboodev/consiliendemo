@@ -1,3 +1,14 @@
- [build]
+[build]
   command = "npm run build"
   publish = "build"
+
+# Environment variables for production
+[context.production.environment]
+  # Add your Netlify build hook URL here
+  # NETLIFY_BUILD_HOOK = "https://api.netlify.com/build_hooks/YOUR_BUILD_HOOK_ID"
+
+# Headers for sitemap
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

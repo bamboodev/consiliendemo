@@ -117,7 +117,91 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<script\n			async\n			defer\n			src="https://static.cdn.prismic.io/prismic.js?new=true&repo=consiliendemo"\n		><\/script>\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + `/favicon.svg" />
+	<script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=consiliendemo"><\/script>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="canonical" href="https://www.consilien.com">
+	<meta name="robots" content="{robots_directive}">
+	<link rel="author" href="https://www.consilien.com">
+	<link rel="publisher" href="https://www.consilien.com">
+
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSP320SVNR"><\/script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSP320SVNR');
+<\/script>
+
+<!-- Google tag (gtag.js) -->
+<script async src=”https://www.googletagmanager.com/gtag/js?id=AW-622586033"><\/script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-622586033');
+<\/script>
+			<meta name="msvalidate.01" content="36FFC2165DB16EDEDF9A35C64152EFF5"/>
+<meta name="google-site-verification" content="dq4iDFpiPriAw4HUCuVQWgDzBVkzn0g99RrM6hr12eQ"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Consilien",
+  "image": "https://www.consilien.com/images/logo.svg",
+  "url": "https://www.consilien.com/",
+  "telephone": "866-680-3388",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21250 Hawthorne Blvd Suite 500",
+    "addressLocality": "Torrance",
+    "addressRegion": "CA",
+    "postalCode": "90501",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.8362436,
+    "longitude": -118.3526184
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://twitter.com/Consilien",
+    "https://www.linkedin.com/company/consilien",
+    "https://www.facebook.com/consilien"
+  ],
+
+
+    "hasMap": {
+  "@type": "Map",
+   "url":  "https://www.google.com/maps?cid=17115211362562679061"
+   }
+}
+<\/script>
+    </head>
+
+
+
+
+
+	` + head + '\n</head>\n\n<body data-sveltekit-preload-data="hover">\n	<div style="display: contents">' + body + "</div>\n</body>\n\n</html>\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -189,7 +273,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "fkdtaz"
+  version_hash: "6dknnb"
 };
 async function get_hooks() {
   let handle;
