@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createClient } from '$lib/prismicio';
+	import { generateSlug } from '$lib/utils/slug';
 	import { onMount } from 'svelte';
 
 	let articles: any[] = [];
@@ -25,7 +26,7 @@
 <div class="space-y-4">
 	{#each articles as article}
 		<div class="border-b border-[#565658] pb-4 last:border-b-0">
-			<a href="/news/{encodeURIComponent(article.data.title || '')}" class="block group">
+			<a href="/news/{article.data.title ? generateSlug(article.data.title) : ''}" class="block group">
 				<h5 class="text-sm font-medium text-white group-hover:text-orange-500 transition-colors">
 					{article.data.title}
 				</h5>
