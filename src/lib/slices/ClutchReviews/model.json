@@ -1,0 +1,16 @@
+{
+	"id": "clutch_reviews",
+	"type": "SharedSlice",
+	"name": "ClutchReviews",
+	"description": "ClutchReviews",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": ""
+		}
+	]
+}

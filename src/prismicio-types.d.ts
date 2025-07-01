@@ -239,6 +239,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| ClutchReviewsSlice
 	| IconGridSlice
 	| RtoCalculatorSlice
 	| MultiColumnSlice
@@ -432,6 +433,33 @@ type CardListSliceVariation = CardListSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CardListSlice = prismic.SharedSlice<'card_list', CardListSliceVariation>;
+
+/**
+ * Default variation for ClutchReviews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ClutchReviewsSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *ClutchReviews*
+ */
+type ClutchReviewsSliceVariation = ClutchReviewsSliceDefault;
+
+/**
+ * ClutchReviews Shared Slice
+ *
+ * - **API ID**: `clutch_reviews`
+ * - **Description**: ClutchReviews
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ClutchReviewsSlice = prismic.SharedSlice<'clutch_reviews', ClutchReviewsSliceVariation>;
 
 /**
  * Default variation for ContactForm Slice
@@ -1711,6 +1739,9 @@ declare module '@prismicio/client' {
 			CardListSliceDefaultPrimary,
 			CardListSliceVariation,
 			CardListSliceDefault,
+			ClutchReviewsSlice,
+			ClutchReviewsSliceVariation,
+			ClutchReviewsSliceDefault,
 			ContactFormSlice,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
