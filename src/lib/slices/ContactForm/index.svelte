@@ -64,23 +64,23 @@
 		script.type = 'text/javascript';
 		document.head.appendChild(script);
 
-		// Initialize Mailchimp form
-		const mcScript = document.createElement('script');
-		mcScript.textContent = `
-			(function($) {
-				window.fnames = new Array();
-				window.ftypes = new Array();
-				fnames[0]='EMAIL';ftypes[0]='email';
-				fnames[1]='FNAME';ftypes[1]='text';
-				fnames[2]='LNAME';ftypes[2]='text';
-				fnames[4]='PHONE';ftypes[4]='phone';
-				fnames[5]='MMERGE5';ftypes[5]='text';
-				fnames[6]='MMERGE6';ftypes[6]='text';
-				fnames[3]='ADDRESS';ftypes[3]='address';
-			}(jQuery));
-			var $mcj = jQuery.noConflict(true);
-		`;
-		document.head.appendChild(mcScript);
+		// // Initialize Mailchimp form
+		// const mcScript = document.createElement('script');
+		// mcScript.textContent = `
+		// 	(function($) {
+		// 		window.fnames = new Array();
+		// 		window.ftypes = new Array();
+		// 		fnames[0]='EMAIL';ftypes[0]='email';
+		// 		fnames[1]='FNAME';ftypes[1]='text';
+		// 		fnames[2]='LNAME';ftypes[2]='text';
+		// 		fnames[4]='PHONE';ftypes[4]='phone';
+		// 		fnames[5]='MMERGE5';ftypes[5]='text';
+		// 		fnames[6]='MMERGE6';ftypes[6]='text';
+		// 		fnames[3]='ADDRESS';ftypes[3]='address';
+		// 	}(jQuery));
+		// 	var $mcj = jQuery.noConflict(true);
+		// `;
+		// document.head.appendChild(mcScript);
 	});
 </script>
 
