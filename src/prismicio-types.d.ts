@@ -239,6 +239,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| HeroFormSlice
 	| ClutchReviewsSlice
 	| IconGridSlice
 	| RtoCalculatorSlice
@@ -656,6 +657,89 @@ export type FullScreenHeroSlice = prismic.SharedSlice<
 	'full_screen_hero',
 	FullScreenHeroSliceVariation
 >;
+
+/**
+ * Primary content in *HeroForm → Default → Primary*
+ */
+export interface HeroFormSliceDefaultPrimary {
+	/**
+	 * Background field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: image
+	 * - **API ID Path**: hero_form.default.primary.background
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	background: prismic.SelectField<'image' | 'white', 'filled'>;
+
+	/**
+	 * Body field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_form.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	body: prismic.RichTextField;
+
+	/**
+	 * Button 1 field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_form.default.primary.button_1
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	button_1: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Button 2 field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_form.default.primary.button_2
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	button_2: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Image field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_form.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroFormSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<HeroFormSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *HeroForm*
+ */
+type HeroFormSliceVariation = HeroFormSliceDefault;
+
+/**
+ * HeroForm Shared Slice
+ *
+ * - **API ID**: `hero_form`
+ * - **Description**: HeroForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroFormSlice = prismic.SharedSlice<'hero_form', HeroFormSliceVariation>;
 
 /**
  * Primary content in *HeroText → Default → Primary*
@@ -1757,6 +1841,10 @@ declare module '@prismicio/client' {
 			FullScreenHeroSliceDefaultPrimary,
 			FullScreenHeroSliceVariation,
 			FullScreenHeroSliceDefault,
+			HeroFormSlice,
+			HeroFormSliceDefaultPrimary,
+			HeroFormSliceVariation,
+			HeroFormSliceDefault,
 			HeroTextSlice,
 			HeroTextSliceDefaultPrimary,
 			HeroTextSliceVariation,

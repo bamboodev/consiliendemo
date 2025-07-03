@@ -36,6 +36,12 @@
 		</h2>
 	{/if}
 
+	{#if slice.primary.intro}
+		<div class="prose max-w-none rich-text-content">
+			<PrismicRichText field={slice.primary.intro} />
+		</div>
+	{/if}
+
 	<div class="columns">
 		{#each slice.primary.column as column}
 			<div

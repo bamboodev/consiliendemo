@@ -6,6 +6,7 @@ import ContactForm from './ContactForm/index.svelte';
 import Counter from './Counter/index.svelte';
 import Faqs from './Faqs/index.svelte';
 import FullScreenHero from './FullScreenHero/index.svelte';
+import HeroForm from './HeroForm/index.svelte';
 import HeroText from './HeroText/index.svelte';
 import IconGrid from './IconGrid/index.svelte';
 import ItemTable from './ItemTable/index.svelte';
@@ -30,6 +31,7 @@ export const components = {
 	counter: Counter,
 	faqs: Faqs,
 	full_screen_hero: FullScreenHero,
+	hero_form: HeroForm,
 	hero_text: HeroText,
 	icon_grid: IconGrid,
 	item_table: ItemTable,

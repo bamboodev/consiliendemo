@@ -70,6 +70,14 @@
 		margin-bottom: 1.5rem; /* 24px spacing between paragraphs */
 	}
 
+	.rich-text-content :global(ul) {
+		list-style-type: disc;
+		list-style-position: inside;
+		color: slategray;
+		font-weight: bold;
+		font-size: 14px;
+	}
+
 	/* If this is the last paragraph, remove the bottom margin */
 	.rich-text-content :global(p:last-child) {
 		margin-bottom: 0;
