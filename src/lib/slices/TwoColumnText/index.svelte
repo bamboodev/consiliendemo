@@ -8,12 +8,15 @@
 	const colorMap = {
 		Green: '#6DA63F',
 		Gray: '#292929',
+		LightGray: '#FAFAFA',
 		Cream: '#EFEFE7',
 		White: '#ffffff'
 	};
 
 	const backgroundColor = colorMap[slice.primary.background_color] || '#ffffff';
-	const textColor = ['Green', 'Gray'].includes(slice.primary.background_color) ? 'white' : 'black';
+	const textColor = ['Green', 'Gray', 'LightGray'].includes(slice.primary.background_color)
+		? 'white'
+		: 'black';
 
 	const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="${textColor}" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -110,5 +113,11 @@
 	}
 	.rich-text-content :global(h6) {
 		font-size: 14px;
+	}
+
+	.rich-text-content :global(img) {
+		max-height: 230px;
+		max-width: 230px;
+		margin: 0 auto;
 	}
 </style>

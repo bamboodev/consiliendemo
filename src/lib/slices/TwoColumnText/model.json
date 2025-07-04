@@ -39,7 +39,8 @@
               "White",
               "Green",
               "Gray",
-              "Cream"
+              "Cream",
+              "LightGray"
             ],
             "default_value": "White"
           }

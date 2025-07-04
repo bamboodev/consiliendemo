@@ -19,7 +19,7 @@
 <section
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
-	class="text-center"
+	class="text-center bg-[#FAFAFA] pt-6"
 >
 	<div class="max-w-7xl mx-auto s-FMjDt1P6g3YW">
 		<div class="relative z-10 s-FMjDt1P6g3YW">
@@ -28,7 +28,7 @@
 	</div>
 
 	<div
-		class="clutch-widget bg-gray-400 text-center max-w-7xl mx-auto"
+		class="clutch-widget text-center max-w-7xl mx-auto"
 		data-url="https://widget.clutch.co"
 		data-widget-type="12"
 		data-height="375"

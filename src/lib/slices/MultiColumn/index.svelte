@@ -37,7 +37,7 @@
 	{/if}
 
 	{#if slice.primary.intro}
-		<div class="prose max-w-none rich-text-content">
+		<div class="prose max-w-none rich-text-content text-center">
 			<PrismicRichText field={slice.primary.intro} />
 		</div>
 	{/if}
@@ -193,5 +193,18 @@
 		min-height: 300px;
 		border: none;
 		display: block;
+	}
+
+	.prose :global(h3) {
+		font-size: var(--text-3xl);
+		font-weight: bold;
+		margin-bottom: 1rem;
+		font-family: 'Raleway', sans-serif;
+		align-items: center;
+	}
+
+	.prose :global(p) {
+		max-width: 600px;
+		margin: 0 auto;
 	}
 </style>

@@ -51,6 +51,20 @@
 									"value": "thank",
 									"type": "Text"
 								}
+							],
+							[
+								"content",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Fugiat consequat anim mollit enim."
+											}
+										}
+									]
+								}
 							]
 						]
 					}

@@ -4,6 +4,7 @@
 	import 'aos/dist/aos.css'; // Import the AOS styles
 	import type { Content } from '@prismicio/client';
 	import { PrismicText } from '@prismicio/svelte';
+	import { PrismicRichText } from '@prismicio/svelte';
 	import { slide } from 'svelte/transition';
 
 	export let slice: Content.TwoColumnTextImageAccordionSlice;
@@ -86,9 +87,17 @@
 						</button>
 						{#if openItems.has(i)}
 							<div class="px-4 py-3 bg-white" transition:slide={{ duration: 300 }}>
-								<div class="prose max-w-none rich-text-content">
-									{item.text}
-								</div>
+								{#if item.text}
+									<div class="prose max-w-none rich-text-content">
+										{item.text}
+									</div>
+								{/if}
+
+								{#if item.content}
+									<div class="prose max-w-none rich-text-content text-left">
+										<PrismicRichText field={item.content} />
+									</div>
+								{/if}
 							</div>
 						{/if}
 					</div>
@@ -147,5 +156,10 @@
 
 	.rich-text-content :global(a:hover) {
 		background-color: #5a9740;
+	}
+
+	.prose :global(ul) {
+		list-style-type: disc;
+		list-style-position: inside;
 	}
 </style>

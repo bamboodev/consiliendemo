@@ -91,6 +91,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "slabs",
 				"type": "Text"
+			},
+			"intro": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute velit sint sunt tempor velit tempor duis sunt sit tempor. Ipsum fugiat eu deserunt laborum ea do."
+						}
+					}
+				]
 			}
 		},
 		"items": []
