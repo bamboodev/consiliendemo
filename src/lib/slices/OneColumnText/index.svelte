@@ -70,6 +70,9 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
+		max-height: 230px;
+		max-width: 230px;
+		margin: 0 auto;
 	}
 
 	/* Styles for embedded YouTube videos */

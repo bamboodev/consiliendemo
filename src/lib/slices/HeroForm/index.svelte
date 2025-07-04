@@ -32,6 +32,28 @@
 					<PrismicRichText field={slice.primary.body} />
 				</div>
 
+				{#if slice.primary.button_1 && slice.primary.button_1.url}
+					<div class="mt-6">
+						<a
+							href={slice.primary.button_1.url}
+							class="w-fit text-center mx-auto flex items-center gap-2 bg-white border-2 border-orange-500 uppercase font-semibold text-xs text-orange-500 py-3 px-6 hover:bg-orange-600 hover:text-white hover:shadow transition duration-300 ease-out"
+						>
+							{slice.primary.button_1.text}
+						</a>
+					</div>
+				{/if}
+
+				{#if slice.primary.button_2 && slice.primary.button_2.url}
+					<div class="mt-6">
+						<a
+							href={slice.primary.button_2.url}
+							class="w-fit text-center mx-auto flex items-center gap-2 bg-white border-2 border-orange-500 uppercase font-semibold text-xs text-orange-500 py-3 px-6 hover:bg-orange-600 hover:text-white hover:shadow transition duration-300 ease-out"
+						>
+							{slice.primary.button_2.text}
+						</a>
+					</div>
+				{/if}
+
 				{#if slice.primary.image}
 					<div class="flex justify-center items-center mt-6">
 						<img
