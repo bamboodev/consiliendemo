@@ -15,12 +15,15 @@
 			alt: string;
 		};
 	};
+	
+	export let canonical: string | undefined = undefined;
 
 	let title = '';
 	let description = '';
 	let image: { url: string; alt: string } | undefined;
 	let currentPath = '';
 	let isRendered = false;
+	let canonicalUrl = '';
 
 	// Reset the component state when the path changes
 	$: if ($page && $page.url.pathname !== currentPath) {
@@ -40,6 +43,14 @@
 		title = data.meta_title || '';
 		description = data.meta_description || '';
 		image = data.meta_image;
+		
+		// Set canonical URL - use provided canonical or construct from current page
+		if (canonical) {
+			canonicalUrl = canonical;
+		} else if ($page) {
+			canonicalUrl = `https://www.consilien.com${$page.url.pathname}`;
+		}
+		
 		isRendered = true;
 
 		// console.log('SEO Updated:', {
@@ -63,12 +74,18 @@
 	{#if description}
 		<meta name="description" content={description} />
 	{/if}
+	{#if canonicalUrl}
+		<link rel="canonical" href={canonicalUrl} />
+	{/if}
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={title} />
 	{#if description}
 		<meta property="og:description" content={description} />
+	{/if}
+	{#if canonicalUrl}
+		<meta property="og:url" content={canonicalUrl} />
 	{/if}
 	{#if image}
 		<meta property="og:image" content={image.url} />
