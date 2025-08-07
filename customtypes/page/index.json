@@ -110,6 +110,13 @@
 					},
 					"thumbnails": []
 				}
+			},
+			"schema": {
+				"type": "Text",
+				"config": {
+					"label": "Schema",
+					"placeholder": ""
+				}
 			}
 		}
 	}

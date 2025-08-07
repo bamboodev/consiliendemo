@@ -17,6 +17,7 @@
 			url: string;
 			alt: string;
 		};
+		schema?: string;
 	} = {};
 
 	onMount(() => {
@@ -28,7 +29,8 @@
 						url: article.data.featured_image.url,
 						alt: article.data.featured_image.alt || ''
 					}
-				: undefined
+				: undefined,
+			schema: article?.data?.schema || undefined
 		};
 	});
 

@@ -192,18 +192,18 @@
 						{#if activeMenu === 'services'}
 							<div
 								data-dropdown="services"
-								class="absolute right-0 z-10 mt-2 w-[800px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								class="absolute right-0 z-10 mt-2 w-[900px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="services-menu-button"
 								tabindex="-1"
 								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
 								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
-								style="right: auto; left: -400px;"
+								style="right: auto; left: -500px;"
 							>
 								<div class="p-4" role="none">
 									<!-- Grid layout for services -->
-									<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+									<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
 										<!-- Column 1 -->
 										<div>
 											<h3 class="font-medium text-gray-900 mb-2">Security</h3>
@@ -317,6 +317,49 @@
 														on:click={handleLinkClick}
 													>
 														Training Funding Source
+													</a>
+												</li>
+											</ul>
+										</div>
+
+										<!-- Column 5 -->
+										<div>
+											<h3 class="font-medium text-gray-900 mb-2">Industries</h3>
+											<ul>
+												<li>
+													<a
+														href="/manufacturing"
+														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
+													>
+														Manufacturing
+													</a>
+												</li>
+												<li>
+													<a
+														href="/professional-services-firms"
+														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
+													>
+														Professional Services
+													</a>
+												</li>
+												<li>
+													<a
+														href="/engineering-and-architecture"
+														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
+													>
+														Engineering and Architecture
+													</a>
+												</li>
+												<li>
+													<a
+														href="/distribution"
+														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
+													>
+														Distribution
 													</a>
 												</li>
 											</ul>

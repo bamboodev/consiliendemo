@@ -99,6 +99,13 @@
 					"thumbnails": []
 				},
 				"type": "Image"
+			},
+			"schema": {
+				"type": "Text",
+				"config": {
+					"label": "Schema",
+					"placeholder": ""
+				}
 			}
 		}
 	}

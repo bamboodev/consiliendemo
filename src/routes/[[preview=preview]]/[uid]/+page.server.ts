@@ -13,12 +13,17 @@ export async function load({ params, fetch, cookies }) {
 		});
 	}
 
+	console.log('DEBUG: Page data fields:', Object.keys(page.data));
+	console.log('DEBUG: Schema field value:', page.data.schema);
+	console.log('DEBUG: Schema field type:', typeof page.data.schema);
+
 	return {
 		page,
 		title: asText(page.data.title),
 		meta_description: page.data.meta_description,
 		meta_title: page.data.meta_title,
-		meta_image: page.data.meta_image.url
+		meta_image: page.data.meta_image.url,
+		schema: page.data.schema
 	};
 }
 

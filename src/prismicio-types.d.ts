@@ -177,6 +177,17 @@ interface ArticleDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Schema field in *Article*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: article.schema
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	schema: prismic.KeyTextField;
 }
 
 /**
@@ -367,6 +378,17 @@ interface PageDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Schema field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page.schema
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	schema: prismic.KeyTextField;
 }
 
 /**

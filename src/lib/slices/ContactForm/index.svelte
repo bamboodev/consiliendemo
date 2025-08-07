@@ -24,7 +24,8 @@
 	const socialLinks = [
 		{ platform: 'Twitter', url: 'https://twitter.com/consilien', icon: 'twitter' },
 		{ platform: 'LinkedIn', url: 'https://linkedin.com/company/consilien', icon: 'linkedin' },
-		{ platform: 'Facebook', url: 'https://facebook.com/consilien', icon: 'facebook' }
+		{ platform: 'Facebook', url: 'https://facebook.com/consilien', icon: 'facebook' },
+		{ platform: 'YouTube', url: 'https://www.youtube.com/@consilien', icon: 'youtube' }
 	];
 
 	// Form validation
@@ -227,15 +228,17 @@
 		<!-- Right column: Information -->
 		<div class="md:w-1/2">
 			<h2 class="text-2xl font-light text-gray-800 mb-4">
-				At Consilien, we help organizations navigate the complex technology, security, and
-				regulatory landscape.
+				Your Trusted Partner in IT, Cybersecurity, Compliance, and Strategic Growth
 			</h2>
 
 			<p class="mb-4">
-				We do this through our signature <strong>compliance and assessment services</strong> for
-				PCI-DSS, CCPA, GDPR, HIPAA, NIST CSF, and more...; <strong>managed cybersecurity</strong>
-				services that include Security Operations Center (SOC); and right-sized
-				<strong>security strategy</strong> that meets our clients business needs and objectives.
+				At Consilien, we help businesses thrive by delivering co-managed and fully managed IT
+				services, advanced cybersecurity protection, and regulatory compliance support—backed by
+				expert consulting and vCIO leadership. Every engagement begins with a tailored assessment to
+				uncover risks, align technology with business objectives, and define a right-sized roadmap
+				for transformation. From digital innovation to regulatory readiness, we speak the language
+				of both business and technology—bridging the gap to help you move forward with clarity,
+				security, and confidence.
 			</p>
 
 			<p class="mb-6">If you have a question, please contact us. We're here to help.</p>
@@ -282,6 +285,12 @@
 							<svg class="w-5 h-5" fill="#fff" viewBox="0 0 24 24">
 								<path
 									d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+								/>
+							</svg>
+						{:else if link.icon === 'youtube'}
+							<svg class="w-5 h-5" fill="#fff" viewBox="0 0 24 24">
+								<path
+									d="M24 7.5V16.5C24 18.981 21.981 21 19.5 21H4.5C2.019 21 0 18.981 0 16.5V7.5C0 5.019 2.019 3 4.5 3H19.5C21.981 3 24 5.019 24 7.5ZM9.5 8V16L15.5 12L9.5 8Z"
 								/>
 							</svg>
 						{/if}
