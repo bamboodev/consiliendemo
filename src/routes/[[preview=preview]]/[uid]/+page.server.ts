@@ -13,9 +13,6 @@ export async function load({ params, fetch, cookies }) {
 		});
 	}
 
-	console.log('DEBUG: Page data fields:', Object.keys(page.data));
-	console.log('DEBUG: Schema field value:', page.data.schema);
-	console.log('DEBUG: Schema field type:', typeof page.data.schema);
 
 	return {
 		page,

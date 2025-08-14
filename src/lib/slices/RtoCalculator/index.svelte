@@ -10,7 +10,6 @@
 	// export let slice: Content.RtoCalculatorSlice;
 
 	// onMount(() => {
-	// 	// console.log('RtoCalculator');
 	// 	// Load required scripts
 	// 	const loadScript = (src: string) => {
 	// 		return new Promise((resolve, reject) => {

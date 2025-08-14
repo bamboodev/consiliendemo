@@ -192,18 +192,18 @@
 						{#if activeMenu === 'services'}
 							<div
 								data-dropdown="services"
-								class="absolute right-0 z-10 mt-2 w-[900px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								class="absolute right-0 z-10 mt-2 w-[720px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="services-menu-button"
 								tabindex="-1"
 								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
 								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
-								style="right: auto; left: -500px;"
+								style="right: auto; left: -400px;"
 							>
 								<div class="p-4" role="none">
 									<!-- Grid layout for services -->
-									<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+									<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 										<!-- Column 1 -->
 										<div>
 											<h3 class="font-medium text-gray-900 mb-2">Security</h3>
@@ -321,50 +321,89 @@
 												</li>
 											</ul>
 										</div>
-
-										<!-- Column 5 -->
-										<div>
-											<h3 class="font-medium text-gray-900 mb-2">Industries</h3>
-											<ul>
-												<li>
-													<a
-														href="/manufacturing"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Manufacturing
-													</a>
-												</li>
-												<li>
-													<a
-														href="/professional-services-firms"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Professional Services
-													</a>
-												</li>
-												<li>
-													<a
-														href="/engineering-and-architecture"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Engineering and Architecture
-													</a>
-												</li>
-												<li>
-													<a
-														href="/distribution"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Distribution
-													</a>
-												</li>
-											</ul>
-										</div>
 									</div>
+								</div>
+							</div>
+						{/if}
+					</li>
+
+					<!-- Industries Menu -->
+					<li class="relative inline-block text-left flex items-center">
+						<div>
+							<button
+								type="button"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								id="industries-menu-button"
+								data-menu-button="industries"
+								aria-expanded={activeMenu === 'industries'}
+								aria-haspopup="true"
+								on:click={(e) => toggleMenu('industries', e)}
+							>
+								Industries
+								<svg
+									class="-mr-1 size-5 text-gray-400"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+									data-slot="icon"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+							</button>
+						</div>
+
+						{#if activeMenu === 'industries'}
+							<div
+								data-dropdown="industries"
+								class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								role="menu"
+								aria-orientation="vertical"
+								aria-labelledby="industries-menu-button"
+								tabindex="-1"
+								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
+								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
+							>
+								<div class="py-1" role="none">
+									<a
+										href="/manufacturing"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}
+									>
+										Manufacturing
+									</a>
+									<a
+										href="/professional-services-firms"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}
+									>
+										Professional Services
+									</a>
+									<a
+										href="/engineering-and-architecture"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}
+									>
+										Engineering and Architecture
+									</a>
+									<a
+										href="/distribution"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}
+									>
+										Distribution
+									</a>
 								</div>
 							</div>
 						{/if}
@@ -672,6 +711,63 @@
 									Training Funding Source
 								</a>
 							</div>
+						</div>
+					{/if}
+				</div>
+
+				<!-- Mobile Industries dropdown -->
+				<div class="relative">
+					<button
+						type="button"
+						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
+						on:click={(e) => toggleMenu('mobile-industries', e)}
+					>
+						<span class="font-text font-light uppercase">Industries</span>
+						<svg
+							class="{activeMenu === 'mobile-industries'
+								? 'rotate-180'
+								: ''} w-5 h-5 transition-transform duration-200"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</button>
+
+					{#if activeMenu === 'mobile-industries'}
+						<div class="bg-gray-50 pl-6" transition:slide={{ duration: 200 }}>
+							<a
+								href="/manufacturing"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Manufacturing
+							</a>
+							<a
+								href="/professional-services-firms"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Professional Services
+							</a>
+							<a
+								href="/engineering-and-architecture"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Engineering and Architecture
+							</a>
+							<a
+								href="/distribution"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Distribution
+							</a>
 						</div>
 					{/if}
 				</div>

@@ -111,28 +111,17 @@
 
 	// Process SEO data when data changes
 	$: if (data) {
-		console.log('DEBUG SEO: Received data:', data);
-		console.log('DEBUG SEO: Schema from data:', data.schema);
-		console.log('DEBUG SEO: Current page route:', $page.route?.id);
-		console.log('DEBUG SEO: Is article page:', isArticlePage);
-		console.log('DEBUG SEO: Page data:', $page.data);
-		
 		title = data.meta_title || '';
 		description = data.meta_description || '';
 		image = data.meta_image;
 		
 		if (data.schema) {
-			console.log('DEBUG SEO: Using provided schema');
 			schema = data.schema;
 		} else if (isArticlePage && $page.data) {
-			console.log('DEBUG SEO: Generating article schema');
 			schema = createArticleSchema($page.data);
 		} else {
-			console.log('DEBUG SEO: Using default schema');
 			schema = JSON.stringify(defaultSchema);
 		}
-		
-		console.log('DEBUG SEO: Final schema:', schema);
 	}
 
 </script>

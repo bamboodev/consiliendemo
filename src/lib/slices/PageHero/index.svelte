@@ -7,7 +7,6 @@
 
 	export let slice: Content.PageHeroSlice;
 
-	// $: console.log(slice);
 
 	onMount(() => {
 		AOS.init({

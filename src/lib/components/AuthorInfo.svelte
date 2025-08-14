@@ -1,7 +1,6 @@
 <script lang="ts">
 	export let author: string;
 
-	// $: console.log('author', author);
 
 	function getAuthorInfo() {
 		switch (author) {
