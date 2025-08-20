@@ -303,6 +303,8 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| CustomScriptSlice
+	| CallToActionSlice
 	| HeroFormSlice
 	| ClutchReviewsSlice
 	| IconGridSlice
@@ -412,6 +414,69 @@ export type AllDocumentTypes =
 	| Nav2Document
 	| NavigationDocument
 	| PageDocument;
+
+/**
+ * Primary content in *CallToAction → Default → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+	/**
+	 * body field in *CallToAction → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: call_to_action.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+
+	/**
+	 * Button Color field in *CallToAction → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Orange
+	 * - **API ID Path**: call_to_action.default.primary.button_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	button_color: prismic.SelectField<'Orange' | 'Green' | 'Gray', 'filled'>;
+
+	/**
+	 * URL field in *CallToAction → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: call_to_action.default.primary.url
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<CallToActionSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault;
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CallToActionSlice = prismic.SharedSlice<'call_to_action', CallToActionSliceVariation>;
 
 /**
  * Item in *CardList → Default → Primary → Card*
@@ -590,6 +655,48 @@ type CounterSliceVariation = CounterSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CounterSlice = prismic.SharedSlice<'counter', CounterSliceVariation>;
+
+/**
+ * Primary content in *ScriptEmbed → Default → Primary*
+ */
+export interface CustomScriptSliceDefaultPrimary {
+	/**
+	 * script field in *ScriptEmbed → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: custom_script.default.primary.script
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	script: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ScriptEmbed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CustomScriptSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<CustomScriptSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ScriptEmbed*
+ */
+type CustomScriptSliceVariation = CustomScriptSliceDefault;
+
+/**
+ * ScriptEmbed Shared Slice
+ *
+ * - **API ID**: `custom_script`
+ * - **Description**: CustomScript
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CustomScriptSlice = prismic.SharedSlice<'custom_script', CustomScriptSliceVariation>;
 
 /**
  * Item in *Faqs → Default → Primary → topic*
@@ -1916,6 +2023,10 @@ declare module '@prismicio/client' {
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			CallToActionSlice,
+			CallToActionSliceDefaultPrimary,
+			CallToActionSliceVariation,
+			CallToActionSliceDefault,
 			CardListSlice,
 			CardListSliceDefaultPrimaryCardItem,
 			CardListSliceDefaultPrimary,
@@ -1930,6 +2041,10 @@ declare module '@prismicio/client' {
 			CounterSlice,
 			CounterSliceVariation,
 			CounterSliceDefault,
+			CustomScriptSlice,
+			CustomScriptSliceDefaultPrimary,
+			CustomScriptSliceVariation,
+			CustomScriptSliceDefault,
 			FaqsSlice,
 			FaqsSliceDefaultPrimaryTopicItem,
 			FaqsSliceDefaultPrimary,

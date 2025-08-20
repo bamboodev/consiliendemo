@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"script": {
+				"__TYPE__": "FieldContent",
+				"value": "<div data-tf-live=\"01K1EMX81JHX8V63CXH8PXH873\"></div><script src=\"//embed.typeform.com/next/embed.js\"></script>",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

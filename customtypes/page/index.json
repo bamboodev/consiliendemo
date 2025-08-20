@@ -27,6 +27,12 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"custom_script": {
+							"type": "SharedSlice"
+						},
+						"call_to_action": {
+							"type": "SharedSlice"
+						},
 						"hero_form": {
 							"type": "SharedSlice"
 						},

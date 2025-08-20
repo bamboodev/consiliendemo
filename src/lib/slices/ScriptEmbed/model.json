@@ -1,0 +1,26 @@
+{
+  "id": "custom_script",
+  "type": "SharedSlice",
+  "name": "ScriptEmbed",
+  "description": "CustomScript",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "script": {
+          "type": "Text",
+          "config": {
+            "label": "script",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
