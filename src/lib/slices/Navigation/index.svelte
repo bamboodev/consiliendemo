@@ -777,6 +777,13 @@
 							>
 								Distribution
 							</a>
+							<a
+								href="/real-estate"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Real Estate
+							</a>
 						</div>
 					{/if}
 				</div>
