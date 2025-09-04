@@ -303,6 +303,15 @@
 												</li>
 												<li>
 													<a
+														href="/co-managed-it-services/"
+														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
+														on:click={handleLinkClick}
+													>
+														Co-Managed IT
+													</a>
+												</li>
+												<li>
+													<a
 														href="/cloud-services-los-angeles/"
 														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
 														on:click={handleLinkClick}
@@ -704,6 +713,13 @@
 									on:click={handleLinkClick}
 								>
 									Managed IT
+								</a>
+								<a
+									href="/co-managed-it/"
+									class="block py-1 px-3 text-sm text-gray-600"
+									on:click={handleLinkClick}
+								>
+									Co-Managed IT
 								</a>
 								<a
 									href="/cloud-services-los-angeles/"
