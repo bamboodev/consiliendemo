@@ -223,7 +223,11 @@
 				</li>
 
 				<li class="flex justify-center items-center">
-					<img src="/images/partners/vmware-logo.png" alt="Vmware logo" class="max-w-full h-auto" />
+					<img
+						src="/images/partners/lenovo-logo-transparent-image.png"
+						alt="Lenovo logo"
+						class="max-w-full h-auto"
+					/>
 				</li>
 
 				<li class="flex justify-center items-center">
