@@ -2,6 +2,8 @@
 	import { asHTML, asText } from '@prismicio/helpers';
 	import { PrismicImage } from '@prismicio/svelte';
 	import { goto } from '$app/navigation';
+	import { SliceZone } from '@prismicio/svelte';
+	import { components } from '$lib/slices';
 	import AuthorInfo from '$lib/components/AuthorInfo.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import { onMount } from 'svelte';
@@ -87,6 +89,8 @@
 						{@html asHTML(article.data.content)}
 					</div>
 				</div>
+
+				<SliceZone slices={article.data.slices} {components} />
 			</div>
 
 			<aside class="w-full md:w-80 shrink-0">

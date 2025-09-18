@@ -70,7 +70,77 @@
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
-					"choices": {}
+					"choices": {
+						"card_list": {
+							"type": "SharedSlice"
+						},
+						"custom_script": {
+							"type": "SharedSlice"
+						},
+						"hero_text": {
+							"type": "SharedSlice"
+						},
+						"call_to_action": {
+							"type": "SharedSlice"
+						},
+						"counter": {
+							"type": "SharedSlice"
+						},
+						"clutch_reviews": {
+							"type": "SharedSlice"
+						},
+						"faqs": {
+							"type": "SharedSlice"
+						},
+						"multi_column": {
+							"type": "SharedSlice"
+						},
+						"icon_grid": {
+							"type": "SharedSlice"
+						},
+						"contact_form": {
+							"type": "SharedSlice"
+						},
+						"journey_map": {
+							"type": "SharedSlice"
+						},
+						"item_table": {
+							"type": "SharedSlice"
+						},
+						"partners_carousel": {
+							"type": "SharedSlice"
+						},
+						"rto_calculator": {
+							"type": "SharedSlice"
+						},
+						"page_hero": {
+							"type": "SharedSlice"
+						},
+						"one_column_text": {
+							"type": "SharedSlice"
+						},
+						"hero_form": {
+							"type": "SharedSlice"
+						},
+						"full_screen_hero": {
+							"type": "SharedSlice"
+						},
+						"three_column_content": {
+							"type": "SharedSlice"
+						},
+						"two_column_text_image": {
+							"type": "SharedSlice"
+						},
+						"two_column_text": {
+							"type": "SharedSlice"
+						},
+						"rich_text": {
+							"type": "SharedSlice"
+						},
+						"two_column_text_image_accordion": {
+							"type": "SharedSlice"
+						}
+					}
 				}
 			}
 		},

@@ -57,7 +57,30 @@ type ContentRelationshipFieldWithData<
 	>;
 }[Exclude<TCustomType[number], string>['id']];
 
-type ArticleDocumentDataSlicesSlice = never;
+type ArticleDocumentDataSlicesSlice =
+	| CardListSlice
+	| CustomScriptSlice
+	| HeroTextSlice
+	| CallToActionSlice
+	| CounterSlice
+	| ClutchReviewsSlice
+	| FaqsSlice
+	| MultiColumnSlice
+	| IconGridSlice
+	| ContactFormSlice
+	| JourneyMapSlice
+	| ItemTableSlice
+	| PartnersCarouselSlice
+	| RtoCalculatorSlice
+	| PageHeroSlice
+	| OneColumnTextSlice
+	| HeroFormSlice
+	| FullScreenHeroSlice
+	| ThreeColumnContentSlice
+	| TwoColumnTextImageSlice
+	| TwoColumnTextSlice
+	| RichTextSlice
+	| TwoColumnTextImageAccordionSlice;
 
 /**
  * Content for Article documents
