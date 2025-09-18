@@ -422,6 +422,15 @@
 									>
 										Real Estate
 									</a>
+									<a
+										href="/food-manufacturing"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}
+									>
+										Food Manufacturing
+									</a>
 								</div>
 							</div>
 						{/if}
@@ -799,6 +808,13 @@
 								on:click={handleLinkClick}
 							>
 								Real Estate
+							</a>
+							<a
+								href="/food-manufacturing"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Food Manufacturing
 							</a>
 						</div>
 					{/if}
