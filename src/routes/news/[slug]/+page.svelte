@@ -79,7 +79,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="max-w-7xl mx-auto py-8 px-4">
+	<div class="blog max-w-7xl mx-auto py-8 px-4">
 		<div class="flex flex-col md:flex-row gap-8">
 			<div class="flex-1">
 				<div class="max-w-4xl">
@@ -238,5 +238,9 @@
 	:global(.prose [data-oembed]) {
 		width: 100%;
 		margin: 1rem 0;
+	}
+
+	:global(.blog section.rich-text-content div.px-6) {
+		padding-inline: 0 !important;
 	}
 </style>

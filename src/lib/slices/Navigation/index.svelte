@@ -142,6 +142,13 @@
 										on:click={handleLinkClick}>Our Commitment</a
 									>
 									<a
+										href="/advisory-board"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}>Advisory Board</a
+									>
+									<a
 										href="/faqs"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 										role="menuitem"
@@ -436,9 +443,76 @@
 						{/if}
 					</li>
 
-					<li class="hover:text-gray-900 flex items-center">
-						<a href="/news" on:click={handleLinkClick}>News</a>
+					<!-- Resources Menu -->
+					<li class="relative inline-block text-left flex items-center">
+						<div>
+							<button
+								type="button"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								id="resources-menu-button"
+								data-menu-button="resources"
+								aria-expanded={activeMenu === 'resources'}
+								aria-haspopup="true"
+								on:click={(e) => toggleMenu('resources', e)}
+							>
+								Resources
+								<svg
+									class="-mr-1 size-5 text-gray-400"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+									data-slot="icon"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+							</button>
+						</div>
+
+						{#if activeMenu === 'resources'}
+							<div
+								data-dropdown="resources"
+								class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								role="menu"
+								aria-orientation="vertical"
+								aria-labelledby="resources-menu-button"
+								tabindex="-1"
+								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
+								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
+							>
+								<div class="py-1" role="none">
+									<a
+										href="/news"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}>News</a
+									>
+									<a
+										href="/cybersecurity-risk-assessment"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}>Cybersecurity Risk Assessment</a
+									>
+									<a
+										href="/get-your-free-it-budget-tool"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+										role="menuitem"
+										tabindex="-1"
+										on:click={handleLinkClick}>Free IT Budget Tool</a
+									>
+								</div>
+							</div>
+						{/if}
 					</li>
+
+					<!-- <li class="hover:text-gray-900 flex items-center">
+						<a href="/news" on:click={handleLinkClick}>News</a>
+					</li> -->
 
 					<!-- <li class="hover:text-gray-900">
 						<a href="/subscribe">Subscribe</a>
@@ -605,6 +679,13 @@
 								on:click={handleLinkClick}
 							>
 								Our Commitment
+							</a>
+							<a
+								href="/advisory-board"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Advisory Board
 							</a>
 							<a
 								href="/faqs"
@@ -820,13 +901,63 @@
 					{/if}
 				</div>
 
-				<a
+				<!-- Mobile News dropdown -->
+				<div class="relative">
+					<button
+						type="button"
+						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
+						on:click={(e) => toggleMenu('mobile-news', e)}
+					>
+						<span class="font-text font-light uppercase">Resources</span>
+						<svg
+							class="{activeMenu === 'mobile-news'
+								? 'rotate-180'
+								: ''} w-5 h-5 transition-transform duration-200"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</button>
+
+					{#if activeMenu === 'mobile-news'}
+						<div class="bg-gray-50 pl-6" transition:slide={{ duration: 200 }}>
+							<a
+								href="/news"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								News
+							</a>
+							<a
+								href="/cybersecurity-risk-assessment"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Cybersecurity Risk Assessment
+							</a>
+							<a
+								href="/get-your-free-it-budget-tool"
+								class="block py-2 px-3 font-text font-light uppercase"
+								on:click={handleLinkClick}
+							>
+								Free IT Budget Tool
+							</a>
+						</div>
+					{/if}
+				</div>
+
+				<!-- <a
 					href="/news"
 					class="block py-2 px-3 font-text font-light uppercase border-l-4 border-transparent"
 					on:click={handleLinkClick}
 				>
 					News
-				</a>
+				</a> -->
 
 				<!-- <a
 					href="/subscribe"
