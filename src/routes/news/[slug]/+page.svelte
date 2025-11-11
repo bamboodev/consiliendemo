@@ -67,7 +67,7 @@
 	<section class="bg-gray-100 mb-8">
 		<div class="max-w-7xl mx-auto">
 			<div class="max-w-4xl py-8 px-4">
-				<h2 class="text-2xl max-w-4xl font-text font-light">{article.data.title}</h2>
+				<h1 class="text-2xl max-w-4xl font-text font-light">{article.data.title}</h1>
 				{#if article.data.date}
 					<div class="font-text text-sm text-gray-400">
 						{article.data.date}
