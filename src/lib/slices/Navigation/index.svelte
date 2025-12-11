@@ -384,15 +384,57 @@
 								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
 							>
 								<div class="py-1" role="none">
-									<a
-										href="/manufacturing"
-										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-										role="menuitem"
-										tabindex="-1"
-										on:click={handleLinkClick}
-									>
-										Manufacturing
-									</a>
+									<!-- Manufacturing with submenu -->
+									<div class="relative group/submenu">
+										<a
+											href="/manufacturing"
+											class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+											role="menuitem"
+											tabindex="-1"
+											on:click={handleLinkClick}
+										>
+											Manufacturing
+											<svg
+												class="w-4 h-4 ml-2"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M9 5l7 7-7 7"
+												/>
+											</svg>
+										</a>
+										<!-- Submenu -->
+										<div
+											class="absolute left-full top-0 ml-0 w-48 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none invisible opacity-0 group-hover/submenu:visible group-hover/submenu:opacity-100 transition-all duration-150"
+										>
+											<div class="py-1">
+												<a
+													href="/food-manufacturing"
+													class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+													role="menuitem"
+													tabindex="-1"
+													on:click={handleLinkClick}
+												>
+													Food Manufacturing
+												</a>
+												<a
+													href="/aerospace-manufacturing"
+													class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+													role="menuitem"
+													tabindex="-1"
+													on:click={handleLinkClick}
+												>
+													Aerospace Manufacturing
+												</a>
+											</div>
+										</div>
+									</div>
+
 									<a
 										href="/professional-services-firms"
 										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
@@ -428,15 +470,6 @@
 										on:click={handleLinkClick}
 									>
 										Real Estate
-									</a>
-									<a
-										href="/food-manufacturing"
-										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-										role="menuitem"
-										tabindex="-1"
-										on:click={handleLinkClick}
-									>
-										Food Manufacturing
 									</a>
 								</div>
 							</div>
@@ -855,12 +888,28 @@
 
 					{#if activeMenu === 'mobile-industries'}
 						<div class="bg-gray-50 pl-6" transition:slide={{ duration: 200 }}>
+							<!-- Manufacturing with submenu -->
 							<a
 								href="/manufacturing"
 								class="block py-2 px-3 font-text font-light uppercase"
 								on:click={handleLinkClick}
 							>
 								Manufacturing
+							</a>
+							<!-- Indented submenu items -->
+							<a
+								href="/food-manufacturing"
+								class="block py-2 px-3 pl-6 text-sm text-gray-600"
+								on:click={handleLinkClick}
+							>
+								Food Manufacturing
+							</a>
+							<a
+								href="/aerospace-manufacturing"
+								class="block py-2 px-3 pl-6 text-sm text-gray-600"
+								on:click={handleLinkClick}
+							>
+								Aerospace Manufacturing
 							</a>
 							<a
 								href="/professional-services-firms"
@@ -889,13 +938,6 @@
 								on:click={handleLinkClick}
 							>
 								Real Estate
-							</a>
-							<a
-								href="/food-manufacturing"
-								class="block py-2 px-3 font-text font-light uppercase"
-								on:click={handleLinkClick}
-							>
-								Food Manufacturing
 							</a>
 						</div>
 					{/if}
