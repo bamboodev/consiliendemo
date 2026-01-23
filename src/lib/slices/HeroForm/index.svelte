@@ -27,7 +27,7 @@
 
 	<div class="max-w-6xl mx-auto px-8 relative z-10 w-full">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-			<div class="text-white">
+			<div class="text-black">
 				<div class="prose prose-lg max-w-none">
 					<PrismicRichText field={slice.primary.body} />
 				</div>
