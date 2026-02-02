@@ -19,11 +19,7 @@
 	});
 </script>
 
-<section
-	data-slice-type={slice.slice_type}
-	data-slice-variation={slice.variation}
-	class="py-12 md:py-20"
->
+<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="py-12">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Two-column layout container with order based on text_left_image_right -->
 		<div class="flex flex-col md:flex-row md:space-x-8 items-center">

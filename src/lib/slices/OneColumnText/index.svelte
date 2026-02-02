@@ -66,6 +66,10 @@
 		font-size: 14px;
 	}
 
+	.rich-text-content :global(ul) {
+		list-style: disc;
+	}
+
 	.rich-text-content :global(img) {
 		display: block;
 		margin-left: auto;

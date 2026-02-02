@@ -22,12 +22,15 @@
 		content?: any;
 		centered?: boolean;
 	};
+
+	// Get column count for intelligent grid layout
+	$: columnCount = slice.primary.column?.length || 0;
 </script>
 
 <section
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
-	class="multi-column py-12 md:py-36"
+	class="multi-column py-12 md:py-36 md:pb-12"
 	style="background-color: {backgroundColor}; color: {textColor};"
 >
 	{#if slice.primary.main_title}
@@ -42,7 +45,7 @@
 		</div>
 	{/if}
 
-	<div class="columns">
+	<div class="columns columns-{columnCount}">
 		{#each slice.primary.column as column}
 			<div
 				class="column p-6"
@@ -79,12 +82,123 @@
 	}
 
 	.columns {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: 2rem;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 1rem;
+	}
+
+	/* 1 column: full width, centered with max-width */
+	.columns-1 {
+		max-width: 700px;
+	}
+	.columns-1 .column {
+		flex: 1 1 100%;
+	}
+
+	/* 2 columns */
+	.columns-2 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-2 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+
+	/* 3 columns */
+	.columns-3 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-3 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+	@media (min-width: 1024px) {
+		.columns-3 .column {
+			flex: 0 1 calc(33.333% - 1.34rem);
+		}
+	}
+
+	/* 4 columns */
+	.columns-4 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-4 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+	@media (min-width: 1024px) {
+		.columns-4 .column {
+			flex: 0 1 calc(25% - 1.5rem);
+		}
+	}
+
+	/* 5 columns: 3 on top, 2 centered below */
+	.columns-5 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-5 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+	@media (min-width: 1024px) {
+		.columns-5 .column {
+			flex: 0 1 calc(33.333% - 1.34rem);
+		}
+	}
+
+	/* 6 columns */
+	.columns-6 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-6 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+	@media (min-width: 768px) {
+		.columns-6 .column {
+			flex: 0 1 calc(33.333% - 1.34rem);
+		}
+	}
+
+	/* 7+ columns: show 4 per row on desktop, items center automatically */
+	.columns-7 .column,
+	.columns-8 .column,
+	.columns-9 .column,
+	.columns-10 .column {
+		flex: 1 1 100%;
+	}
+	@media (min-width: 640px) {
+		.columns-7 .column,
+		.columns-8 .column,
+		.columns-9 .column,
+		.columns-10 .column {
+			flex: 0 1 calc(50% - 1rem);
+		}
+	}
+	@media (min-width: 768px) {
+		.columns-7 .column,
+		.columns-8 .column,
+		.columns-9 .column,
+		.columns-10 .column {
+			flex: 0 1 calc(33.333% - 1.34rem);
+		}
+	}
+	@media (min-width: 1024px) {
+		.columns-7 .column,
+		.columns-8 .column,
+		.columns-9 .column,
+		.columns-10 .column {
+			flex: 0 1 calc(25% - 1.5rem);
+		}
 	}
 
 	.column {
