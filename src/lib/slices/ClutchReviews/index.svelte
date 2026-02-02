@@ -35,7 +35,7 @@
 		data-nofollow="false"
 		data-expandifr="true"
 		data-scale="100"
-		data-reviews="347784,268953,268945"
+		data-reviews="347784,369118,364491,268953,268945,268250"
 		data-clutchcompany-id="2272691"
 	></div>
 </section>
