@@ -1,0 +1,68 @@
+# Company Overview
+
+Consilien is a cybersecurity-first IT solutions provider specializing in risk management, compliance, and managed IT services for mid-market businesses in California.  
+Our mission is to build a legacy of successful client relationships by aligning IT with business outcomes, reducing risk, and enabling secure growth.
+
+## Products
+
+- **CIMS (Consilien IT Maturity Standard)**: A proprietary framework used to assess, manage, and mature IT environments across security, compliance, and operational excellence.
+- **vCIO Strategic Roadmap**: A structured planning tool aligning IT investments with business goals, managed by a dedicated virtual CIO.
+- **Cyber Risk Scorecard**: A measurable snapshot of an organization’s cyber risk posture, used to drive informed decision-making.
+- **Security Awareness Training Platform**: On-demand, role-based training modules designed to reduce human risk and foster a security-first culture.
+- **Endpoint Detection & Response (EDR)**: Advanced threat detection and response for desktops, laptops, and servers using AI-powered tools.
+- **Compliance Readiness Toolkit**: A curated set of documentation templates, control checklists, and reporting tools for frameworks like CMMC and NIST.
+
+## Services
+
+- **Managed IT Services**: End-to-end IT support including infrastructure, endpoint management, help desk, and proactive monitoring.
+- **vCISO & Compliance Services**: Expert guidance on frameworks like NIST, CMMC, PCI DSS, and SOC 2 to reduce risk and support audit readiness.
+- **Co-Managed IT**: A collaborative model where internal IT teams are supported by Consilien’s technical resources, tools, and expertise.
+- **Risk Management Consulting**: Assess, prioritize, and mitigate technology risks through business-aligned IT governance and advisory services.
+- **Cloud Strategy & Migration**: Secure and compliant transitions to cloud-based infrastructure, including Microsoft 365, Azure, and hybrid models.
+- **IT Project Management**: Oversight and execution of critical infrastructure upgrades, relocations, and system integrations.
+
+## Features
+
+- Strategic IT planning with executive-level insights
+- Compliance-aligned IT operations (NIST, CMMC, PCI, SOC 2)
+- Cybersecurity-first approach to infrastructure and user support
+- Security Awareness Training and governance support
+- Proactive monitoring and incident response for endpoints
+- IT asset lifecycle management and cost transparency
+- Dedicated vCIO and vCISO advisory teams
+- Monthly reporting with metrics and performance KPIs
+
+## Additional Information
+
+| Category      | Detail                                                 |
+| ------------- | ------------------------------------------------------ |
+| Founded       | 2001                                                   |
+| Headquarters  | Torrance, California, USA                              |
+| Industry      | Cybersecurity & IT Management                          |
+| Contact Email | [info@consilien.com](mailto:info@consilien.com)        |
+| Website       | [https://www.consilien.com](https://www.consilien.com) |
+
+## Testimonials
+
+- **Operations Manager, Manufacturing Firm**: "Consilien transformed our IT from a cost center into a secure, strategic asset."
+- **COO, Real Estate Management Group**: "We value Consilien’s clear communication, professionalism, and deep understanding of compliance."
+
+## FAQs
+
+**Q1:** What industries does Consilien serve?  
+**A1:** We serve mid-market organizations in manufacturing, distribution, food processing, real estate, media and entertainment, and professional services. We do not serve healthcare.
+
+**Q2:** Do you provide cybersecurity compliance support?  
+**A2:** Yes, we offer compliance readiness services for NIST, CMMC, PCI DSS, and SOC 2, including gap assessments, remediation planning, and ongoing governance.
+
+**Q3:** What makes Consilien different from other MSPs?  
+**A3:** We speak business, not just tech. Our approach is security-first, people-focused, and guided by our proven IT Maturity Standard to ensure alignment with your business goals.
+
+**Q4:** Can Consilien support hybrid or multi-location businesses?  
+**A4:** Yes, we specialize in supporting businesses with multiple offices or hybrid workforces, ensuring secure, reliable, and scalable IT operations.
+
+**Q5:** How does onboarding with Consilien work?  
+**A5:** All engagements follow our Proven Process, beginning with discovery and assessment, followed by strategy development, implementation, and ongoing optimization.
+
+**Q6:** What size companies do you typically work with?  
+**A6:** Our clients typically have 50 to 250 users, are growing past their current IT provider, and are ready for a strategic IT partner focused on security and business alignment.
