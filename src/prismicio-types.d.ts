@@ -879,6 +879,16 @@ export interface HeroFormSliceDefaultPrimary {
 	background: prismic.SelectField<'image' | 'white', 'filled'>;
 
 	/**
+	 * Background Image field in *HeroForm → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_form.default.primary.background_image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	background_image: prismic.ImageField<never>;
+
+	/**
 	 * Body field in *HeroForm → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text

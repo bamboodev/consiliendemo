@@ -18,9 +18,11 @@
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 	class="py-36 bg-cover bg-center bg-no-repeat flex items-center relative"
-	style="background-image: {slice.primary.background === 'image'
-		? 'url(/images/home-hero-bg2.jpg)'
-		: 'none'};"
+	style="background-image: {slice.primary.background_image?.url
+		? `url(${slice.primary.background_image.url})`
+		: slice.primary.background === 'image'
+			? 'url(/images/home-hero-bg2.jpg)'
+			: 'none'};"
 >
 	<!-- Dark overlay -->
 	<!-- <div class="absolute inset-0 bg-black bg-opacity-40"></div> -->

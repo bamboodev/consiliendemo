@@ -24,6 +24,14 @@
             "default_value": "image"
           }
         },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "body": {
           "type": "StructuredText",
           "config": {
