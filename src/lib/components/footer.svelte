@@ -179,14 +179,6 @@
 				</li>
 
 				<li class="flex justify-center items-center">
-					<img
-						src="/images/partners/appriver-logo.png"
-						alt="Appriver by Opentext logo"
-						class="max-w-full h-auto"
-					/>
-				</li>
-
-				<li class="flex justify-center items-center">
 					<img src="/images/partners/datto-logo.png" alt="Datto logo" class="max-w-full h-auto" />
 				</li>
 
@@ -216,14 +208,6 @@
 
 				<li class="flex justify-center items-center">
 					<img
-						src="/images/partners/sonicwall-logo.png"
-						alt="Sonicwall logo"
-						class="max-w-full h-auto"
-					/>
-				</li>
-
-				<li class="flex justify-center items-center">
-					<img
 						src="/images/partners/lenovo-logo-transparent-image.png"
 						alt="Lenovo logo"
 						class="max-w-full h-auto"
@@ -236,6 +220,14 @@
 
 				<li class="flex justify-center items-center">
 					<img src="/images/partners/dell-logo.png" alt="Dell logo" class="max-w-full h-auto" />
+				</li>
+
+				<li class="flex justify-center items-center">
+					<img
+						src="/images/partners/CLOUDFLARE.png"
+						alt="Cloudflare logo"
+						class="max-w-full h-auto"
+					/>
 				</li>
 			</ul>
 		</div>
