@@ -1,5 +1,11 @@
 import { c as createClient } from "../../../../chunks/prismicio.js";
 import { e as error } from "../../../../chunks/index.js";
+const prerender = true;
+const entries = async () => {
+  const client = createClient();
+  const articles = await client.getAllByType("article");
+  return articles.filter((article) => article.uid).map((article) => ({ slug: article.uid }));
+};
 const load = async ({ params }) => {
   const client = createClient();
   const article = await client.getByUID("article", params.slug);
@@ -18,5 +24,7 @@ const load = async ({ params }) => {
   };
 };
 export {
-  load
+  entries,
+  load,
+  prerender
 };

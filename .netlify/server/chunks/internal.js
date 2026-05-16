@@ -117,14 +117,21 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + `/favicon.svg" />
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + `/favicon.ico" />
 	<script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=consiliendemo"><\/script>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<link rel="canonical" href="https://www.consilien.com">
-	<meta name="robots" content="{robots_directive}">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 	<link rel="author" href="https://www.consilien.com">
 	<link rel="publisher" href="https://www.consilien.com">
+
+	<link rel="preconnect" href="https://images.prismic.io">
+<link rel="preconnect" href="https://static.cdn.prismic.io">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+
+	<!--Rb2b-->
+	<script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("7N850H5LKRN1");<\/script>
 
 
 	<!-- Google tag (gtag.js) -->
@@ -133,73 +140,37 @@ const options = {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-VSP320SVNR');
 <\/script>
 
 <!-- Google tag (gtag.js) -->
-<script async src=”https://www.googletagmanager.com/gtag/js?id=AW-622586033"><\/script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-622586033"><\/script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-622586033');
+<\/script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17795055269"><\/script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-gtag('config', 'AW-622586033');
+gtag('config', 'AW-17795055269');
 <\/script>
-			<meta name="msvalidate.01" content="36FFC2165DB16EDEDF9A35C64152EFF5"/>
+<script>
+gtag('config', 'AW-17795055269/D96oCJzq9aQcEKX9q6VC', {
+'phone_conversion_number': '8666803388'
+});
+<\/script>
+<meta name="msvalidate.01" content="36FFC2165DB16EDEDF9A35C64152EFF5"/>
 <meta name="google-site-verification" content="dq4iDFpiPriAw4HUCuVQWgDzBVkzn0g99RrM6hr12eQ"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Consilien",
-  "image": "https://www.consilien.com/images/logo.svg",
-  "url": "https://www.consilien.com/",
-  "telephone": "866-680-3388",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "21250 Hawthorne Blvd Suite 500",
-    "addressLocality": "Torrance",
-    "addressRegion": "CA",
-    "postalCode": "90501",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 33.8362436,
-    "longitude": -118.3526184
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    "opens": "08:00",
-    "closes": "17:00"
-  },
-  "sameAs": [
-    "https://twitter.com/Consilien",
-    "https://www.linkedin.com/company/consilien",
-    "https://www.facebook.com/consilien"
-  ],
-
-
-    "hasMap": {
-  "@type": "Map",
-   "url":  "https://www.google.com/maps?cid=17115211362562679061"
-   }
-}
-<\/script>
-    </head>
-
-
-
-
+<meta name="google-site-verification" content="wBkkv5sHMWTg-Hwi9a86nm8UFWUfoIWXKFsA60toKRo" />
+<meta name="google-site-verification" content="vy399MMpK63kRfQS9l5IUD_LqrZ8F_wZ0NkTu-rkoPU" />
+</head>
 
 	` + head + '\n</head>\n\n<body data-sveltekit-preload-data="hover">\n	<div style="display: contents">' + body + "</div>\n</body>\n\n</html>\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
@@ -273,7 +244,7 @@ gtag('config', 'AW-622586033');
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "6dknnb"
+  version_hash: "1snktbq"
 };
 async function get_hooks() {
   let handle;

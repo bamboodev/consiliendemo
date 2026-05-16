@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createClient } from '$lib/prismicio';
-	import { generateSlug } from '$lib/utils/slug';
 	import { onMount } from 'svelte';
 
 	let articles: any[] = [];
@@ -11,7 +10,7 @@
 			orderings: [{ field: 'document.first_publication_date', direction: 'desc' }],
 			limit: 3
 		});
-		articles = response;
+		articles = response.filter((article) => article.uid);
 	});
 
 	function formatDate(date: string) {
@@ -26,7 +25,7 @@
 <div class="space-y-4">
 	{#each articles as article}
 		<div class="border-b border-[#565658] pb-4 last:border-b-0">
-			<a href="/news/{article.data.title ? generateSlug(article.data.title) : ''}" class="block group">
+			<a href="/news/{article.uid}" class="block group">
 				<h5 class="text-sm font-medium text-white group-hover:text-orange-500 transition-colors">
 					{article.data.title}
 				</h5>

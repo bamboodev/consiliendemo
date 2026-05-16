@@ -36,10 +36,18 @@
 	<!-- Footer component with responsive 4-column layout -->
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-8 text-white">
 		<div class="p-4">
-			<img src="/images/Consilien_Logo_text.svg" alt="Consilien Logo" class=" block" />
+			<img
+				src="/images/Consilien_Logo_text.svg"
+				alt="Consilien Logo"
+				width="1127"
+				height="54"
+				class=" block"
+			/>
 			<img
 				src="/images/consilien-network.svg"
 				alt="Consilien Network"
+				width="2568"
+				height="1743"
 				class="mt-8 block mx-auto max-w-[200px]"
 			/>
 			<div class=" flex justify-center items-center">
@@ -174,18 +182,28 @@
 					<img
 						src="/images/partners/onetrust-logo_1.png"
 						alt="Onetrust logo"
+						width="400"
+						height="160"
 						class="max-w-full h-auto"
 					/>
 				</li>
 
 				<li class="flex justify-center items-center">
-					<img src="/images/partners/datto-logo.png" alt="Datto logo" class="max-w-full h-auto" />
+					<img
+						src="/images/partners/datto-logo.png"
+						alt="Datto logo"
+						width="400"
+						height="160"
+						class="max-w-full h-auto"
+					/>
 				</li>
 
 				<li class="flex justify-center items-center">
 					<img
 						src="/images/partners/microsoft-logo.png"
 						alt="Microsoft logo"
+						width="400"
+						height="160"
 						class="max-w-full h-auto"
 					/>
 				</li>
@@ -194,6 +212,8 @@
 					<img
 						src="/images/partners/connectwise-logo.png"
 						alt="Connectwise logo"
+						width="400"
+						height="160"
 						class="max-w-full h-auto"
 					/>
 				</li>
@@ -202,6 +222,8 @@
 					<img
 						src="/images/partners/watchguard-logo.png"
 						alt="Watchguard logo"
+						width="400"
+						height="160"
 						class="max-w-full h-auto"
 					/>
 				</li>
@@ -210,22 +232,38 @@
 					<img
 						src="/images/partners/lenovo-logo-transparent-image.png"
 						alt="Lenovo logo"
+						width="430"
+						height="190"
 						class="max-w-full h-auto"
 					/>
 				</li>
 
 				<li class="flex justify-center items-center">
-					<img src="/images/partners/cisco-logo.png" alt="Cisco logo" class="max-w-full h-auto" />
+					<img
+						src="/images/partners/cisco-logo.png"
+						alt="Cisco logo"
+						width="400"
+						height="160"
+						class="max-w-full h-auto"
+					/>
 				</li>
 
 				<li class="flex justify-center items-center">
-					<img src="/images/partners/dell-logo.png" alt="Dell logo" class="max-w-full h-auto" />
+					<img
+						src="/images/partners/dell-logo.png"
+						alt="Dell logo"
+						width="400"
+						height="160"
+						class="max-w-full h-auto"
+					/>
 				</li>
 
 				<li class="flex justify-center items-center">
 					<img
 						src="/images/partners/CLOUDFLARE.png"
 						alt="Cloudflare logo"
+						width="430"
+						height="190"
 						class="max-w-full h-auto"
 					/>
 				</li>

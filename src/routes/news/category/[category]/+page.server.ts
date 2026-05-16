@@ -1,6 +1,17 @@
 import { createClient } from '$lib/prismicio';
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { EntryGenerator, PageServerLoad } from './$types';
+
+export const prerender = true;
+
+export const entries: EntryGenerator = async () => {
+    const client = createClient();
+    const articles = await client.getAllByType('article');
+    const categories = [
+        ...new Set(articles.map((a) => a.data.category).filter((c): c is string => Boolean(c)))
+    ];
+    return categories.map((category) => ({ category: encodeURIComponent(category) }));
+};
 
 export const load: PageServerLoad = async ({ params }) => {
     const client = createClient();

@@ -75,7 +75,14 @@
 		<div class="flex justify-between h-10">
 			<!-- Logo -->
 			<div class="flex-shrink-0 flex items-center">
-				<a href="/"><img src="/images/logo.svg" alt="Logo" class="h-5 sm:h-4 lg:h-6 my-3 ml-3" /></a
+				<a href="/"
+					><img
+						src="/images/logo.svg"
+						alt="Logo"
+						width="288"
+						height="24"
+						class="h-5 sm:h-4 lg:h-6 my-3 ml-3"
+					/></a
 				>
 			</div>
 

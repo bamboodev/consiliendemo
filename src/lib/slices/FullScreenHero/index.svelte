@@ -3,7 +3,7 @@
 	import AOS from 'aos';
 	import 'aos/dist/aos.css'; // Import the AOS styles
 	import type { Content } from '@prismicio/client';
-	import { PrismicText } from '@prismicio/svelte';
+	import { PrismicImage, PrismicText } from '@prismicio/svelte';
 
 	export let slice: Content.FullScreenHeroSlice;
 
@@ -26,16 +26,16 @@
 	data-slice-variation={slice.variation}
 	class="relative h-svh overflow-hidden"
 >
-	{#if slice.primary.background_image.url}
-		<img
-			src={slice.primary.background_image.url}
-			alt={slice.primary.background_image.alt ?? ''}
-			fetchpriority="high"
-			loading="eager"
-			decoding="async"
-			class="absolute inset-0 w-full h-full object-cover"
-		/>
-	{/if}
+	<PrismicImage
+		field={slice.primary.background_image}
+		widths={[640, 960, 1280, 1600, 1920, 2560]}
+		sizes="100vw"
+		imgixParams={{ q: 80 }}
+		fetchpriority="high"
+		loading="eager"
+		decoding="async"
+		class="absolute inset-0 w-full h-full object-cover"
+	/>
 	<div class="relative flex flex-col max-w-7xl justify-start items-start mx-auto h-svh px-6">
 		<div class="mt-12 md:mt-36">
 			<h1 class="text-[#6DA63F] font-bold text-5xl block" data-aos="fade-up">

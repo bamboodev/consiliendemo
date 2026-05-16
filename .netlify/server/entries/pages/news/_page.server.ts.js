@@ -1,4 +1,5 @@
 import { c as createClient } from "../../../chunks/prismicio.js";
+const prerender = true;
 const load = async () => {
   const client = createClient();
   const articles = await client.getAllByType("article", {
@@ -13,5 +14,6 @@ const load = async () => {
   };
 };
 export {
-  load
+  load,
+  prerender
 };

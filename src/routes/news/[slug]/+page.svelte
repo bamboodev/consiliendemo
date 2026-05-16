@@ -6,35 +6,25 @@
 	import { components } from '$lib/slices';
 	import AuthorInfo from '$lib/components/AuthorInfo.svelte';
 	import SEO from '$lib/components/SEO.svelte';
-	import { onMount } from 'svelte';
 	export let data;
 
 	$: ({ article } = data);
 	let searchTerm = '';
 	let selectedCategory: string | null = article?.data?.category || null;
-	let seoData: {
-		meta_title?: string;
-		meta_description?: string;
-		meta_image?: {
-			url: string;
-			alt: string;
-		};
-		schema?: string;
-	} = {};
 
-	onMount(() => {
-		seoData = {
-			meta_title: article?.data?.meta_title || article?.data?.title || '',
-			meta_description: article?.data?.meta_description || undefined,
-			meta_image: article?.data?.featured_image?.url
-				? {
-						url: article.data.featured_image.url,
-						alt: article.data.featured_image.alt || ''
-					}
-				: undefined,
-			schema: article?.data?.schema || undefined
-		};
-	});
+	$: seoData = article
+		? {
+				meta_title: article.data.meta_title || article.data.title || '',
+				meta_description: article.data.meta_description || undefined,
+				meta_image: article.data.featured_image?.url
+					? {
+							url: article.data.featured_image.url,
+							alt: article.data.featured_image.alt || ''
+						}
+					: undefined,
+				schema: article.data.schema || undefined
+			}
+		: {};
 
 	const categories = [
 		'Backup and Disaster Recovery',
@@ -83,7 +73,12 @@
 		<div class="flex flex-col md:flex-row gap-8">
 			<div class="flex-1">
 				<div class="max-w-4xl">
-					<PrismicImage field={data.featured_image} />
+					<PrismicImage
+						field={data.featured_image}
+						widths={[400, 600, 800, 1200, 1600, 2000]}
+						sizes="(max-width: 896px) 100vw, 896px"
+						imgixParams={{ q: 80 }}
+					/>
 
 					<div class="prose prose-lg">
 						{@html asHTML(article.data.content)}

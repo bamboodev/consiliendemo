@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { asText } from '@prismicio/helpers';
 	import { page } from '$app/stores';
-	import { generateSlug } from '$lib/utils/slug';
+	import { onMount } from 'svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	export let data;
 
@@ -12,8 +12,12 @@
 	};
 
 	$: ({ articles } = data);
-	let searchTerm = $page.url.searchParams.get('search') || '';
+	let searchTerm = '';
 	let selectedCategory: string | null = null;
+
+	onMount(() => {
+		searchTerm = $page.url.searchParams.get('search') || '';
+	});
 
 	const categories = [
 		'Backup and Disaster Recovery',
@@ -35,6 +39,8 @@
 
 	$: filteredArticles = articles
 		.filter((article) => {
+			if (!article.uid) return false;
+
 			// Category filter
 			if (selectedCategory && article.data.category !== selectedCategory) {
 				return false;
@@ -74,7 +80,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{#each filteredArticles as article}
 					<a
-						href="/news/{article.data.title ? generateSlug(article.data.title) : ''}"
+						href="/news/{article.uid}"
 						class="block p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
 					>
 						<div class="space-y-2">

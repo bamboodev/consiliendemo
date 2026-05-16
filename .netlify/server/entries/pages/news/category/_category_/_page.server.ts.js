@@ -1,5 +1,14 @@
 import { c as createClient } from "../../../../../chunks/prismicio.js";
 import { e as error } from "../../../../../chunks/index.js";
+const prerender = true;
+const entries = async () => {
+  const client = createClient();
+  const articles = await client.getAllByType("article");
+  const categories = [
+    ...new Set(articles.map((a) => a.data.category).filter((c) => Boolean(c)))
+  ];
+  return categories.map((category) => ({ category: encodeURIComponent(category) }));
+};
 const load = async ({ params }) => {
   const client = createClient();
   const articles = await client.getAllByType("article", {
@@ -21,5 +30,7 @@ const load = async ({ params }) => {
   };
 };
 export {
-  load
+  entries,
+  load,
+  prerender
 };

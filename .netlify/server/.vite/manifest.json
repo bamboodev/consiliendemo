@@ -8,13 +8,6 @@
       "_internal.js"
     ]
   },
-  "_PrismicImage.js": {
-    "file": "chunks/PrismicImage.js",
-    "name": "PrismicImage",
-    "imports": [
-      "_ssr.js"
-    ]
-  },
   "_SEO.js": {
     "file": "chunks/SEO.js",
     "name": "SEO",
@@ -43,11 +36,10 @@
     "file": "chunks/index2.js",
     "name": "index",
     "imports": [
-      "_ssr.js",
-      "_PrismicImage.js"
+      "_ssr.js"
     ],
     "css": [
-      "_app/immutable/assets/index.FivFlb3t.css"
+      "_app/immutable/assets/index.DHMcspaj.css"
     ]
   },
   "_internal.js": {
@@ -64,10 +56,6 @@
     "imports": [
       "_client.js"
     ]
-  },
-  "_slug.js": {
-    "file": "chunks/slug.js",
-    "name": "slug"
   },
   "_ssr.js": {
     "file": "chunks/ssr.js",
@@ -136,7 +124,7 @@
       "_SEO.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.aU0VUASA.css"
+      "_app/immutable/assets/_layout.ZyDh8wZB.css"
     ]
   },
   "src/routes/[[preview=preview]]/+page.server.ts": {
@@ -215,7 +203,7 @@
     "imports": [
       "_ssr.js",
       "_stores.js",
-      "_slug.js"
+      "_SEO.js"
     ]
   },
   "src/routes/news/[slug]/+page.server.ts": {
@@ -235,12 +223,12 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_PrismicImage.js",
+      "_index2.js",
       "_client.js",
       "_SEO.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.BEgjXvpe.css"
+      "_app/immutable/assets/_page.jLQeoq36.css"
     ]
   },
   "src/routes/news/category/[category]/+page.server.ts": {
@@ -259,8 +247,7 @@
     "src": "src/routes/news/category/[category]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_ssr.js",
-      "_slug.js"
+      "_ssr.js"
     ]
   },
   "src/routes/sitemap.xml/+server.ts": {

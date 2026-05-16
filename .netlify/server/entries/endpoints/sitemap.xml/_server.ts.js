@@ -1,4 +1,5 @@
 import { c as createClient } from "../../../chunks/prismicio.js";
+const prerender = true;
 const GET = async ({ url }) => {
   const client = createClient();
   const siteUrl = url.origin;
@@ -43,5 +44,6 @@ const GET = async ({ url }) => {
   }
 };
 export {
-  GET
+  GET,
+  prerender
 };

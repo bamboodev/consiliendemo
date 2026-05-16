@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { asText } from '@prismicio/helpers';
-	import { generateSlug } from '$lib/utils/slug';
 	export let data;
 
 	$: ({ articles, category } = data);
@@ -17,6 +16,8 @@
 	];
 
 	$: filteredArticles = articles.filter((article) => {
+		if (!article.uid) return false;
+
 		// Search filter
 		if (!searchTerm) return true;
 		const searchLower = searchTerm.toLowerCase();
@@ -44,7 +45,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{#each filteredArticles as article}
 					<a
-						href="/news/{article.data.title ? generateSlug(article.data.title) : ''}"
+						href="/news/{article.uid}"
 						class="block p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
 					>
 						<div class="space-y-2">

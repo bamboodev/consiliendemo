@@ -30,7 +30,13 @@
 	</h2>
 
 	<div class="imagemap relative">
-		<img src="/images/Customer-Journey.jpg" class="map-img w-full" alt="Customer Journey Map" />
+		<img
+			src="/images/Customer-Journey.jpg"
+			width="1920"
+			height="896"
+			class="map-img w-full"
+			alt="Customer Journey Map"
+		/>
 		<button
 			class="area absolute rounded-full hover:bg-opacity-80 transition-colors w-12 h-12 animate-bounce-subtle flex items-center justify-center text-white text-2xl font-bold"
 			title="Assessment"
