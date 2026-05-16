@@ -24,11 +24,19 @@
 <section
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
-	class="  h-svh"
-	style="background-image: url({slice.primary.background_image
-		.url}); background-size: cover; background-position: center;"
+	class="relative h-svh overflow-hidden"
 >
-	<div class="flex flex-col max-w-7xl justify-start items-start mx-auto h-svh px-6">
+	{#if slice.primary.background_image.url}
+		<img
+			src={slice.primary.background_image.url}
+			alt={slice.primary.background_image.alt ?? ''}
+			fetchpriority="high"
+			loading="eager"
+			decoding="async"
+			class="absolute inset-0 w-full h-full object-cover"
+		/>
+	{/if}
+	<div class="relative flex flex-col max-w-7xl justify-start items-start mx-auto h-svh px-6">
 		<div class="mt-12 md:mt-36">
 			<h1 class="text-[#6DA63F] font-bold text-5xl block" data-aos="fade-up">
 				{slice.primary.heading}

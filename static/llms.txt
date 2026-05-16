@@ -7,7 +7,7 @@ Our mission is to build a legacy of successful client relationships by aligning 
 
 - **CIMS (Consilien IT Maturity Standard)**: A proprietary framework used to assess, manage, and mature IT environments across security, compliance, and operational excellence.
 - **vCIO Strategic Roadmap**: A structured planning tool aligning IT investments with business goals, managed by a dedicated virtual CIO.
-- **Cyber Risk Scorecard**: A measurable snapshot of an organization’s cyber risk posture, used to drive informed decision-making.
+- **Cyber Risk Scorecard**: A measurable snapshot of an organization's cyber risk posture, used to drive informed decision-making.
 - **Security Awareness Training Platform**: On-demand, role-based training modules designed to reduce human risk and foster a security-first culture.
 - **Endpoint Detection & Response (EDR)**: Advanced threat detection and response for desktops, laptops, and servers using AI-powered tools.
 - **Compliance Readiness Toolkit**: A curated set of documentation templates, control checklists, and reporting tools for frameworks like CMMC and NIST.
@@ -16,7 +16,7 @@ Our mission is to build a legacy of successful client relationships by aligning 
 
 - **Managed IT Services**: End-to-end IT support including infrastructure, endpoint management, help desk, and proactive monitoring.
 - **vCISO & Compliance Services**: Expert guidance on frameworks like NIST, CMMC, PCI DSS, and SOC 2 to reduce risk and support audit readiness.
-- **Co-Managed IT**: A collaborative model where internal IT teams are supported by Consilien’s technical resources, tools, and expertise.
+- **Co-Managed IT**: A collaborative model where internal IT teams are supported by Consilien's technical resources, tools, and expertise.
 - **Risk Management Consulting**: Assess, prioritize, and mitigate technology risks through business-aligned IT governance and advisory services.
 - **Cloud Strategy & Migration**: Secure and compliant transitions to cloud-based infrastructure, including Microsoft 365, Azure, and hybrid models.
 - **IT Project Management**: Oversight and execution of critical infrastructure upgrades, relocations, and system integrations.
@@ -39,13 +39,15 @@ Our mission is to build a legacy of successful client relationships by aligning 
 | Founded       | 2001                                                   |
 | Headquarters  | Torrance, California, USA                              |
 | Industry      | Cybersecurity & IT Management                          |
-| Contact Email | [info@consilien.com](mailto:info@consilien.com)        |
-| Website       | [https://www.consilien.com](https://www.consilien.com) |
+| Phone         | 866-680-3388                                           |
+| Address       | 21250 Hawthorne Blvd, Suite 500, Torrance, CA 90503    |
+| Contact Email | info@consilien.com                                     |
+| Website       | https://www.consilien.com                              |
 
 ## Testimonials
 
 - **Operations Manager, Manufacturing Firm**: "Consilien transformed our IT from a cost center into a secure, strategic asset."
-- **COO, Real Estate Management Group**: "We value Consilien’s clear communication, professionalism, and deep understanding of compliance."
+- **COO, Real Estate Management Group**: "We value Consilien's clear communication, professionalism, and deep understanding of compliance."
 
 ## FAQs
 
@@ -66,3 +68,87 @@ Our mission is to build a legacy of successful client relationships by aligning 
 
 **Q6:** What size companies do you typically work with?  
 **A6:** Our clients typically have 50 to 250 users, are growing past their current IT provider, and are ready for a strategic IT partner focused on security and business alignment.
+
+## Key Pages
+
+### Services
+- [Managed IT Services](https://consilien.com/managed-it)
+- [Managed IT Services Los Angeles](https://consilien.com/managed-it-services-los-angeles)
+- [Managed Cybersecurity Los Angeles](https://consilien.com/managed-cybersecurity-los-angeles)
+- [Co-Managed IT Services](https://consilien.com/co-managed-it-services)
+- [Compliance Services](https://consilien.com/compliance)
+- [vCIO Services](https://consilien.com/vcio-services-for-los-angeles-and-california-businesses)
+- [Virtual CISO Services](https://consilien.com/virtual-ciso-services-for-california-businesses)
+- [Security Awareness Training](https://consilien.com/security-awareness-training)
+- [Backup and Disaster Recovery](https://consilien.com/backup-and-disaster-recovery)
+- [Cloud Services Los Angeles](https://consilien.com/cloud-services-los-angeles)
+- [Cybersecurity Assessment Services](https://consilien.com/cybersecurity-assessment-services)
+- [IT Assessments for California Businesses](https://consilien.com/it-assessments-for-california-businesses)
+
+### Locations
+- [Managed IT Services California](https://consilien.com/managed-it-services-california)
+- [Managed IT Services Los Angeles](https://consilien.com/managed-it-services-los-angeles)
+- [Managed IT Services Long Beach](https://consilien.com/managed-it-services-long-beach)
+- [Managed IT Services Pasadena](https://consilien.com/managed-it-services-in-pasadena)
+- [Managed IT Services Burbank](https://consilien.com/managed-it-services-in-burbank)
+- [Managed IT Services Glendale](https://consilien.com/managed-it-services-in-glendale)
+- [Managed IT Services Anaheim](https://consilien.com/managed-it-services-in-anaheim)
+- [Managed IT Services Torrance](https://consilien.com/managed-it-services-in-torrance)
+- [Managed IT Services Culver City](https://consilien.com/managed-it-services-in-culver-city)
+- [Managed IT Services Santa Monica](https://consilien.com/managed-it-services-in-santa-monica-ca)
+- [Managed IT Services Rancho Cucamonga](https://consilien.com/managed-it-services-in-rancho-cucamonga)
+- [Managed IT Services Ontario CA](https://consilien.com/managed-it-services-ontario)
+- [Managed IT Services Inland Empire](https://consilien.com/managed-it-services-inland-empire)
+- [Managed IT Services Fullerton](https://consilien.com/managed-it-services-in-fullerton)
+- [Managed IT Services Redondo Beach](https://consilien.com/managed-it-services-in-redondo-beach)
+- [Managed IT Services Beverly Hills](https://consilien.com/managed-it-services-in-beverly-hills)
+- [Managed IT Services Carson](https://consilien.com/managed-it-services-in-carson)
+- [Managed IT Services Lawndale](https://consilien.com/managed-it-services-in-lawndale)
+- [Managed IT Services Mira Loma](https://consilien.com/managed-it-services-in-mira-loma)
+- [Managed IT Services Fontana](https://consilien.com/managed-it-services-in-fontana)
+- [Managed IT Services Gardena](https://consilien.com/managed-it-services-in-gardena)
+- [Managed IT Services El Segundo](https://consilien.com/managed-it-services-in-el-segundo)
+- [Managed IT Services Hawthorne](https://consilien.com/managed-it-services-in-hawthorne)
+- [Managed IT Services Buena Park](https://consilien.com/managed-it-services-in-buena-park)
+- [Managed IT Services Diamond Bar](https://consilien.com/managed-it-services-in-diamond-bar-ca)
+- [Managed IT Services Pomona](https://consilien.com/managed-it-pomona)
+- [Managed IT Services Orange County](https://consilien.com/managed-it-services-orange-county-ca)
+- [Managed IT Services Palos Verdes](https://consilien.com/managed-it-services-palos-verdes-ca)
+- [Managed IT Services Santa Fe Springs](https://consilien.com/managed-it-services-in-santa-fe-springs)
+- [IT Consulting Long Beach](https://consilien.com/it-consulting-long-beach)
+
+### Industries
+- [IT Services for Manufacturing Companies](https://consilien.com/it-services-for-manufacturing-companies)
+- [Manufacturing Cybersecurity Solutions](https://consilien.com/manufacturing-cybersecurity-solutions)
+- [Manufacturing Disaster Recovery](https://consilien.com/manufacturing-disaster-recovery-and-business-continuity)
+- [Aerospace Manufacturing IT](https://consilien.com/aerospace-manufacturing)
+- [Medical Device Manufacturers IT](https://consilien.com/medical-device-manufacturers)
+- [Food Manufacturing IT](https://consilien.com/food-manufacturing)
+- [Consumer Product Manufacturing IT](https://consilien.com/consumer-product-manufacturing)
+- [Contract Manufacturers IT](https://consilien.com/contract-manufacturers)
+- [Distribution IT Services](https://consilien.com/distribution)
+- [Professional Services IT](https://consilien.com/professional-services-firms)
+- [Real Estate IT Services](https://consilien.com/real-estate)
+- [Multi-Location Businesses IT](https://consilien.com/multi-location-businesses)
+- [Engineering and Architecture IT](https://consilien.com/engineering-and-architecture)
+
+### Resources
+- [IT & Cybersecurity News](https://consilien.com/news)
+- [What Is the Prerequisite to Learn Cybersecurity](https://consilien.com/news/what-is-the-prerequisite-to-learn-cyber-security)
+- [Top 5 MSPs in California for Small Businesses](https://consilien.com/news/top-5-msps-in-california-for-small-businesses-2025-guide)
+- [Security Awareness Training Cost Guide](https://consilien.com/news/how-much-does-security-awareness-training-cost-in-2025-a-complete-pricing-guide)
+- [Top 10 IT Consulting Firms in Los Angeles](https://consilien.com/news/top-10-it-consulting-firms-in-los-angeles-how-consilien-stands-out)
+- [Managed IT Services Pricing Los Angeles 2026](https://consilien.com/news/managed-it-services-pricing-in-los-angeles-2026-what-to-expect)
+- [Top 7 Cybersecurity Providers Los Angeles](https://consilien.com/news/top-7-cybersecurity-service-providers-in-los-angeles)
+- [What Is Data Loss Prevention](https://consilien.com/news/what-is-data-loss-prevention)
+- [Disaster Recovery Drills Guide](https://consilien.com/news/disaster-recovery-drills-how-to-prepare-your-team-for-the-unexpected)
+- [Social Engineering Awareness Training Guide](https://consilien.com/news/social-engineering-awareness-training-guide-for-employees)
+- [AI Governance Frameworks Guide](https://consilien.com/news/ai-governance-frameworks-guide-to-ethical-ai-implementation)
+- [Top Managed IT Providers California 2025](https://consilien.com/news/top-managed-it-service-providers-in-california-for-2025)
+- [Co-Managed IT Services Explained](https://consilien.com/news/co-managed-it-services-explained-who-needs-it-and-what-it-costs)
+- [CPRA and California Data Breach Notification Law](https://consilien.com/news/cpra-and-the-california-data-breach-notification-law)
+- [Top Challenges With Security Awareness Training](https://consilien.com/news/top-challenges-with-traditional-security-awareness-programs-and-how-to-fix-them)
+- [Local MSP vs National IT Provider](https://consilien.com/news/local-msps-vs-national-providers-which-is-better)
+- [Cybersecurity Assessment Los Angeles](https://consilien.com/news/cybersecurity-assessment-in-los-angeles-what-s-included-and-what-it-costs)
+- [vCIO Services for SMBs](https://consilien.com/news/vcio-services-why-hiring-a-virtual-cio-is-critical-for-smbs-in-2025)
+- [RTO Calculator](https://consilien.com/rto-calculator)

@@ -2,7 +2,14 @@
 	import { asText } from '@prismicio/helpers';
 	import { page } from '$app/stores';
 	import { generateSlug } from '$lib/utils/slug';
+	import SEO from '$lib/components/SEO.svelte';
 	export let data;
+
+	const seoData = {
+		meta_title: 'Consilien IT & Cybersecurity News | Managed IT Insights for California Businesses',
+		meta_description:
+			'Expert articles on managed IT, cybersecurity, compliance, and business technology for California SMBs — from the Consilien team.'
+	};
 
 	$: ({ articles } = data);
 	let searchTerm = $page.url.searchParams.get('search') || '';
@@ -57,6 +64,8 @@
 		selectedCategory = null;
 	}
 </script>
+
+<SEO data={seoData} />
 
 <div class="max-w-7xl mx-auto py-8 px-4">
 	<div class="flex flex-col md:flex-row gap-8">
