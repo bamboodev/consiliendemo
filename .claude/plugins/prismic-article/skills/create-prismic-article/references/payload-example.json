@@ -1,0 +1,27 @@
+{
+  "type": "article",
+  "uid": "claude-skill-launch",
+  "lang": "en-us",
+  "title": "Claude Skill Launch (admin label, optional)",
+  "data": {
+    "title": "Announcing Our New Claude Code Skill",
+    "date": "2026-05-27",
+    "category": "News",
+    "author": "Eric Kong",
+    "featured_image": {
+      "file": "/absolute/path/to/featured.jpg",
+      "alt": "Team celebrating the launch"
+    },
+    "content": [
+      { "type": "heading2", "text": "Why we built this", "spans": [] },
+      { "type": "paragraph", "text": "We wanted a fast way to draft articles directly from Claude Code.", "spans": [] },
+      { "type": "heading3", "text": "How it works", "spans": [] },
+      { "type": "paragraph", "text": "The skill uploads the featured image via the Asset API, then creates the document via the Migration API.", "spans": [] },
+      { "type": "list-item", "text": "Drafts only — publishing is still manual.", "spans": [] },
+      { "type": "list-item", "text": "Uses your existing article custom type.", "spans": [] }
+    ],
+    "meta_title": "Announcing Our New Claude Code Skill",
+    "meta_description": "We built a small Claude Code skill that drafts new articles into Prismic CMS.",
+    "schema": ""
+  }
+}

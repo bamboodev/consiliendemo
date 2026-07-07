@@ -1,0 +1,8 @@
+{
+  "name": "prismic-article",
+  "description": "Create draft articles in a Prismic CMS repository (with featured image) via the Prismic Migration and Asset APIs.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Justin Williams"
+  }
+}

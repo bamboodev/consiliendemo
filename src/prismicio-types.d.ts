@@ -25,16 +25,14 @@ type PickContentRelationshipFieldData<
 			TSubRelationship['customtypes'],
 			TLang
 		>;
-	} & // Group
-	{
+	} & { // Group
 		[TGroup in Extract<
 			TRelationship['fields'][number],
 			prismic.CustomTypeModelFetchGroupLevel1 | prismic.CustomTypeModelFetchGroupLevel2
 		> as TGroup['id']]: TData[TGroup['id']] extends prismic.GroupField<infer TGroupData>
 			? prismic.GroupField<PickContentRelationshipFieldData<TGroup, TGroupData, TLang>>
 			: never;
-	} & // Other fields
-	{
+	} & { // Other fields
 		[TFieldKey in Extract<TRelationship['fields'][number], string>]: TFieldKey extends keyof TData
 			? TData[TFieldKey]
 			: never;
@@ -146,7 +144,7 @@ interface ArticleDocumentData {
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/select
 	 */
-	author: prismic.SelectField<'Eric Kong' | 'Fred Romero'>;
+	author: prismic.SelectField<'Eric Kong' | 'Fred Romero' | 'David Gargan'>;
 
 	/**
 	 * Content field in *Article*
