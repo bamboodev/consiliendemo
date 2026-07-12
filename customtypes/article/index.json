@@ -54,7 +54,7 @@
 				"config": {
 					"label": "Author",
 					"placeholder": "",
-					"options": ["Eric Kong", "Fred Romero, David Gargan"]
+					"options": ["Eric Kong", "Fred Romero", "David Gargan"]
 				}
 			},
 			"content": {

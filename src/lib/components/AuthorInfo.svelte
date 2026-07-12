@@ -22,7 +22,7 @@
 					name: 'David Gargan',
 					title: 'VP Technical Services & Enterprise Architect',
 					linkedin: 'https://www.linkedin.com/in/davidgargan/',
-					bio: 'David Gargan serves as Chief Technology Officer and Partner at Consilien, bringing extensive technical expertise and strategic vision to the organization. With a deep background in enterprise IT infrastructure and cybersecurity, Fred leads the technical direction of the company while ensuring cutting-edge solutions for clients.'
+					bio: 'David Gargan, VP of Technical Services at Consilien, bringing certifications in MCSE Private Cloud, VMware VCP, and Project Management. He specializes in cloud architecture, virtualization, and IT infrastructure strategy, with enterprise-grade experience helping mid-market businesses design and operate resilient, scalable IT environments.'
 				};
 			default:
 				return null;
