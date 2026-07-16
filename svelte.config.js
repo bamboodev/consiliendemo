@@ -14,6 +14,9 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		prerender: {
+			// Sets url.origin during prerendering so generated URLs (e.g. sitemap.xml)
+			// use the production domain instead of the default http://sveltekit-prerender
+			origin: 'https://consilien.com',
 			handleHttpError: ({ path, referrer, message }) => {
 				// Log the error but don't fail the build
 				console.warn(`Warning: ${path} returned 404 during build`);
