@@ -19,7 +19,7 @@
 /the-power-of-on-demand-resources /news/data-architecture-frameworks-for-businesses-a-key-component-of-digital-transformation 301
 /contact/thanks /contact 301
 /5-reasons-ransomware-is-spreading / 301
-/the-unfortunate-rise-of-cloud-security-breachesand-what-you-can-do-about-them /news/cloud-vs-on-premise-benefits-risks 301
+/the-unfortunate-rise-of-cloud-security-breachesand-what-you-can-do-about-them /news/on-premise-vs-cloud-key-differences-benefits-and-risks-explained 301
 /ftc-warns-of-coronavirus-phishing-scams/ /news/ccpa-vs.-cpra.-what-you-need-to-know-now. 301
 /video-hidden-gotchas-with-cyber-liability-insurance-what-you-should-know /news/data-architecture-frameworks-for-businesses-a-key-component-of-digital-transformation 301
 /video-how-to-reduce-stress-and-stay-productive-when-working-from-home /news/data-architecture-frameworks-for-businesses-a-key-component-of-digital-transformation 301
@@ -71,3 +71,25 @@
 /leading-trusted-managed-it-services-in-los-angeles /managed-it-services-los-angeles 301
 /why-you-need-multi-factor-authentication-mfa /managed-cybersecurity-los-angeles 301
 /why-you-need-multi-factor-authentication-mfa /news/what-is-mfa-bombing-and-how-you-can-fight-it 301
+
+# 301 redirects from 4xx audit (2026-07-30)
+/cybersecurity-services-los-angeles /managed-cybersecurity-los-angeles 301
+/news/a-comprehensive-guide-to-data-handling-policies /news/a-comprehensive-guide-to-data-handling-policies-what-they-are-and-how-to-implement-them 301
+/news/all-about-cloud-computing-what-you-should-knowXRpbmctd2hhdC15b3Utc2hvdWxkLWtub3c* /news/all-about-cloud-computing-what-you-should-know 301
+/news/cloud-vs-on-premise-benefits-risks /news/on-premise-vs-cloud-key-differences-benefits-and-risks-explained 301
+/news/complete-guide-to-cmmc-2-0-compliance-for-businesses /news/complete-guide-to-cmmc-2.0-compliance-for-defense-contractors 301
+/news/dark-web-scan /news/free-vendor-risk-assessment-review-roadmap-and-dark-web-scan 301
+/news/disaster-recovery-drills-how-to-prepare-your-team /news/disaster-recovery-drills-how-to-prepare-your-team-for-the-unexpected 301
+/news/how-much-does-security-awareness-training-cost-in-2025 /news/how-much-does-security-awareness-training-cost-in-2025-a-complete-pricing-guide 301
+/news/iso-27001-vs-nist-vs-cmmc /news/iso-27001-vs-nist-vs-cmmc-how-to-choose-the-right-cybersecurity-framework-for-your-business 301
+/news/it-compliance-challenges-facing-california-manufacturers-in-2025 /news/it-compliance-challenges-facing-california-manufacturers-in-2026 301
+/news/managed-it-vs.-co-managed-it-services-which-is-right-for-your-business /news/managed-it-vs-co-managed-it-services-which-is-right-for-your-business 301
+/news/top-managed-it-service-providers-in-california /news/top-managed-it-service-providers-in-california-for-2026 301
+/news/what-you-need-to-know-about-manufacturing-it-compliance-for-2024 /news/what-you-need-to-know-about-manufacturing-it-compliance-for-2026 301
+/news/why-you-need-multi-factor-authentication-mfa /news/what-is-multi-factor-authentication 301
+/why-you-need-information-security-policies-standards-and-procedures /news/managed-it-vs-co-managed-it-services-which-is-right-for-your-business 301
+
+# 410 Gone — deleted content, do not redirect (2026-07-30)
+/news/reason,* /410.html 410
+/news/video-how-to-create-a-secure-remote-work-environment-navigating-what-comes-next /410.html 410
+/wp-content/uploads/2020/02/AppRiverGoodVBadEmailInfo1.pdf /410.html 410

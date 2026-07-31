@@ -7,6 +7,47 @@
 
 	export let slice: Content.NavigationSlice;
 
+	type ServiceLink = { label: string; href: string; indent?: boolean };
+	type ServiceCategory = { title: string; items: ServiceLink[] };
+
+	const serviceMenu: ServiceCategory[] = [
+		{
+			title: 'Managed Services',
+			items: [
+				{ label: 'Managed IT', href: '/managed-it' },
+				{ label: 'Co-Managed IT', href: '/co-managed-it-services' },
+				{ label: 'Cloud Services', href: '/cloud-services' },
+				{ label: 'Backup & Disaster Recovery', href: '/backup-and-disaster-recovery' },
+				{ label: 'IaaS', href: '/iaas-hosting-services' },
+				{ label: 'Hardware as a Service', href: '/hardware-as-a-service' }
+			]
+		},
+		{
+			title: 'Cybersecurity',
+			items: [
+				{ label: 'Managed Cybersecurity', href: '/managed-cybersecurity-los-angeles' },
+				{ label: 'Identity and access management (IAM)', href: '/identity-access-management-services' },
+				{ label: 'SOC', href: '/soc-as-a-service' },
+				{ label: 'MDR', href: '/managed-detection-response-mdr', indent: true },
+				{ label: 'SIEM', href: '/siem-services', indent: true },
+				{ label: 'Cyberfit Assessment', href: '/cybersecurity-assessment-services' },
+				{ label: 'Security Awareness Training', href: '/security-awareness-training' },
+				{ label: 'Pen Testing', href: '/penetration-testing-services-california' }
+			]
+		},
+		{
+			title: 'Professional Services',
+			items: [
+				{ label: 'Compliance Solutions', href: '/compliance' },
+				{ label: 'Virtual CISO (vCISO)', href: '/virtual-ciso-services-for-california-businesses' },
+				{ label: 'vCIO Services', href: '/vcio-services-for-los-angeles-and-california-businesses' },
+				{ label: 'Digital Transformation', href: '/digital-transformation-services' },
+				{ label: 'Training and funding sources', href: '/tfs/' },
+				{ label: 'Data Analytics', href: '/data-analytics-services' }
+			]
+		}
+	];
+
 	// State to control dropdown visibility
 	let activeMenu: string | null = null;
 	// State to control mobile menu visibility
@@ -88,9 +129,9 @@
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center">
-				<ul class="flex items-center space-x-6 font-text font-light uppercase text-sm md:mr-3">
+				<ul class="flex items-center space-x-6 font-text font-medium text-sm md:mr-3">
 					<li class="hover:text-black flex items-center">
-						<a href="/" on:click={handleLinkClick}>Home</a>
+						<a href="/" on:click={handleLinkClick}>HOME</a>
 					</li>
 
 					<!-- About Menu -->
@@ -98,14 +139,14 @@
 						<div>
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-medium"
 								id="about-menu-button"
 								data-menu-button="about"
 								aria-expanded={activeMenu === 'about'}
 								aria-haspopup="true"
 								on:click={(e) => toggleMenu('about', e)}
 							>
-								About
+								ABOUT
 								<svg
 									class="-mr-1 size-5 text-gray-400"
 									viewBox="0 0 20 20"
@@ -179,14 +220,14 @@
 						<div>
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-medium"
 								id="services-menu-button"
 								data-menu-button="services"
 								aria-expanded={activeMenu === 'services'}
 								aria-haspopup="true"
 								on:click={(e) => toggleMenu('services', e)}
 							>
-								Services
+								SERVICES
 								<svg
 									class="-mr-1 size-5 text-gray-400"
 									viewBox="0 0 20 20"
@@ -206,144 +247,39 @@
 						{#if activeMenu === 'services'}
 							<div
 								data-dropdown="services"
-								class="absolute right-0 z-10 mt-2 w-[720px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+								class="fixed left-1/2 top-[96px] z-10 w-[min(1200px,96vw)] -translate-x-1/2 origin-top rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="services-menu-button"
 								tabindex="-1"
 								in:scale={{ duration: 100, start: 0.95, opacity: 0, easing: cubicOut }}
 								out:scale={{ duration: 75, start: 1, opacity: 1, easing: cubicOut }}
-								style="right: auto; left: -400px;"
 							>
-								<div class="p-4" role="none">
+								<div class="px-12 py-10" role="none">
 									<!-- Grid layout for services -->
-									<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-										<!-- Column 1 -->
-										<div>
-											<h3 class="font-medium text-gray-900 mb-2">Security</h3>
-											<ul>
-												<li>
-													<a
-														href="/managed-cybersecurity-los-angeles/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Cybersecurity
-													</a>
-												</li>
-												<li>
-													<a
-														href="/cybersecurity-assessment-services"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Cyberfit
-													</a>
-												</li>
-												<li>
-													<a
-														href="/security-awareness-training/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Security Awareness Training
-													</a>
-												</li>
-											</ul>
-										</div>
-
-										<!-- Column 2 -->
-										<div>
-											<h3 class="font-medium text-gray-900 mb-2">Compliance</h3>
-											<ul>
-												<li>
-													<a
-														href="/compliance/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Compliance Solutions
-													</a>
-												</li>
-												<li>
-													<a
-														href="/it-consulting-long-beach/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Consulting Services
-													</a>
-												</li>
-											</ul>
-										</div>
-
-										<!-- Column 3 -->
-										<div>
-											<h3 class="font-medium text-gray-900 mb-2">Backup</h3>
-											<ul>
-												<li>
-													<a
-														href="/backup-and-disaster-recovery/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Backup &amp; Disaster Recovery
-													</a>
-												</li>
-												<li>
-													<a
-														href="/rto-calculator/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Recovery Time &amp; Downtime Cost Calculator
-													</a>
-												</li>
-											</ul>
-										</div>
-
-										<!-- Column 4 -->
-										<div>
-											<h3 class="font-medium text-gray-900 mb-2">Managed IT</h3>
-											<ul>
-												<li>
-													<a
-														href="/managed-it/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Managed IT
-													</a>
-												</li>
-												<li>
-													<a
-														href="/co-managed-it-services/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Co-Managed IT
-													</a>
-												</li>
-												<li>
-													<a
-														href="/cloud-services-los-angeles/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Cloud Services
-													</a>
-												</li>
-												<li>
-													<a
-														href="/tfs/"
-														class="block py-1 text-sm text-gray-700 hover:text-gray-900"
-														on:click={handleLinkClick}
-													>
-														Training Funding Source
-													</a>
-												</li>
-											</ul>
-										</div>
+									<div class="grid grid-cols-1 md:grid-cols-3 gap-x-14">
+										{#each serviceMenu as category, i}
+											<div class={i > 0 ? 'md:border-l md:border-gray-200 md:pl-14' : ''}>
+												<h3 class="font-medium text-green-700 uppercase tracking-wider mb-4">
+													{category.title}
+												</h3>
+												<ul>
+													{#each category.items as item}
+														<li>
+															<a
+																href={item.href}
+																class="block py-3 text-sm text-gray-700 hover:text-gray-900 border-b border-gray-100 {item.indent
+																	? 'pl-6'
+																	: ''}"
+																on:click={handleLinkClick}
+															>
+																{item.label}
+															</a>
+														</li>
+													{/each}
+												</ul>
+											</div>
+										{/each}
 									</div>
 								</div>
 							</div>
@@ -355,14 +291,14 @@
 						<div>
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-medium"
 								id="industries-menu-button"
 								data-menu-button="industries"
 								aria-expanded={activeMenu === 'industries'}
 								aria-haspopup="true"
 								on:click={(e) => toggleMenu('industries', e)}
 							>
-								Industries
+								INDUSTRIES
 								<svg
 									class="-mr-1 size-5 text-gray-400"
 									viewBox="0 0 20 20"
@@ -508,14 +444,14 @@
 						<div>
 							<button
 								type="button"
-								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-light uppercase"
+								class="inline-flex w-full justify-center gap-x-1.5 bg-white font-text font-medium"
 								id="resources-menu-button"
 								data-menu-button="resources"
 								aria-expanded={activeMenu === 'resources'}
 								aria-haspopup="true"
 								on:click={(e) => toggleMenu('resources', e)}
 							>
-								Resources
+								RESOURCES
 								<svg
 									class="-mr-1 size-5 text-gray-400"
 									viewBox="0 0 20 20"
@@ -692,7 +628,7 @@
 	<!-- Mobile menu -->
 	{#if isMobileMenuOpen}
 		<div class="md:hidden" transition:slide={{ duration: 300 }}>
-			<div class="pt-2 pb-4 space-y-1 bg-white font-text font-light uppercase">
+			<div class="pt-2 pb-4 space-y-1 bg-white font-text font-medium">
 				<a
 					href="/"
 					class="block py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
@@ -708,7 +644,7 @@
 						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
 						on:click={(e) => toggleMenu('mobile-about', e)}
 					>
-						<span class="font-text font-light uppercase">About</span>
+						<span class="font-text font-medium">About</span>
 						<svg
 							class="{activeMenu === 'mobile-about'
 								? 'rotate-180'
@@ -772,7 +708,7 @@
 						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
 						on:click={(e) => toggleMenu('mobile-services', e)}
 					>
-						<span class="font-text font-light uppercase">Services</span>
+						<span class="font-text font-medium">Services</span>
 						<svg
 							class="{activeMenu === 'mobile-services'
 								? 'rotate-180'
@@ -790,102 +726,20 @@
 
 					{#if activeMenu === 'mobile-services'}
 						<div class="bg-gray-50 pl-6" transition:slide={{ duration: 200 }}>
-							<!-- Security -->
-							<div class="py-2">
-								<div class="px-3 text-gray-800">Security</div>
-								<a
-									href="/managed-cybersecurity-los-angeles/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Cybersecurity
-								</a>
-								<a
-									href="/cybersecurity-assessment-services"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Cyberfit
-								</a>
-								<a
-									href="/security-awareness-training/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Security Awareness Training
-								</a>
-							</div>
-
-							<!-- Compliance -->
-							<div class="py-2">
-								<div class="px-3 text-gray-800">Compliance</div>
-								<a
-									href="/compliance/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Compliance Solutions
-								</a>
-								<a
-									href="/it-consulting-long-beach/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Consulting Services
-								</a>
-							</div>
-
-							<!-- Backup -->
-							<div class="py-2">
-								<div class="px-3">Backup</div>
-								<a
-									href="/backup-and-disaster-recovery/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Backup &amp; Disaster Recovery
-								</a>
-								<a
-									href="/rto-calculator/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Recovery Time &amp; Downtime Cost Calculator
-								</a>
-							</div>
-
-							<!-- Managed IT -->
-							<div class="py-2">
-								<div class="px-3">Managed IT</div>
-								<a
-									href="/managed-it/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Managed IT
-								</a>
-								<a
-									href="/co-managed-it/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Co-Managed IT
-								</a>
-								<a
-									href="/cloud-services-los-angeles/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Cloud Services
-								</a>
-								<a
-									href="/tfs/"
-									class="block py-1 px-3 text-sm text-gray-600"
-									on:click={handleLinkClick}
-								>
-									Training Funding Source
-								</a>
-							</div>
+							{#each serviceMenu as category}
+								<div class="py-2">
+									<div class="px-3 text-gray-800">{category.title}</div>
+									{#each category.items as item}
+										<a
+											href={item.href}
+											class="block py-1 pr-3 text-sm text-gray-600 {item.indent ? 'pl-8' : 'pl-3'}"
+											on:click={handleLinkClick}
+										>
+											{item.label}
+										</a>
+									{/each}
+								</div>
+							{/each}
 						</div>
 					{/if}
 				</div>
@@ -897,7 +751,7 @@
 						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
 						on:click={(e) => toggleMenu('mobile-industries', e)}
 					>
-						<span class="font-text font-light uppercase">Industries</span>
+						<span class="font-text font-medium">Industries</span>
 						<svg
 							class="{activeMenu === 'mobile-industries'
 								? 'rotate-180'
@@ -994,7 +848,7 @@
 						class="flex justify-between w-full py-2 px-3 border-l-4 border-transparent hover:bg-gray-50"
 						on:click={(e) => toggleMenu('mobile-news', e)}
 					>
-						<span class="font-text font-light uppercase">Resources</span>
+						<span class="font-text font-medium">Resources</span>
 						<svg
 							class="{activeMenu === 'mobile-news'
 								? 'rotate-180'
@@ -1060,7 +914,7 @@
 						class="flex justify-between w-full py-2 px-3 text-base font-medium border-l-4 border-transparent hover:bg-gray-50"
 						on:click={(e) => toggleMenu('mobile-customers', e)}
 					>
-						<span class="font-text font-light uppercase">Customers</span>
+						<span class="font-text font-medium">Customers</span>
 						<svg
 							class="{activeMenu === 'mobile-customers'
 								? 'rotate-180'
