@@ -7,6 +7,12 @@
 		--font-sans: Raleway, ui-sans-serif, system-ui, sans-serif;
 		--font-mono: 'Roboto Mono', monospace;
 	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
 }
 
 /* Creating custom font utility classes */

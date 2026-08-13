@@ -1,14 +1,35 @@
 <script lang="ts">
 	import { asHTML, asText } from '@prismicio/helpers';
+	import type { RichTextField } from '@prismicio/client';
 	import { PrismicImage } from '@prismicio/svelte';
 	import { goto } from '$app/navigation';
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
 	import AuthorInfo from '$lib/components/AuthorInfo.svelte';
 	import SEO from '$lib/components/SEO.svelte';
+	import TableOfContents from '$lib/components/TableOfContents.svelte';
+	import SidebarCta from '$lib/components/SidebarCta.svelte';
+	import { extractToc, createHeadingSerializer } from '$lib/utils/toc';
 	export let data;
 
 	$: ({ article } = data);
+
+	$: content = (article?.data?.content ?? []) as RichTextField;
+	$: tocEntries = extractToc(content);
+	$: [introHtml, restHtml] = renderBody(content, tocEntries);
+
+	// Renders the body in two chunks, split after the first non-empty
+	// paragraph, so the inline ToC can be inserted between them. A single
+	// serializer instance keeps heading ids aligned with tocEntries.
+	function renderBody(nodes: RichTextField, entries: ReturnType<typeof extractToc>) {
+		const firstParagraph = nodes.findIndex((n) => n.type === 'paragraph' && n.text?.trim());
+		const splitIdx = firstParagraph === -1 ? 0 : firstParagraph + 1;
+		const serializer = createHeadingSerializer(entries);
+		return [
+			asHTML(nodes.slice(0, splitIdx) as RichTextField, null, serializer),
+			asHTML(nodes.slice(splitIdx) as RichTextField, null, serializer)
+		];
+	}
 	let searchTerm = '';
 	let selectedCategory: string | null = article?.data?.category || null;
 
@@ -81,7 +102,13 @@
 					/>
 
 					<div class="prose prose-lg">
-						{@html asHTML(article.data.content)}
+						{@html introHtml}
+					</div>
+					{#if tocEntries.length}
+						<TableOfContents entries={tocEntries} variant="inline" />
+					{/if}
+					<div class="prose prose-lg">
+						{@html restHtml}
 					</div>
 				</div>
 
@@ -90,7 +117,9 @@
 
 			<aside class="w-full md:w-80 shrink-0">
 				<div class="sticky top-8 space-y-6">
-					<div class="bg-gray-50 p-6 rounded-lg">
+					<SidebarCta />
+
+					<div class="bg-gray-50 border border-gray-200 p-6 rounded-lg">
 						<div class="flex items-center justify-between mb-4">
 							<h2
 								class="text-lg font-text uppercase text-xs text-gray-600 font-bold tracking-widest"
@@ -153,7 +182,11 @@
 						</form>
 					</div>
 
-					<div class="bg-gray-50 p-6 rounded-lg">
+					{#if tocEntries.length}
+						<TableOfContents entries={tocEntries} variant="sidebar" />
+					{/if}
+
+					<div class="bg-gray-50 border border-gray-200 p-6 rounded-lg">
 						<h2
 							class="text-lg font-text uppercase text-xs text-gray-600 font-bold tracking-widest mb-3"
 						>
@@ -198,6 +231,9 @@
 		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;
 		font-weight: 200;
 		font-size: 2rem;
+	}
+	:global(.prose h2[id]) {
+		scroll-margin-top: 6rem;
 	}
 	:global(.prose h3) {
 		font-family: Raleway, ui-sans-serif, system-ui, sans-serif;

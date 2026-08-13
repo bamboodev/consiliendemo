@@ -33,7 +33,7 @@
 </script>
 
 {#if authorInfo}
-	<div class="bg-gray-50 p-6 rounded-lg">
+	<div class="bg-gray-50 border border-gray-200 p-6 rounded-lg">
 		<h2 class="text-lg font-text uppercase text-xs text-gray-600 font-bold tracking-widest mb-4">
 			About the Author
 		</h2>
