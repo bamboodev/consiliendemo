@@ -7,7 +7,7 @@
 
 	export let slice: Content.NavigationSlice;
 
-	type ServiceLink = { label: string; href: string; indent?: boolean };
+	type ServiceLink = { label: string; href: string; indent?: boolean; children?: ServiceLink[] };
 	type ServiceCategory = { title: string; items: ServiceLink[] };
 
 	const serviceMenu: ServiceCategory[] = [
@@ -27,9 +27,14 @@
 			items: [
 				{ label: 'Managed Cybersecurity', href: '/managed-cybersecurity-los-angeles' },
 				{ label: 'Identity and access management (IAM)', href: '/identity-access-management-services' },
-				{ label: 'SOC', href: '/soc-as-a-service' },
-				{ label: 'MDR', href: '/managed-detection-response-mdr', indent: true },
-				{ label: 'SIEM', href: '/siem-services', indent: true },
+				{
+					label: 'SOC',
+					href: '/soc-as-a-service',
+					children: [
+						{ label: 'MDR', href: '/managed-detection-response-mdr' },
+						{ label: 'SIEM', href: '/siem-services' }
+					]
+				},
 				{ label: 'Cyberfit Assessment', href: '/cybersecurity-assessment-services' },
 				{ label: 'Security Awareness Training', href: '/security-awareness-training' },
 				{ label: 'Pen Testing', href: '/penetration-testing-services-california' }
@@ -265,17 +270,56 @@
 												</h3>
 												<ul>
 													{#each category.items as item}
-														<li>
-															<a
-																href={item.href}
-																class="block py-3 text-sm text-gray-700 hover:text-gray-900 border-b border-gray-100 {item.indent
-																	? 'pl-6'
-																	: ''}"
-																on:click={handleLinkClick}
-															>
-																{item.label}
-															</a>
-														</li>
+														{#if item.children}
+															<li class="group/sub">
+																<a
+																	href={item.href}
+																	class="flex items-center justify-between py-3 text-sm text-gray-700 hover:text-gray-900 border-b border-gray-100"
+																	on:click={handleLinkClick}
+																>
+																	{item.label}
+																	<svg
+																		class="w-4 h-4 text-gray-400 transition-transform duration-200 group-hover/sub:rotate-180"
+																		viewBox="0 0 20 20"
+																		fill="currentColor"
+																		aria-hidden="true"
+																	>
+																		<path
+																			fill-rule="evenodd"
+																			d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+																			clip-rule="evenodd"
+																		/>
+																	</svg>
+																</a>
+																<ul
+																	class="max-h-0 overflow-hidden transition-all duration-200 group-hover/sub:max-h-40"
+																>
+																	{#each item.children as child}
+																		<li>
+																			<a
+																				href={child.href}
+																				class="block py-3 pl-6 text-sm text-gray-700 hover:text-gray-900 border-b border-gray-100"
+																				on:click={handleLinkClick}
+																			>
+																				{child.label}
+																			</a>
+																		</li>
+																	{/each}
+																</ul>
+															</li>
+														{:else}
+															<li>
+																<a
+																	href={item.href}
+																	class="block py-3 text-sm text-gray-700 hover:text-gray-900 border-b border-gray-100 {item.indent
+																		? 'pl-6'
+																		: ''}"
+																	on:click={handleLinkClick}
+																>
+																	{item.label}
+																</a>
+															</li>
+														{/if}
 													{/each}
 												</ul>
 											</div>
@@ -737,6 +781,17 @@
 										>
 											{item.label}
 										</a>
+										{#if item.children}
+											{#each item.children as child}
+												<a
+													href={child.href}
+													class="block py-1 pr-3 pl-8 text-sm text-gray-600"
+													on:click={handleLinkClick}
+												>
+													{child.label}
+												</a>
+											{/each}
+										{/if}
 									{/each}
 								</div>
 							{/each}
